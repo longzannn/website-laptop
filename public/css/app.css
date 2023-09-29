@@ -1,0 +1,35 @@
+
+.relative.flex.items-center.text-white.h-full:hover > div {
+    display: block;
+}
+
+.owl-carousel .owl-item img {
+    display: block;
+    width: unset !important;
+}
+
+.owl-nav button {
+    position: absolute;
+    border-radius: 50%;
+}
+
+.owl-carousel .owl-nav button.owl-next,
+.owl-carousel .owl-nav button.owl-prev {
+    background-color: #fff !important;
+    color: inherit;
+    border: 1px solid #ccc;
+    padding: 8px !important;
+    font: inherit;
+}
+
+.owl-prev {
+    left: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.owl-next {
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+}
