@@ -4,11 +4,11 @@
 <head>
     <meta charset="UTF-8" />
     <link rel="icon" href="https://xgear.net/wp-content/uploads/2023/07/cropped-icon-xgear-32x32.png" sizes="32x32" />
-    <title>User Page</title>
+    <title>Staff Page</title>
     <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="../../../public/css/admin/user.css">
+    <link rel="stylesheet" href="{{ asset('css/admin/user.css') }}">
 </head>
 
 <body>
@@ -107,7 +107,7 @@
                             <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                                     <tr>
-                                        <th scope="col" class="px-6 py-3">Staff Name</th>
+                                        <th scope="col" class="px-6 py-3">Customer Name</th>
                                         <th scope="col" class="px-6 py-3">Email</th>
                                         <th scope="col" class="px-6 py-3">Phone</th>
                                         <th scope="col" class="px-6 py-3">Address</th>
@@ -115,23 +115,30 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @foreach($staffs as $staff)
                                     <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
                                         <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                            tavanlong2ng
+                                            {{ $staff -> staff_name }}
                                         </th>
-                                        <td class="px-6 py-4">luczanthien@gmail.com</td>
-                                        <td class="px-6 py-4">0123456789</td>
-                                        <td class="px-6 py-4">Ha Noi</td>
-                                        <td class="px-6 py-4">
-                                            <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                                            <a href="" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
-                                                Delete
-                                            </a>
+                                        <td class="px-6 py-4"> {{ $staff -> staff_email }}</td>
+                                        <td class="px-6 py-4"> {{ $staff -> staff_phone }}</td>
+                                        <td class="px-6 py-4"> {{ $staff -> staff_address }}</td>
+                                        <td class="px-6 py-4 flex">
+                                            <a href="{{ route('staff.edit', $staff -> staff_id) }}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                                            <form method="POST" action="{{ route('staff.destroy', $staff -> staff_id) }}">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
+                                                    Delete
+                                                </button>
+                                            </form>
                                         </td>
                                     </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
+                        <button type="button" class="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mt-8 mb-2"><a href="{{ route('staff.create') }}">Add a new staff</a></button>
                     </div>
                     <div class="pagination">
                         <nav aria-label="Page navigation example">
@@ -158,7 +165,10 @@
                                 </li>
                                 <li>
                                     <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">5</a>
+
                                 </li>
+
+
                                 <li>
                                     <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-r-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
                                         <span class="sr-only">Next</span>

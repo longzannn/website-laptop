@@ -41,7 +41,12 @@ Route::prefix('admin/')->group(function () {
     });
 
     Route::prefix('staff/')->group(function () {
-        Route::get('staff', [\App\Http\Controllers\StaffController::class, 'index'])->name('staff');
+        Route::get('staff', [\App\Http\Controllers\StaffController::class, 'index'])->name('staff.index');
+        Route::get('add_staff', [\App\Http\Controllers\StaffController::class, 'create'])->name('staff.create');
+        Route::post('add_staff', [\App\Http\Controllers\StaffController::class, 'store'])->name('staff.store');
+        Route::get('edit_staff/{id}', [\App\Http\Controllers\StaffController::class, 'edit'])->name('staff.edit');
+        Route::put('edit_staff/{id}', [\App\Http\Controllers\StaffController::class, 'update'])->name('staff.update');
+        Route::delete('category/{id}', [\App\Http\Controllers\StaffController::class, 'destroy'])->name('staff.destroy');
     });
 
     Route::prefix('order/')->group(function () {
