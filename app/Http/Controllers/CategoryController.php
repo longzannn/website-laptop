@@ -79,8 +79,11 @@ class CategoryController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Category $category)
+    public function destroy(Category $category, Request $request)
     {
-        //
+        $obj = new Category();
+        $obj->cat_id = $request->id;
+        $obj->deleteCategory();
+        return Redirect::route('category.index');
     }
 }

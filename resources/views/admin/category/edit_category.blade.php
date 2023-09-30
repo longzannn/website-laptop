@@ -90,7 +90,7 @@
             <div class="sales-boxes">
                 <div class="recent-sales box">
                     <div class="title">Update Category Information</div>
-                    <form class="category-information" method="POST" action="{{ route('category.update', $id) }}">
+                    <form class="category-information" method="POST" action="{{ route('customer.update', $id) }}">
                         @csrf
                         @method('PUT')
                         @foreach($categories as $category)
@@ -109,8 +109,9 @@
                 </div>
             </div>
         </div>
-    </section>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.js"></script>
+
+        </s ection>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.js"></script>
 </body>
 
 </html>

@@ -22,6 +22,7 @@ Route::prefix('admin/')->group(function () {
         Route::post('add_category', [\App\Http\Controllers\CategoryController::class, 'store'])->name('category.store');
         Route::get('edit_category/{id}', [\App\Http\Controllers\CategoryController::class, 'edit'])->name('category.edit');
         Route::put('edit_category/{id}', [\App\Http\Controllers\CategoryController::class, 'update'])->name('category.update');
+        Route::delete('category/{id}', [\App\Http\Controllers\CategoryController::class, 'destroy'])->name('category.destroy');
     });
 
     Route::prefix('product/')->group(function () {
@@ -31,7 +32,12 @@ Route::prefix('admin/')->group(function () {
     });
 
     Route::prefix('customer/')->group(function () {
-        Route::get('customer', [\App\Http\Controllers\CustomerController::class, 'index'])->name('customer');
+        Route::get('customer', [\App\Http\Controllers\CustomerController::class, 'index'])->name('customer.index');
+        Route::get('add_customer', [\App\Http\Controllers\CustomerController::class, 'create'])->name('customer.create');
+        Route::post('add_customer', [\App\Http\Controllers\CustomerController::class, 'store'])->name('customer.store');
+        Route::get('edit_customer/{id}', [\App\Http\Controllers\CustomerController::class, 'edit'])->name('customer.edit');
+        Route::put('edit_customer/{id}', [\App\Http\Controllers\CustomerController::class, 'update'])->name('customer.update');
+        Route::delete('category/{id}', [\App\Http\Controllers\CustomerController::class, 'destroy'])->name('customer.destroy');
     });
 
     Route::prefix('staff/')->group(function () {

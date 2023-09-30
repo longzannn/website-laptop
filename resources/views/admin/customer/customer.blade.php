@@ -8,7 +8,7 @@
     <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="../../../public/css/admin/user.css">
+    <link rel="stylesheet" href="{{ asset('css/admin/user.css') }}">
 </head>
 
 <body>
@@ -115,23 +115,30 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @foreach($customers as $customer)
                                     <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
                                         <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                            tavanlong2ng
+                                            {{ $customer -> cus_name }}
                                         </th>
-                                        <td class="px-6 py-4">luczanthien@gmail.com</td>
-                                        <td class="px-6 py-4">0123456789</td>
-                                        <td class="px-6 py-4">Ha Noi</td>
-                                        <td class="px-6 py-4">
-                                            <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                                            <a href="" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
-                                                Delete
-                                            </a>
+                                        <td class="px-6 py-4"> {{ $customer -> cus_email }}</td>
+                                        <td class="px-6 py-4"> {{ $customer -> cus_phone }}</td>
+                                        <td class="px-6 py-4"> {{ $customer -> cus_address }}</td>
+                                        <td class="px-6 py-4 flex">
+                                            <a href="{{ route('customer.edit', $customer -> cus_id) }}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                                            <form method="POST" action="{{ route('customer.destroy', $customer -> cus_id) }}">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
+                                                    Delete
+                                                </button>
+                                            </form>
                                         </td>
                                     </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
+                        <button type="button" class="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mt-8 mb-2"><a href="{{ route('customer.create') }}">Add a new customer</a></button>
                     </div>
                     <div class="pagination">
                         <nav aria-label="Page navigation example">
@@ -160,6 +167,13 @@
                                     <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">5</a>
                                 </li>
                                 <li>
+
+
+
+
+
+
+
 
                                     <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-r-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
                                         <span class="sr-only">Next</span>

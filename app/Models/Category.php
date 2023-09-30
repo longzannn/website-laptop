@@ -33,11 +33,17 @@ class Category extends Model
 
     public function updateCategory()
     {
-        $categories = DB::table('category')
+        DB::table('category')
             ->where('cat_id', $this->cat_id)
             ->update([
                 'cat_name' => $this->cat_name
             ]);
-        return $categories;
+    }
+
+    public function deleteCategory()
+    {
+        DB::table('category')
+            ->where('cat_id', $this->cat_id)
+            ->delete();
     }
 }
