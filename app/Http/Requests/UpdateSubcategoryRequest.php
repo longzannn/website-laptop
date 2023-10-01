@@ -11,7 +11,7 @@ class UpdateSubcategoryRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -21,8 +21,18 @@ class UpdateSubcategoryRequest extends FormRequest
      */
     public function rules(): array
     {
+        $subcategoryId = $this->route('id'); // Lấy giá trị tham số subcategory từ route
+
         return [
-            //
+            'sub_name' => 'required|unique:subcategory,sub_name,' . $subcategoryId . ',sub_id',
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'sub_name.required' => 'Vui lòng nhập tên.',
+            'sub_name.unique' => 'Tên đã tồn tại.',
         ];
     }
 }

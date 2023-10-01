@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Subcategory;
 use App\Http\Requests\StoreSubcategoryRequest;
 use App\Http\Requests\UpdateSubcategoryRequest;
+use App\Models\Category;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Http\Request;
 
 class SubcategoryController extends Controller
 {
@@ -14,7 +17,11 @@ class SubcategoryController extends Controller
      */
     public function index()
     {
-        return view($this->path . 'subcategory');
+        $obj = new Subcategory();
+        $subcategories = $obj->index();
+        return view($this->path . 'subcategory', [
+            'subcategories' => $subcategories
+        ]);
     }
 
     /**
@@ -22,7 +29,11 @@ class SubcategoryController extends Controller
      */
     public function create()
     {
-        //
+        $objCategory = new Category();
+        $categories = $objCategory->index();
+        return view($this->path . 'add_subcategory', [
+            'categories' => $categories
+        ]);
     }
 
     /**
@@ -30,7 +41,11 @@ class SubcategoryController extends Controller
      */
     public function store(StoreSubcategoryRequest $request)
     {
-        //
+        $obj = new Subcategory();
+        $obj->cat_id = $request->cat_id;
+        $obj->sub_name = $request->sub_name;
+        $obj->store();
+        return Redirect::route('subcategory.index');
     }
 
     /**
@@ -44,9 +59,20 @@ class SubcategoryController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Subcategory $subcategory)
+    public function edit(Subcategory $subcategory, Request $request)
     {
-        //
+        $objCategory = new Category();
+        $categories = $objCategory->index();
+
+        $objSubcategory = new Subcategory();
+        $objSubcategory->sub_id = $request->id;
+        $subcategories = $objSubcategory->edit();
+
+        return view($this->path . 'edit_subcategory', [
+            'categories' => $categories,
+            'subcategories' => $subcategories,
+            'id' => $objSubcategory->sub_id
+        ]);
     }
 
     /**
@@ -54,14 +80,23 @@ class SubcategoryController extends Controller
      */
     public function update(UpdateSubcategoryRequest $request, Subcategory $subcategory)
     {
-        //
+        $obj = new Subcategory();
+        $obj->sub_id = $request->id;
+        $obj->cat_id = $request->cat_id;
+        $obj->sub_name = $request->sub_name;
+
+        $obj->updateSubcategory();
+        return Redirect::route('subcategory.index');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Subcategory $subcategory)
+    public function destroy(Subcategory $subcategory, Request $request)
     {
-        //
+        $obj = new Subcategory();
+        $obj->sub_id = $request->id;
+        $obj->deleteSubcategory();
+        return Redirect::route('subcategory.index');
     }
 }

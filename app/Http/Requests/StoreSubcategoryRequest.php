@@ -11,7 +11,7 @@ class StoreSubcategoryRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,15 @@ class StoreSubcategoryRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'sub_name' => 'required|unique:subcategory,sub_name',
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'sub_name.required' => 'Vui lòng nhập tên.',
+            'sub_name.unique' => 'Tên đã tồn tại.',
         ];
     }
 }

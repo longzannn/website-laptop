@@ -54,7 +54,12 @@ Route::prefix('admin/')->group(function () {
     });
 
     Route::prefix('subcategory/')->group(function () {
-        Route::get('subcategory', [\App\Http\Controllers\SubcategoryController::class, 'index'])->name('subcategory');
+        Route::get('subcategory', [\App\Http\Controllers\SubcategoryController::class, 'index'])->name('subcategory.index');
+        Route::get('add_subcategory', [\App\Http\Controllers\SubcategoryController::class, 'create'])->name('subcategory.create');
+        Route::post('add_subcategory', [\App\Http\Controllers\SubcategoryController::class, 'store'])->name('subcategory.store');
+        Route::get('edit_subcategory/{id}', [\App\Http\Controllers\SubcategoryController::class, 'edit'])->name('subcategory.edit');
+        Route::put('edit_subcategory/{id}', [\App\Http\Controllers\SubcategoryController::class, 'update'])->name('subcategory.update');
+        Route::delete('subcategory/{id}', [\App\Http\Controllers\SubcategoryController::class, 'destroy'])->name('subcategory.destroy');
     });
 });
 
