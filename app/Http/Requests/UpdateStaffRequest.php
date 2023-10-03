@@ -21,23 +21,14 @@ class UpdateStaffRequest extends FormRequest
      */
     public function rules(): array
     {
-        $customerId = $this->route('id'); // Lấy giá trị tham số customer từ route
-        $rules = [
+        $staffId = $this->route('id');
+        return [
             'staff_name' => 'required',
-            'staff_phone' => 'required',
+            'staff_email' => 'required|email|unique:staff,staff_email,' . $staffId . ',staff_id',
+            'staff_phone' => 'required|numeric|min:10',
             'staff_address' => 'required',
             'staff_password' => 'required|min:8|confirmed',
         ];
-        // Kiểm tra xem email đã thay đổi hay không
-        if ($this->staff_email !== $this->get('staff_email')) {
-            // Email đã thay đổi, thêm quy tắc validation unique
-            $rules['staff_email'] = 'required|email|unique:customer,staff_email,' . $customerId;
-        } else {
-            // Email không thay đổi, loại bỏ quy tắc validation unique
-            $rules['staff_email'] = 'required|email';
-        }
-
-        return $rules;
     }
 
     public function messages()
@@ -48,6 +39,8 @@ class UpdateStaffRequest extends FormRequest
             'staff_email.email' => 'Email không hợp lệ.',
             'staff_email.unique' => 'Email đã tồn tại.',
             'staff_phone.required' => 'Vui lòng nhập số điện thoại.',
+            'staff_phone.numeric' => 'Không phải định dạng số điện thoại',
+            'staff_phone.min' => 'Số điện thoại phải từ 10 số trở lên',
             'staff_address.required' => 'Vui lòng nhập địa chỉ.',
             'staff_password.required' => 'Vui lòng nhập mật khẩu.',
             'staff_password.min' => 'Mật khẩu phải chứa ít nhất 8 ký tự.',

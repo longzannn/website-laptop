@@ -81,12 +81,6 @@ class CustomerController extends Controller
         $obj->cus_address = $request->cus_address;
         $obj->cus_password = $request->cus_password;
 
-        // Kiểm tra xem email đã thay đổi hay không
-        if ($request->cus_email ===  $obj->cus_email) {
-            // Email không thay đổi, loại bỏ quy tắc validation unique
-            $request->merge(['cus_email' => $obj->cus_email]);
-        }
-
         $obj->updateCustomer();
         return Redirect::route('customer.index');
     }

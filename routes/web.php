@@ -30,6 +30,10 @@ Route::prefix('admin/')->group(function () {
         Route::get('accessory', [\App\Http\Controllers\ProductController::class, 'indexAccessory'])->name('product.accessory');
         Route::get('component', [\App\Http\Controllers\ProductController::class, 'indexComponent'])->name('product.component');
         Route::get('add_product', [\App\Http\Controllers\ProductController::class, 'create'])->name('product.create');
+        Route::post('add_product', [\App\Http\Controllers\ProductController::class, 'store'])->name('product.store');
+        Route::get('edit_product/{id}', [\App\Http\Controllers\ProductController::class, 'edit'])->name('product.edit');
+        Route::put('edit_product/{id}', [\App\Http\Controllers\ProductController::class, 'update'])->name('product.update');
+        Route::delete('product/{id}', [\App\Http\Controllers\ProductController::class, 'destroy'])->name('product.destroy');
     });
 
     Route::prefix('customer/')->group(function () {
@@ -38,7 +42,7 @@ Route::prefix('admin/')->group(function () {
         Route::post('add_customer', [\App\Http\Controllers\CustomerController::class, 'store'])->name('customer.store');
         Route::get('edit_customer/{id}', [\App\Http\Controllers\CustomerController::class, 'edit'])->name('customer.edit');
         Route::put('edit_customer/{id}', [\App\Http\Controllers\CustomerController::class, 'update'])->name('customer.update');
-        Route::delete('category/{id}', [\App\Http\Controllers\CustomerController::class, 'destroy'])->name('customer.destroy');
+        Route::delete('customer/{id}', [\App\Http\Controllers\CustomerController::class, 'destroy'])->name('customer.destroy');
     });
 
     Route::prefix('staff/')->group(function () {
@@ -47,7 +51,7 @@ Route::prefix('admin/')->group(function () {
         Route::post('add_staff', [\App\Http\Controllers\StaffController::class, 'store'])->name('staff.store');
         Route::get('edit_staff/{id}', [\App\Http\Controllers\StaffController::class, 'edit'])->name('staff.edit');
         Route::put('edit_staff/{id}', [\App\Http\Controllers\StaffController::class, 'update'])->name('staff.update');
-        Route::delete('category/{id}', [\App\Http\Controllers\StaffController::class, 'destroy'])->name('staff.destroy');
+        Route::delete('staff/{id}', [\App\Http\Controllers\StaffController::class, 'destroy'])->name('staff.destroy');
     });
 
     Route::prefix('order/')->group(function () {

@@ -81,12 +81,6 @@ class StaffController extends Controller
         $obj->staff_address = $request->staff_address;
         $obj->staff_password = $request->staff_password;
 
-        // Kiểm tra xem email đã thay đổi hay không
-        if ($request->staff_email ===  $obj->staff_email) {
-            // Email không thay đổi, loại bỏ quy tắc validation unique
-            $request->merge(['staff_email' => $obj->staff_email]);
-        }
-
         $obj->updateStaff();
         return Redirect::route('staff.index');
     }
