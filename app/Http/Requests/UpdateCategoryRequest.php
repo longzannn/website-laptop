@@ -21,8 +21,18 @@ class UpdateCategoryRequest extends FormRequest
      */
     public function rules(): array
     {
+        $categoryId = $this->route('id'); // Lấy giá trị tham số subcategory từ route
+
         return [
-            //
+            'cat_name' => 'required|unique:category,cat_name,' . $categoryId . ',cat_id',
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'cat_name.required' => 'Vui lòng nhập tên.',
+            'cat_name.unique' => 'Tên đã tồn tại.',
         ];
     }
 }

@@ -32,7 +32,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        return view($this->path . 'add_product');
     }
 
     /**

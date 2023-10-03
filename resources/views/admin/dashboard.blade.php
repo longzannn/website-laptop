@@ -7,7 +7,7 @@
     <link rel="icon" href="https://xgear.net/wp-content/uploads/2023/07/cropped-icon-xgear-32x32.png" sizes="32x32" />
     <title>Admin Dashboard</title>
     <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="../../public/css/admin/dashboard.css">
+    <link rel="stylesheet" href="{{ asset('css/admin/dashboard.css') }}">
 </head>
 
 <body>

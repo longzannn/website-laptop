@@ -7,8 +7,8 @@
     <title>Add Product Page</title>
     <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="../../../public/css/admin/add_product.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="{{ asset('css/admin/add_product.css') }}">
 </head>
 
 <body>
@@ -186,9 +186,6 @@
                                                 </svg>
                                                 <span class="sr-only">Settings</span>
                                             </button>
-
-
-
                                             <button type="button" class="p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600">
                                                 <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
                                                     <path d="M18 2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2ZM2 18V7h6.7l.4-.409A4.309 4.309 0 0 1 15.753 7H18v11H2Z" />
@@ -231,8 +228,9 @@
             </div>
         </div>
     </section>
-    <script src="../../../public/js/admin/appendInput.js"></script>
-    <script src="../../../public/js/admin/uploadImage.js"></script>
+
+    <script src="{{ asset('js/admin/uploadImage.js') }}"></script>
+    <script src="{{ asset('js/admin/appendInput.js') }}"></script>
 </body>
 
 </html>

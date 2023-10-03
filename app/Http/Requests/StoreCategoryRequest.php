@@ -22,7 +22,15 @@ class StoreCategoryRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'cat_name' => 'required|unique:category,cat_name',
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'cat_name.required' => 'Vui lòng nhập tên.',
+            'cat_name.unique' => 'Tên đã tồn tại.',
         ];
     }
 }

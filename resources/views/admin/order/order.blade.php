@@ -8,7 +8,7 @@
     <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="../../../public/css/admin/order.css">
+    <link rel="stylesheet" href="{{ asset('css/admin/order.css') }}">
 </head>
 
 <body>
