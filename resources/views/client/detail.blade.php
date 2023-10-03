@@ -8,7 +8,7 @@
     <title>Laptop cũ Hà Nội giá rẻ | Địa chỉ mua bán laptop cũ uy tín tại Hà Nội và trên Toàn Quốc</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="../../public/css/app.css">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 </head>
 
 <body>
@@ -621,6 +621,7 @@
             <div class="">
                 <h3 class="font-bold text-lg mb-6">Thông tin liên hệ</h3>
                 <ol class="my-2 max-w-md space-y-1 text-gray-500 list-decimal list-inside dark:text-gray-400">
+
                     <li class="text-sm">
                         <span class="font-semibold text-gray-900 dark:text-white">Địa chỉ:</span>
                         26 Ngõ 165 Thái Hà, Láng Hạ, Đống Đa, Hà Nội

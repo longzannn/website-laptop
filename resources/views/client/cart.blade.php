@@ -8,7 +8,7 @@
     <title>Laptop cũ Hà Nội giá rẻ | Địa chỉ mua bán laptop cũ uy tín tại Hà Nội và trên Toàn Quốc</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="../../public/css/app.css">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 </head>
 
 <body>
@@ -450,6 +450,7 @@
                         <span class="font-semibold text-gray-900 dark:text-white">Website:</span>
                         https://laptopkhanhtran.vn/
                     </li>
+
                 </ol>
             </div>
             <div class="">

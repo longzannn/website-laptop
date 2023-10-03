@@ -8,7 +8,7 @@
     <title>Laptop cũ Hà Nội giá rẻ | Địa chỉ mua bán laptop cũ uy tín tại Hà Nội và trên Toàn Quốc</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="../../public/css/app.css">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 </head>
 
 <body>
@@ -827,6 +827,7 @@
                                     6 Cell 86WHrs
                                 </li>
                                 <li class="text-sm truncate">
+
                                     <span class="font-semibold text-gray-900 dark:text-white">Tình trạng</span>
                                     Mới 100%, Nhập khẩu
                                 </li>
@@ -957,7 +958,7 @@
     </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.js"></script>
-    <script src="../../public/js/client/filter.js"></script>
+    <script src="{{ asset('js/client/filter.js') }}"></script>
 </body>
 
 </html>

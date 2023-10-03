@@ -10,7 +10,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
-    <link rel="stylesheet" href="../../public/css/app.css">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 </head>
 
 <body>
@@ -1236,6 +1236,7 @@
                     <div class="flex">
                         <img src="https://laptopkhanhtran.vn/css/icon/arrange-square.svg" alt="" class="mr-2" />
                         <span class="text-sm">So sánh</span>
+
                     </div>
                 </a>
             </div>
@@ -1319,9 +1320,9 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-    <script src="../../public/js/client/slick.js"></script>
-    <script src="../../public/js/client/countdown.js"></script>
-    <script src="../../public/js/client/owlcarousel.js"></script>
+    <script src="{{ asset('js/client/slick.js') }}"></script>
+    <script src="{{ asset('js/client/countdown.js') }}"></script>
+    <script src="{{ asset('js/client/owlcarousel.js') }}"></script>
 </body>
 
 </html>
