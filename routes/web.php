@@ -16,7 +16,6 @@ Route::prefix('admin/')->group(function () {
 
     Route::prefix('product/')->group(function () {
         Route::get('laptop', [\App\Http\Controllers\ProductController::class, 'indexLaptop'])->name('product.laptop');
-        Route::get('accessory', [\App\Http\Controllers\ProductController::class, 'indexAccessory'])->name('product.accessory');
         Route::get('component', [\App\Http\Controllers\ProductController::class, 'indexComponent'])->name('product.component');
         Route::get('add_product', [\App\Http\Controllers\ProductController::class, 'create'])->name('product.create');
         Route::post('add_product', [\App\Http\Controllers\ProductController::class, 'store'])->name('product.store');

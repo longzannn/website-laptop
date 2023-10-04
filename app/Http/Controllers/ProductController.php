@@ -14,17 +14,20 @@ class ProductController extends Controller
      */
     public function indexLaptop()
     {
-        return view($this->path . 'laptop');
-    }
-
-    public function indexAccessory()
-    {
-        return view($this->path . 'accessory');
+        $obj = new Product();
+        $laptops = $obj->indexLaptop();
+        return view($this->path . 'laptop', [
+            'laptops' => $laptops
+        ]);
     }
 
     public function indexComponent()
     {
-        return view($this->path . 'component');
+        $obj = new Product();
+        $components = $obj->indexComponent();
+        return view($this->path . 'component', [
+            'components' => $components
+        ]);
     }
 
     /**
