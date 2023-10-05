@@ -38,5 +38,9 @@ class Product extends Model
 
     public function store()
     {
+        return DB::table('product')->insertGetId([
+            'prd_name' =>$this->prd_name,
+            'sub_id' => $this->sub_id,
+        ]);
     }
 }

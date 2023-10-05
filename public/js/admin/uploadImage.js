@@ -1,22 +1,28 @@
 document.getElementById("imageUpload").addEventListener("change", function () {
-  const fileInput = this;
-  const imagePreview = document.getElementById("previewImage");
+    const fileInput = this;
+    const imagePreview = document.getElementById("imagePreview");
 
-  // Xóa tệp cũ nếu có
-  const existingImage = document.getElementById("existingImage");
-  if (existingImage) {
-    existingImage.remove();
-  }
+    // Clear existing images
+    imagePreview.innerHTML = "";
 
-  if (fileInput.files && fileInput.files[0]) {
-    const reader = new FileReader();
+    if (fileInput.files && fileInput.files.length > 0) {
+        for (let i = 0; i < fileInput.files.length; i++) {
+            const reader = new FileReader();
+            const imageContainer = document.createElement("div");
+            imageContainer.className = "image-container mr-3";
 
-    reader.onload = function (e) {
-      imagePreview.src = e.target.result;
-    };
+            const imageElement = document.createElement("img");
+            imageElement.className = "preview-image mb-3 w-20 h-20";
+            imageElement.src = "#"; // Initial source
 
-    reader.readAsDataURL(fileInput.files[0]);
-  } else {
-    imagePreview.src = "#";
-  }
+            reader.onload = function (e) {
+                imageElement.src = e.target.result;
+            };
+
+            reader.readAsDataURL(fileInput.files[i]);
+
+            imageContainer.appendChild(imageElement);
+            imagePreview.appendChild(imageContainer);
+        }
+    }
 });

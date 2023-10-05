@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
+use App\Models\Subcategory;
+use App\Models\Category;
+use App\Models\Version;
+use Illuminate\Support\Facades\Redirect;
 
 class ProductController extends Controller
 {
@@ -35,7 +39,11 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view($this->path . 'add_product');
+        $objSubcategory = new Subcategory();
+        $subcategories = $objSubcategory->index();
+        return view($this->path . 'add_product', [
+            'subcategories' => $subcategories
+        ]);
     }
 
     /**
@@ -43,7 +51,38 @@ class ProductController extends Controller
      */
     public function store(StoreProductRequest $request)
     {
-        //
+//        $obj = new Product();
+//        $obj->sub_id = $request->sub_id;
+//        $obj->prd_name = $request->prd_name;
+//        $prd_id = $obj -> store();
+//
+//        $objVersion = new Version();
+//        $objVersion->prd_id = $prd_id;
+//        $objVersion->version_name = $request->version_name;
+//        $objVersion->current_price = $request->current_price;
+//        $objVersion->old_price = $request->old_price;
+//
+//        $cluster_count = intval($request->cluster_count);
+//        $data = array();
+//        for ($i = 1; $i <= $cluster_count; $i++) {
+//            $name = $request->input("name$i");
+//            $value = $request->input("value$i");
+//            $data[] = "$name: $value";
+//        }
+//        $dataString = implode(', ', $data);
+//        $objVersion->version_details = $dataString;
+//        $objVersion->store();
+
+        $images = $request->file('prd_images');
+        $numberOfImages = count($images);
+        $array = array();
+        for ($i = 0; $i < $numberOfImages; $i++) {
+            $image_name = $images[$i]->getClientOriginalName();
+            $array[] = $image_name;
+        }
+        dd($array);
+
+        return Redirect::route('product.laptop');
     }
 
     /**
