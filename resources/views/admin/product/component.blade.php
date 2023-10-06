@@ -120,7 +120,7 @@
                                         <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                             {{ $component -> prd_name }}
                                         </th>
-                                        <td class="px-6 py-4">Product image</td>
+                                        <td class="px-6 py-4"><img class="w-14 h-14" src="{{ Storage::url('admin/') . $component -> img_1 }}" alt=""></td>
                                         <td class="px-6 py-4">{{ $component -> sub_name }}</td>
                                         <td class="px-6 py-4">{{ $component -> current_price }}</td>
                                         <td class="px-6 py-4">

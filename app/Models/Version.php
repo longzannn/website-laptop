@@ -20,4 +20,51 @@ class Version extends Model
             'old_price' => $this->old_price,
         ]);
     }
+
+    public function edit() {
+        return DB::table('version')
+            ->join('product', 'version.prd_id', '=', 'product.prd_id')
+            ->join('subcategory', 'product.sub_id', '=', 'subcategory.sub_id')
+            ->join('category', 'subcategory.cat_id', '=', 'category.cat_id')
+            ->join('image', 'product.img_id', '=', 'image.img_id')
+            ->select(
+                'product.prd_id AS prd_id',
+                'product.prd_name AS prd_name',
+                'product.sub_id AS sub_id',
+                'subcategory.sub_name AS sub_name',
+                'version.current_price AS current_price',
+                'version.old_price AS old_price',
+                'image.img_1 AS img_1',
+                'image.img_2 AS img_2',
+                'image.img_3 AS img_3',
+                'image.img_4 AS img_4',
+                'image.img_5 AS img_5',
+                'version.version_name AS version_name',
+                'version.version_details AS version_details'
+            )
+            ->where('version.version_id', '=', $this->version_id)
+            ->get();
+    }
+
+    public function updateVersion() {
+        // Cập nhật thông tin version
+        DB::table('version')
+            ->where('version_id', '=', $this->version_id)
+            ->update([
+                'version_name' => $this->version_name,
+                'version_details' => $this->version_details,
+                'current_price' => $this->current_price,
+                'old_price' => $this->old_price,
+            ]);
+
+        // Truy vấn lại thông tin version sau khi cập nhật
+        $updatedVersion = DB::table('version')
+            ->where('version_id', $this->version_id)
+            ->first();
+
+        // Lấy giá trị prd_id từ bản ghi được cập nhật
+        $prd_id = $updatedVersion->prd_id;
+
+        return $prd_id;
+    }
 }

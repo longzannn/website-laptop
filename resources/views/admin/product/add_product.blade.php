@@ -96,11 +96,17 @@
                             <input type="text" name="prd_name" id="prd_name" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " />
                             <label for="prd_name" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Product
                                 Name</label>
+                            @if($errors->has('prd_name'))
+                                <span class="text-red-600 text-xs">{{ $errors->first('prd_name') }}</span>
+                            @endif
                         </div>
                         <div class="mb-6">
                             <label class="text-gray-500" for="imageUpload">Chọn một hoặc nhiều hình ảnh:</label>
                             <input class="text-gray-500" name="prd_images[]" type="file" id="imageUpload" accept="image/*" multiple />
                             <div id="imagePreview" class="mt-3 flex gap-3"></div>
+                            @if($errors->has('prd_images'))
+                                <span class="text-red-600 text-xs">{{ $errors->first('prd_images') }}</span>
+                            @endif
                         </div>
                         <div class="relative z-0 w-full mb-6 group">
                             <select id="underline_select" name="sub_id" class="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
@@ -113,16 +119,25 @@
                         <div class="relative z-0 w-full mb-6 group">
                             <input type="text" name="version_name" id="version_name" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " />
                             <label for="version_name" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Version name</label>
+                            @if($errors->has('version_name'))
+                                <span class="text-red-600 text-xs">{{ $errors->first('version_name') }}</span>
+                            @endif
                         </div>
                         <div class="relative z-0 w-full mb-6 group">
                             <input type="number" name="old_price" id="old_price" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " />
                             <label for="old_price" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Old
                                 Price</label>
+                            @if($errors->has('old_price'))
+                                <span class="text-red-600 text-xs">{{ $errors->first('old_price') }}</span>
+                            @endif
                         </div>
                         <div class="relative z-0 w-full mb-6 group">
                             <input type="number" name="current_price" id="current_price" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" "  />
                             <label for="current_price" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Current
                                 Price</label>
+                            @if($errors->has('current_price'))
+                                <span class="text-red-600 text-xs">{{ $errors->first('current_price') }}</span>
+                            @endif
                         </div>
                         <div class="relative z-0 w-full mb-6 group">
                             <label for="underline_select" class="sr-only">Underline select</label>

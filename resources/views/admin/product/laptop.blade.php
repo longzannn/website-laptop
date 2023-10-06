@@ -121,12 +121,12 @@
                                             {{ $laptop -> prd_name }}
                                         </th>
                                         <td class="px-6 py-4">
-                                            <img class="w-14 h-14" src="" alt="">
+                                            <img class="w-14 h-14" src="{{ Storage::url('admin/') . $laptop -> img_1 }}" alt="">
                                         </td>
                                         <td class="px-6 py-4">{{ $laptop -> sub_name }}</td>
                                         <td class="px-6 py-4">{{ $laptop -> current_price }}</td>
                                         <td class="px-6 py-4">
-                                            <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                                            <a href="{{ route('product.edit', $laptop -> version_id) }}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
                                             <a href="" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
                                                 Delete
                                             </a>

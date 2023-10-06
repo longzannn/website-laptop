@@ -6,9 +6,11 @@ use App\Models\Product;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
 use App\Models\Subcategory;
-use App\Models\Category;
+use Illuminate\Http\Request;
 use App\Models\Version;
+use App\Models\Image;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
@@ -51,36 +53,49 @@ class ProductController extends Controller
      */
     public function store(StoreProductRequest $request)
     {
-//        $obj = new Product();
-//        $obj->sub_id = $request->sub_id;
-//        $obj->prd_name = $request->prd_name;
-//        $prd_id = $obj -> store();
-//
-//        $objVersion = new Version();
-//        $objVersion->prd_id = $prd_id;
-//        $objVersion->version_name = $request->version_name;
-//        $objVersion->current_price = $request->current_price;
-//        $objVersion->old_price = $request->old_price;
-//
-//        $cluster_count = intval($request->cluster_count);
-//        $data = array();
-//        for ($i = 1; $i <= $cluster_count; $i++) {
-//            $name = $request->input("name$i");
-//            $value = $request->input("value$i");
-//            $data[] = "$name: $value";
-//        }
-//        $dataString = implode(', ', $data);
-//        $objVersion->version_details = $dataString;
-//        $objVersion->store();
-
-        $images = $request->file('prd_images');
+        // Lưu ảnh vào thư mục public/admin
+        $images = $request->file('prd_images'); // Lấy ra mảng các file ảnh
         $numberOfImages = count($images);
         $array = array();
-        for ($i = 0; $i < $numberOfImages; $i++) {
-            $image_name = $images[$i]->getClientOriginalName();
+        for ($j = 0; $j < $numberOfImages; $j++) {
+            $image_name = $images[$j]->getClientOriginalName();
+            // Kiểm tra xem ảnh đã tồn tại trong thư mục public/admin hay chưa
+            if(!Storage::exists('public/admin/'.$image_name)) {
+                Storage::putFileAs('public/admin', $images[$j], $image_name);
+            }
             $array[] = $image_name;
         }
-        dd($array);
+        $objImage = new Image();
+        $objImage->img_1 = $array[0];
+        $objImage->img_2 = $array[1];
+        $objImage->img_3 = $array[2];
+        $objImage->img_4 = $array[3];
+        $objImage->img_5 = $array[4];
+        $img_id = $objImage->store(); // Lưu và lấy ra img_id vừa được thêm vào
+
+        $obj = new Product();
+        $obj->img_id = $img_id;
+        $obj->sub_id = $request->sub_id;
+        $obj->prd_name = $request->prd_name;
+        $prd_id = $obj -> store(); // Lưu và lấy ra prd_id vừa được thêm vào
+
+        // Lưu thông tin phiên bản vào bảng version
+        $objVersion = new Version();
+        $objVersion->prd_id = $prd_id;
+        $objVersion->version_name = $request->version_name;
+        $objVersion->current_price = $request->current_price;
+        $objVersion->old_price = $request->old_price;
+        // Lưu thông tin chi tiết phiên bản vào bảng version
+        $cluster_count = intval($request->cluster_count); // Số lượng cụm thông số
+        $data = array();
+        for ($i = 1; $i <= $cluster_count; $i++) {
+            $name = $request->input("name$i");
+            $value = $request->input("value$i");
+            $data[] = "$name: $value";
+        }
+        $dataString = implode(', ', $data); // Chuyển mảng thành chuỗi
+        $objVersion->version_details = $dataString;
+        $objVersion->store();
 
         return Redirect::route('product.laptop');
     }
@@ -96,9 +111,18 @@ class ProductController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Product $product)
+    public function edit(Product $product, Request $request)
     {
-        //
+        $objVersion = new Version();
+        $objVersion->version_id = $request->id;
+        $versions = $objVersion->edit();
+        $objSubcategory = new Subcategory();
+        $subcategories = $objSubcategory->index();
+        return view($this->path . 'edit_product', [
+            'subcategories' => $subcategories,
+            'products' => $versions,
+            'id' => $objVersion->version_id,
+        ]);
     }
 
     /**
@@ -106,7 +130,42 @@ class ProductController extends Controller
      */
     public function update(UpdateProductRequest $request, Product $product)
     {
-        //
+        $objVersion = new Version();
+        $objVersion->version_id = $request->id;
+        $objVersion->version_name = $request->version_name;
+        $objVersion->current_price = $request->current_price;
+        $objVersion->old_price = $request->old_price;
+        $objVersion->version_details = $request->version_details;
+        $prd_id = $objVersion->updateVersion(); // Lưu và lấy ra prd_id vừa được thêm vào
+
+        $objProduct = new Product();
+        $objProduct->prd_id = $prd_id;
+        $objProduct->prd_name = $request->prd_name;
+        $objProduct->sub_id = $request->sub_id;
+        $img_id = $objProduct->updateProduct(); // Lưu và lấy ra img_id vừa được thêm vào
+
+        $images = $request->file('prd_images'); // Lấy ra mảng các file ảnh
+        if($images != null) {
+            $numberOfImages = count($images);
+            $array = array();
+            for ($j = 0; $j < $numberOfImages; $j++) {
+                $image_name = $images[$j]->getClientOriginalName();
+                // Kiểm tra xem ảnh đã tồn tại trong thư mục public/admin hay chưa
+                if(!Storage::exists('public/admin/'.$image_name)) {
+                    Storage::putFileAs('public/admin', $images[$j], $image_name);
+                }
+                $array[] = $image_name;
+            }
+            $objImage = new Image();
+            $objImage->img_1 = $array[0];
+            $objImage->img_2 = $array[1];
+            $objImage->img_3 = $array[2];
+            $objImage->img_4 = $array[3];
+            $objImage->img_5 = $array[4];
+            $objImage->img_id = $img_id;
+            $objImage->updateImage();
+        }
+        return Redirect::route('product.laptop');
     }
 
     /**
