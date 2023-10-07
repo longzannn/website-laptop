@@ -32,4 +32,10 @@ class Image extends Model
                 'img_5' => $this->img_5,
             ]);
     }
+
+    public function delete() {
+        DB::table('image')
+            ->where('img_id', '=', $this->img_id)
+            ->delete();
+    }
 }

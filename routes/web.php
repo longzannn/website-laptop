@@ -21,7 +21,8 @@ Route::prefix('admin/')->group(function () {
         Route::post('add_product', [\App\Http\Controllers\ProductController::class, 'store'])->name('product.store');
         Route::get('edit_product/{id}', [\App\Http\Controllers\ProductController::class, 'edit'])->name('product.edit');
         Route::put('edit_product/{id}', [\App\Http\Controllers\ProductController::class, 'update'])->name('product.update');
-        Route::delete('product/{id}', [\App\Http\Controllers\ProductController::class, 'destroy'])->name('product.destroy');
+        Route::delete('laptop/{id}', [\App\Http\Controllers\ProductController::class, 'destroy'])->name('product.destroy');
+        Route::delete('component/{id}', [\App\Http\Controllers\ProductController::class, 'destroy'])->name('product.destroy');
     });
 
     Route::prefix('customer/')->group(function () {

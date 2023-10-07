@@ -67,4 +67,16 @@ class Version extends Model
 
         return $prd_id;
     }
+
+    public function delete() {
+        $version = DB::table('version')
+            ->where('version_id', '=', $this->version_id)
+            ->select('prd_id')
+            ->first();
+        $prd_id = $version->prd_id;
+        DB::table('version')
+            ->where('version_id', '=', $this->version_id)
+            ->delete();
+        return $prd_id;
+    }
 }

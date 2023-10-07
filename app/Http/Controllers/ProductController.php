@@ -66,11 +66,9 @@ class ProductController extends Controller
             $array[] = $image_name;
         }
         $objImage = new Image();
-        $objImage->img_1 = $array[0];
-        $objImage->img_2 = $array[1];
-        $objImage->img_3 = $array[2];
-        $objImage->img_4 = $array[3];
-        $objImage->img_5 = $array[4];
+        for ($k = 0; $k < count($array); $k++) {
+            $objImage->{"img_" . ($k + 1)} = $array[$k];
+        }
         $img_id = $objImage->store(); // Lưu và lấy ra img_id vừa được thêm vào
 
         $obj = new Product();
@@ -157,11 +155,9 @@ class ProductController extends Controller
                 $array[] = $image_name;
             }
             $objImage = new Image();
-            $objImage->img_1 = $array[0];
-            $objImage->img_2 = $array[1];
-            $objImage->img_3 = $array[2];
-            $objImage->img_4 = $array[3];
-            $objImage->img_5 = $array[4];
+            for ($k = 0; $k < count($array); $k++) {
+                $objImage->{"img_" . ($k + 1)} = $array[$k];
+            }
             $objImage->img_id = $img_id;
             $objImage->updateImage();
         }
@@ -171,8 +167,17 @@ class ProductController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Product $product)
+    public function destroy(Product $product, Request $request)
     {
-        //
+        $objVersion = new Version();
+        $objVersion->version_id = $request->id;
+        $prd_id = $objVersion->delete();
+        $objProduct = new Product();
+        $objProduct->prd_id = $prd_id;
+        $img_id = $objProduct->delete();
+        $objImage = new Image();
+        $objImage->img_id = $img_id;
+        $objImage->delete();
+        return Redirect::route('product.laptop');
     }
 }

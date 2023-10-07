@@ -21,6 +21,7 @@ class Product extends Model
                 'product.prd_id AS prd_id',
                 'version.version_id AS version_id',
                 'product.prd_name AS prd_name',
+                'version.version_name AS version_name',
                 'subcategory.sub_name AS sub_name',
                 'version.current_price AS current_price',
                 'image.img_1 AS img_1'
@@ -42,6 +43,7 @@ class Product extends Model
                 'product.prd_id AS prd_id',
                 'version.version_id AS version_id',
                 'product.prd_name AS prd_name',
+                'version.version_name AS version_name',
                 'subcategory.sub_name AS sub_name',
                 'version.current_price AS current_price',
                 'image.img_1 AS img_1')
@@ -58,6 +60,13 @@ class Product extends Model
             'sub_id' => $this->sub_id,
             'img_id' => $this->img_id,
         ]);
+    }
+
+    public function getIdImage() {
+        return DB::table('product')
+            ->where('prd_id', '=', $this->prd_id)
+            ->select('img_id')
+            ->first();
     }
 
     public function updateProduct() {
@@ -77,6 +86,17 @@ class Product extends Model
         // Lấy giá trị img_id từ bản ghi được cập nhật
         $img_id = $updatedProduct->img_id;
 
+        return $img_id;
+    }
+
+    public function delete() {
+        $product = DB::table('product')
+            ->where('prd_id', '=', $this->prd_id)
+            ->first();
+        $img_id = $product->img_id;
+        DB::table('product')
+            ->where('prd_id', '=', $this->prd_id)
+            ->delete();
         return $img_id;
     }
 
