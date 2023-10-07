@@ -18,37 +18,37 @@
         </div>
         <ul class="nav-links">
             <li>
-                <a href="#">
+                <a href="{{ route('dashboard') }}">
                     <i class="bx bxs-dashboard"></i>
                     <span class="links_name">Dashboard</span>
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="{{ route('product.laptop') }}">
                     <i class="bx bx-laptop"></i>
                     <span class="links_name">Product</span>
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="{{ route('category.index') }}">
                     <i class="bx bx-category"></i>
                     <span class="links_name">Category</span>
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="{{ route('subcategory.index') }}">
                     <i class="bx bx-category-alt"></i>
                     <span class="links_name">Subcategory</span>
                 </a>
             </li>
             <li>
-                <a href="#" class="active">
+                <a href="{{ route('customer.index') }}" class="active">
                     <i class="bx bx-user"></i>
                     <span class="links_name">Account</span>
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="{{ route('order.index') }}">
                     <i class="bx bx-list-ul"></i>
                     <span class="links_name">Order list</span>
                 </a>
@@ -94,10 +94,10 @@
                         <div class="text-sm font-medium text-center text-gray-500 border-b border-gray-200 dark:text-gray-400 dark:border-gray-700">
                             <ul class="flex flex-wrap justify-center -mb-px">
                                 <li class="mr-2">
-                                    <a href="#" class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300" aria-current="page">Customer</a>
+                                    <a href="{{ route('customer.index') }}" class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300" aria-current="page">Customer</a>
                                 </li>
                                 <li class="mr-2">
-                                    <a href="#" class="inline-block p-4 text-blue-600 border-b-2 border-blue-600 rounded-t-lg active dark:text-blue-500 dark:border-blue-500">Staff</a>
+                                    <a href="{{ route('staff.index') }}" class="inline-block p-4 text-blue-600 border-b-2 border-blue-600 rounded-t-lg active dark:text-blue-500 dark:border-blue-500">Staff</a>
                                 </li>
                             </ul>
                         </div>

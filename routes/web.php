@@ -44,7 +44,7 @@ Route::prefix('admin/')->group(function () {
     });
 
     Route::prefix('order/')->group(function () {
-        Route::get('order', [\App\Http\Controllers\OrderController::class, 'index'])->name('order');
+        Route::get('order', [\App\Http\Controllers\OrderController::class, 'index'])->name('order.index');
     });
 
     Route::prefix('subcategory/')->group(function () {

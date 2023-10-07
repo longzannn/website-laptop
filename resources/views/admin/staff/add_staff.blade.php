@@ -19,37 +19,37 @@
         </div>
         <ul class="nav-links">
             <li>
-                <a href="#">
+                <a href="{{ route('dashboard') }}">
                     <i class="bx bxs-dashboard"></i>
                     <span class="links_name">Dashboard</span>
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="{{ route('product.laptop') }}">
                     <i class="bx bx-laptop"></i>
                     <span class="links_name">Product</span>
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="{{ route('category.index') }}">
                     <i class="bx bx-category"></i>
                     <span class="links_name">Category</span>
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="{{ route('subcategory.index') }}">
                     <i class="bx bx-category-alt"></i>
                     <span class="links_name">Subcategory</span>
                 </a>
             </li>
             <li>
-                <a href="#" class="active">
+                <a href="{{ route('customer.index') }}" class="active">
                     <i class="bx bx-user"></i>
                     <span class="links_name">Account</span>
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="{{ route('order.index') }}">
                     <i class="bx bx-list-ul"></i>
                     <span class="links_name">Order list</span>
                 </a>
