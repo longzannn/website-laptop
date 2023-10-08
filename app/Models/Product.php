@@ -26,7 +26,7 @@ class Product extends Model
                 'version.current_price AS current_price',
                 'image.img_1 AS img_1'
             )
-            ->where('category.cat_name', 'like', '%Laptop%')
+            ->where('category.cat_name', 'not like', '%Linh kiện máy tính%')
             ->get();
 
         return $laptops;

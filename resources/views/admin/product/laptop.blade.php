@@ -124,7 +124,7 @@
                                             <img class="w-14 h-14" src="{{ Storage::url('admin/') . $laptop -> img_1 }}" alt="">
                                         </td>
                                         <td class="px-6 py-4">{{ $laptop -> sub_name }}</td>
-                                        <td class="px-6 py-4">{{ $laptop -> current_price }}</td>
+                                        <td class="px-6 py-4">{{ number_format($laptop -> current_price, 0, ',', '.') }}</td>
                                         <td class="px-6 py-4 flex">
                                             <a href="{{ route('product.edit', $laptop -> version_id) }}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
                                             <form method="POST" action="{{ route('product.destroy', $laptop -> version_id ) }}">

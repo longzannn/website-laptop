@@ -122,7 +122,7 @@
                                         </th>
                                         <td class="px-6 py-4"><img class="w-14 h-14" src="{{ Storage::url('admin/') . $component -> img_1 }}" alt=""></td>
                                         <td class="px-6 py-4">{{ $component -> sub_name }}</td>
-                                        <td class="px-6 py-4">{{ $component -> current_price }}</td>
+                                        <td class="px-6 py-4">{{ number_format($component -> current_price, 0, ',', '.') }}</td>
                                         <td class="px-6 py-4">
                                             <a href="{{ route('product.edit', $component -> version_id) }}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
                                             <form method="POST" action="{{ route('product.destroy', $component -> version_id ) }}">
