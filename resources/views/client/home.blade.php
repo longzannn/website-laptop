@@ -67,234 +67,24 @@
     <!-- Menu -->
     <div class="sticky z-20 top-[88px] left-0 right-0 flex bg-[#2e3030] h-14">
         <ul class="flex w-full items-center justify-between px-32">
+            @foreach($categories as $category)
             <li class="relative flex items-center text-white opacity-60 hover:opacity-100 h-full">
-                <a class="text-sm" href="">LAPTOP DELL</a><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-3 h-3 ml-1">
+                <a class="text-xs uppercase font-semibold" href={{ route('client.category', $category -> cat_id) }}>{{ $category -> cat_name }}</a><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-3 h-3 ml-1">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                 </svg>
                 <div class="hidden absolute top-[100%] left-0 drop-shadow-xl bg-white w-max rounded-lg">
                     <ul class="">
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Dell XPS</a>
-                        </li>
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Dell Latitude</a>
-                        </li>
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Dell Vostro</a>
-                        </li>
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Dell Inspirion</a>
-                        </li>
+                        @foreach($subcategories as $subcategory)
+                            @if( $subcategory -> cat_id == $category -> cat_id)
+                            <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
+                                <a href={{ route('client.subcategory', $subcategory -> sub_id) }}>{{ $subcategory -> sub_name }}</a>
+                            </li>
+                            @endif
+                        @endforeach
                     </ul>
                 </div>
             </li>
-            <li class="relative flex items-center text-white opacity-60 hover:opacity-100 h-full">
-                <a class="text-sm" href="">LENOVO THINKPAD</a><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-3 h-3 ml-1">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                </svg>
-                <div class="hidden absolute top-[100%] left-0 drop-shadow-xl bg-white w-max rounded-lg">
-                    <ul class="">
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Thinkpad X1 series</a>
-                        </li>
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Thinkpad X series</a>
-                        </li>
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Thinkpad E series</a>
-                        </li>
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Thinkpad T series</a>
-                        </li>
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Thinkpad Workstation P series</a>
-                        </li>
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Thinkpad Thinkbook series</a>
-                        </li>
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Thinkpad Yoga</a>
-                        </li>
-                    </ul>
-                </div>
-            </li>
-            <li class="relative flex items-center text-white opacity-60 hover:opacity-100 h-full">
-                <a class="text-sm" href="">LAPTOP HP</a><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-3 h-3 ml-1">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                </svg>
-                <div class="hidden absolute top-[100%] left-0 drop-shadow-xl bg-white w-max rounded-lg">
-                    <ul class="">
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">HP Elitebook</a>
-                        </li>
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">HP Envy</a>
-                        </li>
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">HP Probook</a>
-                        </li>
-                    </ul>
-                </div>
-            </li>
-            <li class="relative flex items-center text-white opacity-60 hover:opacity-100 h-full">
-                <a class="text-sm" href="">LAPTOP ASUS</a><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-3 h-3 ml-1">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                </svg>
-                <div class="hidden absolute top-[100%] left-0 drop-shadow-xl bg-white w-max rounded-lg">
-                    <ul class="">
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Dell XPS</a>
-                        </li>
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Dell Latitude</a>
-                        </li>
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Dell Vostro</a>
-                        </li>
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Dell Inspirion</a>
-                        </li>
-                    </ul>
-                </div>
-            </li>
-            <li class="relative flex items-center text-white opacity-60 hover:opacity-100 h-full">
-                <a class="text-sm" href="">LAPTOP SAMSUNG</a><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-3 h-3 ml-1">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                </svg>
-                <div class="hidden absolute top-[100%] left-0 drop-shadow-xl bg-white w-max rounded-lg">
-                    <ul class="">
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Dell XPS</a>
-                        </li>
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Dell Latitude</a>
-                        </li>
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Dell Vostro</a>
-                        </li>
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Dell Inspirion</a>
-                        </li>
-                    </ul>
-                </div>
-            </li>
-            <li class="relative flex items-center text-white opacity-60 hover:opacity-100 h-full">
-                <a class="text-sm" href="">Laptop LG</a><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-3 h-3 ml-1">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                </svg>
-                <div class="hidden absolute top-[100%] left-0 drop-shadow-xl bg-white w-max rounded-lg">
-                    <ul class="">
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Dell XPS</a>
-                        </li>
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Dell Latitude</a>
-                        </li>
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Dell Vostro</a>
-                        </li>
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Dell Inspirion</a>
-                        </li>
-                    </ul>
-                </div>
-            </li>
-            <li class="relative flex items-center text-white opacity-60 hover:opacity-100 h-full">
-                <a class="text-sm" href="">SURFACE</a><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-3 h-3 ml-1">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                </svg>
-                <div class="hidden absolute top-[100%] left-0 drop-shadow-xl bg-white w-max rounded-lg">
-                    <ul class="">
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Surface Pro</a>
-                        </li>
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Surface Laptop</a>
-                        </li>
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Surface Book</a>
-                        </li>
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Surface Go</a>
-                        </li>
-                    </ul>
-                </div>
-            </li>
-            <li class="relative flex items-center text-white opacity-60 hover:opacity-100 h-full">
-                <a class="text-sm" href="">LAPTOP ĐỒ HỌA</a><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-3 h-3 ml-1">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                </svg>
-                <div class="hidden absolute top-[100%] left-0 drop-shadow-xl bg-white w-max rounded-lg">
-                    <ul class="">
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Laptop Dell Precision</a>
-                        </li>
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Laptop Lenovo Thinkpad</a>
-                        </li>
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Laptop HP</a>
-                        </li>
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Dell Inspirion</a>
-                        </li>
-                    </ul>
-                </div>
-            </li>
-            <li class="relative flex items-center text-white opacity-60 hover:opacity-100 h-full">
-                <a class="text-sm" href="">LAPTOP GAMING</a><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-3 h-3 ml-1">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                </svg>
-                <div class="hidden absolute top-[100%] left-0 drop-shadow-xl bg-white w-max rounded-lg">
-                    <ul class="">
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Laptop Dell Gaming</a>
-                        </li>
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Laptop Asus Gaming</a>
-                        </li>
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Laptop Acer Gaming</a>
-                        </li>
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Laptop MSI Gaming</a>
-                        </li>
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Laptop HP Gaming</a>
-                        </li>
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Laptop Lenovo Gaming</a>
-                        </li>
-                    </ul>
-                </div>
-            </li>
-            <li class="relative flex items-center text-white opacity-60 hover:opacity-100 h-full">
-                <a class="text-sm" href="">LINH KIỆN MÁY TÍNH</a><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-3 h-3 ml-1">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                </svg>
-                <div class="hidden absolute top-[100%] left-0 drop-shadow-xl bg-white w-max rounded-lg">
-                    <ul class="">
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Màn Hình Laptop</a>
-                        </li>
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">RAM Laptop</a>
-                        </li>
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Ổ Cứng Laptop</a>
-                        </li>
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Bàn Phím Laptop</a>
-                        </li>
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Sạc Laptop</a>
-                        </li>
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Pin Laptop</a>
-                        </li>
-                    </ul>
-                </div>
-            </li>
+            @endforeach
         </ul>
     </div>
 
@@ -484,492 +274,91 @@
             <img src="https://laptopkhanhtran.vn/css/icon/lightning.svg" alt="" />
             <h2 class="text-white font-bold ml-3">GIỜ VÀNG GIÁ SỐC</h2>
             <div class="font-semibold ml-5 mr-3 text-white">chỉ còn</div>
-            <div class="flex flex-col items-center bg-[#000000b8] py-1 px-2 rounded-lg mr-3">
+            <div
+                class="flex flex-col items-center bg-[#000000b8] py-1 px-2 rounded-lg mr-3"
+            >
                 <span class="font-bold text-amber-400" id="days">11</span>
                 <span class="text-white">ngày</span>
             </div>
-            <div class="flex flex-col items-center bg-[#000000b8] py-1 px-2 rounded-lg mr-3">
+            <div
+                class="flex flex-col items-center bg-[#000000b8] py-1 px-2 rounded-lg mr-3"
+            >
                 <span class="font-bold text-amber-400" id="hours">20</span>
                 <span class="text-white">giờ</span>
             </div>
-            <div class="flex flex-col items-center bg-[#000000b8] py-1 px-2 rounded-lg mr-3">
+            <div
+                class="flex flex-col items-center bg-[#000000b8] py-1 px-2 rounded-lg mr-3"
+            >
                 <span class="font-bold text-amber-400" id="minutes">26</span>
                 <span class="text-white">phút</span>
             </div>
-            <div class="flex flex-col items-center bg-[#000000b8] py-1 px-2 rounded-lg">
+            <div
+                class="flex flex-col items-center bg-[#000000b8] py-1 px-2 rounded-lg"
+            >
                 <span class="font-bold text-amber-400" id="seconds">36</span>
                 <span class="text-white">giây</span>
             </div>
         </div>
         <div class="relative grid grid-cols-5 gap-3 p-6 owl-carousel">
+            @foreach( $products as $product)
             <div class="bg-white rounded-lg p-4">
-                <a href="" class="">
-                    <img src="https://laptopkhanhtran.vn/pic/product/Dell_Gami_638219247169409966-w.250-q.80.png" alt="" />
-                    <div class="font-bold line-clamp-2 my-2">
-                        [Mới 100%] Dell Gaming G15 5530 (Core i7 13650HX, RAM 16GB, SSD
-                        1TB, NVIDIA GeForce RTX 4050 6GB, Màn 15.6’’ FHD)
+                <a href={{ route('client.detail',$product -> version_id) }} class="">
+                    <img
+                        src={{ Storage::url('admin/') . $product -> img_5 }}
+                        alt=""
+                        class="rounded-lg"
+                    />
+                    <div class="font-bold text-sm line-clamp-2 my-2">
+                        [Mới 100%] {{ $product -> prd_name }} ({{ $product -> version_name }})
                     </div>
                     <div class="flex my-2">
-                        <div class="text-center text-xs py-1 bg-[#f4f4f4] rounded-lg w-20 border--[#dcdcdc] border mr-3">
+                        <div
+                            class="text-center text-xs py-1 bg-[#f4f4f4] rounded-lg w-20 border--[#dcdcdc] border mr-3"
+                        >
                             16GB
                         </div>
-                        <div class="text-center text-xs py-1 bg-[#f4f4f4] rounded-lg w-20 border--[#dcdcdc] border">
+                        <div
+                            class="text-center text-xs py-1 bg-[#f4f4f4] rounded-lg w-20 border--[#dcdcdc] border"
+                        >
                             1TB SSD
                         </div>
                     </div>
-                    <ol class="my-2  max-w-md space-y-1 text-gray-500 list-decimal list-inside dark:text-gray-400">
-                        <li class="text-sm truncate">
-                            <span class="font-semibold text-gray-900 dark:text-white">Màn hình</span>
-                            15.6" FHD (1920x1080) 165Hz, 3ms, sRGB-100%, ComfortViewPlus,
-                            NVIDIA G-SYNC+DDS Display
-                        </li>
-                        <li class="text-sm truncate">
-                            <span class="font-semibold text-gray-900 dark:text-white">CPU</span>
-                            Core i7 13650HX (14 cores, 20 threads, up to 4.90 GHz Turbo
-                            Boost Max, 24 MB Cache)
-                        </li>
-                        <li class="text-sm truncate">
-                            <span class="font-semibold text-gray-900 dark:text-white">VGA</span>
-                            NVIDIA GeForce RTX 4050 6GB
-                        </li>
-                        <li class="text-sm truncate">
-                            <span class="font-semibold text-gray-900 dark:text-white">Pin</span>
-                            6 Cell 86WHrs
-                        </li>
-                        <li class="text-sm truncate">
-                            <span class="font-semibold text-gray-900 dark:text-white">Tình trạng</span>
-                            Mới 100%, Nhập khẩu
-                        </li>
+                    @php
+                        $arr = explode(';', $product->version_details);
+                    @endphp
+                    <ol
+                        class="my-2 list-none max-w-md space-y-1 text-gray-500 list-decimal list-inside dark:text-gray-400"
+                    >
+                        @foreach($arr as $item)
+                            @php
+                                $item = explode(':', $item);
+                                $value = isset($item[1]) ? $item[1] : null;
+                            @endphp
+                            <li class="text-xs truncate">
+                                <span class="font-semibold text-gray-900 dark:text-white">{{ $item[0] }} </span>
+                                {{ $value }}
+                            </li>
+                        @endforeach
+
                     </ol>
-                    <div class="flex justify-between my-2 text-sm">
-                        <div class="text-red-700 font-bold">31.500.000 đ</div>
+                    <div class="flex justify-between my-2 text-sm text-sm">
+                        <div class="text-red-700 font-bold">{{ number_format($product -> current_price, 0, ',', '.') }} đ</div>
                         <div class="font-bold text-gray-500 line-through">
-                            49.500.000 đ
+                            {{ number_format($product -> old_price, 0, ',', '.') }} đ
                         </div>
-                        <div class="text-red-700 font-bold">-36%</div>
+                        <div class="text-red-700 font-bold">-{{ floor((($product -> old_price - $product -> current_price) / ($product -> old_price)) * 100) }}%</div>
                     </div>
                     <div class="flex">
-                        <img src="https://laptopkhanhtran.vn/css/icon/arrange-square.svg" alt="" class="mr-2" />
+                        <img
+                            src="https://laptopkhanhtran.vn/css/icon/arrange-square.svg"
+                            alt=""
+                            class="mr-2"
+                        />
                         <span class="text-sm">So sánh</span>
                     </div>
                 </a>
             </div>
-            <div class="bg-white rounded-lg p-4">
-                <a href="" class="">
-                    <img src="https://laptopkhanhtran.vn/pic/product/Dell_Gami_638219247169409966-w.250-q.80.png" alt="" />
-                    <div class="font-bold line-clamp-2 my-2">
-                        [Mới 100%] Dell Gaming G15 5530 (Core i7 13650HX, RAM 16GB, SSD
-                        1TB, NVIDIA GeForce RTX 4050 6GB, Màn 15.6’’ FHD)
-                    </div>
-                    <div class="flex my-2">
-                        <div class="text-center text-xs py-1 bg-[#f4f4f4] rounded-lg w-20 border--[#dcdcdc] border mr-3">
-                            16GB
-                        </div>
-                        <div class="text-center text-xs py-1 bg-[#f4f4f4] rounded-lg w-20 border--[#dcdcdc] border">
-                            1TB SSD
-                        </div>
-                    </div>
-                    <ol class="my-2 max-w-md space-y-1 text-gray-500 list-decimal list-inside dark:text-gray-400">
-                        <li class="text-sm truncate">
-                            <span class="font-semibold text-gray-900 dark:text-white">Màn hình</span>
-                            15.6" FHD (1920x1080) 165Hz, 3ms, sRGB-100%, ComfortViewPlus,
-                            NVIDIA G-SYNC+DDS Display
-                        </li>
-                        <li class="text-sm truncate">
-                            <span class="font-semibold text-gray-900 dark:text-white">CPU</span>
-                            Core i7 13650HX (14 cores, 20 threads, up to 4.90 GHz Turbo
-                            Boost Max, 24 MB Cache)
-                        </li>
-                        <li class="text-sm truncate">
-                            <span class="font-semibold text-gray-900 dark:text-white">VGA</span>
-                            NVIDIA GeForce RTX 4050 6GB
-                        </li>
-                        <li class="text-sm truncate">
-                            <span class="font-semibold text-gray-900 dark:text-white">Pin</span>
-                            6 Cell 86WHrs
-                        </li>
-                        <li class="text-sm truncate">
-                            <span class="font-semibold text-gray-900 dark:text-white">Tình trạng</span>
-                            Mới 100%, Nhập khẩu
-                        </li>
-                    </ol>
-                    <div class="flex justify-between my-2 text-sm">
-                        <div class="text-red-700 font-bold">31.500.000 đ</div>
-                        <div class="font-bold text-gray-500 line-through">
-                            49.500.000 đ
-                        </div>
-                        <div class="text-red-700 font-bold">-36%</div>
-                    </div>
-                    <div class="flex">
-                        <img src="https://laptopkhanhtran.vn/css/icon/arrange-square.svg" alt="" class="mr-2" />
-                        <span class="text-sm">So sánh</span>
-                    </div>
-                </a>
-            </div>
-            <div class="bg-white rounded-lg p-4">
-                <a href="" class="">
-                    <img src="https://laptopkhanhtran.vn/pic/product/Dell_Gami_638219247169409966-w.250-q.80.png" alt="" />
-                    <div class="font-bold line-clamp-2 my-2">
-                        [Mới 100%] Dell Gaming G15 5530 (Core i7 13650HX, RAM 16GB, SSD
-                        1TB, NVIDIA GeForce RTX 4050 6GB, Màn 15.6’’ FHD)
-                    </div>
-                    <div class="flex my-2">
-                        <div class="text-center text-xs py-1 bg-[#f4f4f4] rounded-lg w-20 border--[#dcdcdc] border mr-3">
-                            16GB
-                        </div>
-                        <div class="text-center text-xs py-1 bg-[#f4f4f4] rounded-lg w-20 border--[#dcdcdc] border">
-                            1TB SSD
-                        </div>
-                    </div>
-                    <ol class="my-2 max-w-md space-y-1 text-gray-500 list-decimal list-inside dark:text-gray-400">
-                        <li class="text-sm truncate">
-                            <span class="font-semibold text-gray-900 dark:text-white">Màn hình</span>
-                            15.6" FHD (1920x1080) 165Hz, 3ms, sRGB-100%, ComfortViewPlus,
-                            NVIDIA G-SYNC+DDS Display
-                        </li>
-                        <li class="text-sm truncate">
-                            <span class="font-semibold text-gray-900 dark:text-white">CPU</span>
-                            Core i7 13650HX (14 cores, 20 threads, up to 4.90 GHz Turbo
-                            Boost Max, 24 MB Cache)
-                        </li>
-                        <li class="text-sm truncate">
-                            <span class="font-semibold text-gray-900 dark:text-white">VGA</span>
-                            NVIDIA GeForce RTX 4050 6GB
-                        </li>
-                        <li class="text-sm truncate">
-                            <span class="font-semibold text-gray-900 dark:text-white">Pin</span>
-                            6 Cell 86WHrs
-                        </li>
-                        <li class="text-sm truncate">
-                            <span class="font-semibold text-gray-900 dark:text-white">Tình trạng</span>
-                            Mới 100%, Nhập khẩu
-                        </li>
-                    </ol>
-                    <div class="flex justify-between my-2 text-sm">
-                        <div class="text-red-700 font-bold">31.500.000 đ</div>
-                        <div class="font-bold text-gray-500 line-through">
-                            49.500.000 đ
-                        </div>
-                        <div class="text-red-700 font-bold">-36%</div>
-                    </div>
-                    <div class="flex">
-                        <img src="https://laptopkhanhtran.vn/css/icon/arrange-square.svg" alt="" class="mr-2" />
-                        <span class="text-sm">So sánh</span>
-                    </div>
-                </a>
-            </div>
-            <div class="bg-white rounded-lg p-4">
-                <a href="" class="">
-                    <img src="https://laptopkhanhtran.vn/pic/product/Dell_Gami_638219247169409966-w.250-q.80.png" alt="" />
-                    <div class="font-bold line-clamp-2 my-2">
-                        [Mới 100%] Dell Gaming G15 5530 (Core i7 13650HX, RAM 16GB, SSD
-                        1TB, NVIDIA GeForce RTX 4050 6GB, Màn 15.6’’ FHD)
-                    </div>
-                    <div class="flex my-2">
-                        <div class="text-center text-xs py-1 bg-[#f4f4f4] rounded-lg w-20 border--[#dcdcdc] border mr-3">
-                            16GB
-                        </div>
-                        <div class="text-center text-xs py-1 bg-[#f4f4f4] rounded-lg w-20 border--[#dcdcdc] border">
-                            1TB SSD
-                        </div>
-                    </div>
-                    <ol class="my-2 max-w-md space-y-1 text-gray-500 list-decimal list-inside dark:text-gray-400">
-                        <li class="text-sm truncate">
-                            <span class="font-semibold text-gray-900 dark:text-white">Màn hình</span>
-                            15.6" FHD (1920x1080) 165Hz, 3ms, sRGB-100%, ComfortViewPlus,
-                            NVIDIA G-SYNC+DDS Display
-                        </li>
-                        <li class="text-sm truncate">
-                            <span class="font-semibold text-gray-900 dark:text-white">CPU</span>
-                            Core i7 13650HX (14 cores, 20 threads, up to 4.90 GHz Turbo
-                            Boost Max, 24 MB Cache)
-                        </li>
-                        <li class="text-sm truncate">
-                            <span class="font-semibold text-gray-900 dark:text-white">VGA</span>
-                            NVIDIA GeForce RTX 4050 6GB
-                        </li>
-                        <li class="text-sm truncate">
-                            <span class="font-semibold text-gray-900 dark:text-white">Pin</span>
-                            6 Cell 86WHrs
-                        </li>
-                        <li class="text-sm truncate">
-                            <span class="font-semibold text-gray-900 dark:text-white">Tình trạng</span>
-                            Mới 100%, Nhập khẩu
-                        </li>
-                    </ol>
-                    <div class="flex justify-between my-2 text-sm">
-                        <div class="text-red-700 font-bold">31.500.000 đ</div>
-                        <div class="font-bold text-gray-500 line-through">
-                            49.500.000 đ
-                        </div>
-                        <div class="text-red-700 font-bold">-36%</div>
-                    </div>
-                    <div class="flex">
-                        <img src="https://laptopkhanhtran.vn/css/icon/arrange-square.svg" alt="" class="mr-2" />
-                        <span class="text-sm">So sánh</span>
-                    </div>
-                </a>
-            </div>
-            <div class="bg-white rounded-lg p-4">
-                <a href="" class="">
-                    <img src="https://laptopkhanhtran.vn/pic/product/Dell_Gami_638219247169409966-w.250-q.80.png" alt="" />
-                    <div class="font-bold line-clamp-2 my-2">
-                        [Mới 100%] Dell Gaming G15 5530 (Core i7 13650HX, RAM 16GB, SSD
-                        1TB, NVIDIA GeForce RTX 4050 6GB, Màn 15.6’’ FHD)
-                    </div>
-                    <div class="flex my-2">
-                        <div class="text-center text-xs py-1 bg-[#f4f4f4] rounded-lg w-20 border--[#dcdcdc] border mr-3">
-                            16GB
-                        </div>
-                        <div class="text-center text-xs py-1 bg-[#f4f4f4] rounded-lg w-20 border--[#dcdcdc] border">
-                            1TB SSD
-                        </div>
-                    </div>
-                    <ol class="my-2 max-w-md space-y-1 text-gray-500 list-decimal list-inside dark:text-gray-400">
-                        <li class="text-sm truncate">
-                            <span class="font-semibold text-gray-900 dark:text-white">Màn hình</span>
-                            15.6" FHD (1920x1080) 165Hz, 3ms, sRGB-100%, ComfortViewPlus,
-                            NVIDIA G-SYNC+DDS Display
-                        </li>
-                        <li class="text-sm truncate">
-                            <span class="font-semibold text-gray-900 dark:text-white">CPU</span>
-                            Core i7 13650HX (14 cores, 20 threads, up to 4.90 GHz Turbo
-                            Boost Max, 24 MB Cache)
-                        </li>
-                        <li class="text-sm truncate">
-                            <span class="font-semibold text-gray-900 dark:text-white">VGA</span>
-                            NVIDIA GeForce RTX 4050 6GB
-                        </li>
-                        <li class="text-sm truncate">
-                            <span class="font-semibold text-gray-900 dark:text-white">Pin</span>
-                            6 Cell 86WHrs
-                        </li>
-                        <li class="text-sm truncate">
-                            <span class="font-semibold text-gray-900 dark:text-white">Tình trạng</span>
-                            Mới 100%, Nhập khẩu
-                        </li>
-                    </ol>
-                    <div class="flex justify-between my-2 text-sm">
-                        <div class="text-red-700 font-bold">31.500.000 đ</div>
-                        <div class="font-bold text-gray-500 line-through">
-                            49.500.000 đ
-                        </div>
-                        <div class="text-red-700 font-bold">-36%</div>
-                    </div>
-                    <div class="flex">
-                        <img src="https://laptopkhanhtran.vn/css/icon/arrange-square.svg" alt="" class="mr-2" />
-                        <span class="text-sm">So sánh</span>
-                    </div>
-                </a>
-            </div>
-            <div class="bg-white rounded-lg p-4">
-                <a href="" class="">
-                    <img src="https://laptopkhanhtran.vn/pic/product/Dell_Gami_638219247169409966-w.250-q.80.png" alt="" />
-                    <div class="font-bold line-clamp-2 my-2">
-                        [Mới 100%] Dell Gaming G15 5530 (Core i7 13650HX, RAM 16GB, SSD
-                        1TB, NVIDIA GeForce RTX 4050 6GB, Màn 15.6’’ FHD)
-                    </div>
-                    <div class="flex my-2">
-                        <div class="text-center text-xs py-1 bg-[#f4f4f4] rounded-lg w-20 border--[#dcdcdc] border mr-3">
-                            16GB
-                        </div>
-                        <div class="text-center text-xs py-1 bg-[#f4f4f4] rounded-lg w-20 border--[#dcdcdc] border">
-                            1TB SSD
-                        </div>
-                    </div>
-                    <ol class="my-2 max-w-md space-y-1 text-gray-500 list-decimal list-inside dark:text-gray-400">
-                        <li class="text-sm truncate">
-                            <span class="font-semibold text-gray-900 dark:text-white">Màn hình</span>
-                            15.6" FHD (1920x1080) 165Hz, 3ms, sRGB-100%, ComfortViewPlus,
-                            NVIDIA G-SYNC+DDS Display
-                        </li>
-                        <li class="text-sm truncate">
-                            <span class="font-semibold text-gray-900 dark:text-white">CPU</span>
-                            Core i7 13650HX (14 cores, 20 threads, up to 4.90 GHz Turbo
-                            Boost Max, 24 MB Cache)
-                        </li>
-                        <li class="text-sm truncate">
-                            <span class="font-semibold text-gray-900 dark:text-white">VGA</span>
-                            NVIDIA GeForce RTX 4050 6GB
-                        </li>
-                        <li class="text-sm truncate">
-                            <span class="font-semibold text-gray-900 dark:text-white">Pin</span>
-                            6 Cell 86WHrs
-                        </li>
-                        <li class="text-sm truncate">
-                            <span class="font-semibold text-gray-900 dark:text-white">Tình trạng</span>
-                            Mới 100%, Nhập khẩu
-                        </li>
-                    </ol>
-                    <div class="flex justify-between my-2 text-sm">
-                        <div class="text-red-700 font-bold">31.500.000 đ</div>
-                        <div class="font-bold text-gray-500 line-through">
-                            49.500.000 đ
-                        </div>
-                        <div class="text-red-700 font-bold">-36%</div>
-                    </div>
-                    <div class="flex">
-                        <img src="https://laptopkhanhtran.vn/css/icon/arrange-square.svg" alt="" class="mr-2" />
-                        <span class="text-sm">So sánh</span>
-                    </div>
-                </a>
-            </div>
-            <div class="bg-white rounded-lg p-4">
-                <a href="" class="">
-                    <img src="https://laptopkhanhtran.vn/pic/product/Dell_Gami_638219247169409966-w.250-q.80.png" alt="" />
-                    <div class="font-bold line-clamp-2 my-2">
-                        [Mới 100%] Dell Gaming G15 5530 (Core i7 13650HX, RAM 16GB, SSD
-                        1TB, NVIDIA GeForce RTX 4050 6GB, Màn 15.6’’ FHD)
-                    </div>
-                    <div class="flex my-2">
-                        <div class="text-center text-xs py-1 bg-[#f4f4f4] rounded-lg w-20 border--[#dcdcdc] border mr-3">
-                            16GB
-                        </div>
-                        <div class="text-center text-xs py-1 bg-[#f4f4f4] rounded-lg w-20 border--[#dcdcdc] border">
-                            1TB SSD
-                        </div>
-                    </div>
-                    <ol class="my-2 max-w-md space-y-1 text-gray-500 list-decimal list-inside dark:text-gray-400">
-                        <li class="text-sm truncate">
-                            <span class="font-semibold text-gray-900 dark:text-white">Màn hình</span>
-                            15.6" FHD (1920x1080) 165Hz, 3ms, sRGB-100%, ComfortViewPlus,
-                            NVIDIA G-SYNC+DDS Display
-                        </li>
-                        <li class="text-sm truncate">
-                            <span class="font-semibold text-gray-900 dark:text-white">CPU</span>
-                            Core i7 13650HX (14 cores, 20 threads, up to 4.90 GHz Turbo
-                            Boost Max, 24 MB Cache)
-                        </li>
-                        <li class="text-sm truncate">
-                            <span class="font-semibold text-gray-900 dark:text-white">VGA</span>
-                            NVIDIA GeForce RTX 4050 6GB
-                        </li>
-                        <li class="text-sm truncate">
-                            <span class="font-semibold text-gray-900 dark:text-white">Pin</span>
-                            6 Cell 86WHrs
-                        </li>
-                        <li class="text-sm truncate">
-                            <span class="font-semibold text-gray-900 dark:text-white">Tình trạng</span>
-                            Mới 100%, Nhập khẩu
-                        </li>
-                    </ol>
-                    <div class="flex justify-between my-2 text-sm">
-                        <div class="text-red-700 font-bold">31.500.000 đ</div>
-                        <div class="font-bold text-gray-500 line-through">
-                            49.500.000 đ
-                        </div>
-                        <div class="text-red-700 font-bold">-36%</div>
-                    </div>
-                    <div class="flex">
-                        <img src="https://laptopkhanhtran.vn/css/icon/arrange-square.svg" alt="" class="mr-2" />
-                        <span class="text-sm">So sánh</span>
-                    </div>
-                </a>
-            </div>
-            <div class="bg-white rounded-lg p-4">
-                <a href="" class="">
-                    <img src="https://laptopkhanhtran.vn/pic/product/Dell_Gami_638219247169409966-w.250-q.80.png" alt="" />
-                    <div class="font-bold line-clamp-2 my-2">
-                        [Mới 100%] Dell Gaming G15 5530 (Core i7 13650HX, RAM 16GB, SSD
-                        1TB, NVIDIA GeForce RTX 4050 6GB, Màn 15.6’’ FHD)
-                    </div>
-                    <div class="flex my-2">
-                        <div class="text-center text-xs py-1 bg-[#f4f4f4] rounded-lg w-20 border--[#dcdcdc] border mr-3">
-                            16GB
-                        </div>
-                        <div class="text-center text-xs py-1 bg-[#f4f4f4] rounded-lg w-20 border--[#dcdcdc] border">
-                            1TB SSD
-                        </div>
-                    </div>
-                    <ol class="my-2 max-w-md space-y-1 text-gray-500 list-decimal list-inside dark:text-gray-400">
-                        <li class="text-sm truncate">
-                            <span class="font-semibold text-gray-900 dark:text-white">Màn hình</span>
-                            15.6" FHD (1920x1080) 165Hz, 3ms, sRGB-100%, ComfortViewPlus,
-                            NVIDIA G-SYNC+DDS Display
-                        </li>
-                        <li class="text-sm truncate">
-                            <span class="font-semibold text-gray-900 dark:text-white">CPU</span>
-                            Core i7 13650HX (14 cores, 20 threads, up to 4.90 GHz Turbo
-                            Boost Max, 24 MB Cache)
-                        </li>
-                        <li class="text-sm truncate">
-                            <span class="font-semibold text-gray-900 dark:text-white">VGA</span>
-                            NVIDIA GeForce RTX 4050 6GB
-                        </li>
-                        <li class="text-sm truncate">
-                            <span class="font-semibold text-gray-900 dark:text-white">Pin</span>
-                            6 Cell 86WHrs
-                        </li>
-                        <li class="text-sm truncate">
-                            <span class="font-semibold text-gray-900 dark:text-white">Tình trạng</span>
-                            Mới 100%, Nhập khẩu
-                        </li>
-                    </ol>
-                    <div class="flex justify-between my-2 text-sm">
-                        <div class="text-red-700 font-bold">31.500.000 đ</div>
-                        <div class="font-bold text-gray-500 line-through">
-                            49.500.000 đ
-                        </div>
-                        <div class="text-red-700 font-bold">-36%</div>
-                    </div>
-                    <div class="flex">
-                        <img src="https://laptopkhanhtran.vn/css/icon/arrange-square.svg" alt="" class="mr-2" />
-                        <span class="text-sm">So sánh</span>
-                    </div>
-                </a>
-            </div>
-            <div class="bg-white rounded-lg p-4">
-                <a href="" class="">
-                    <img src="https://laptopkhanhtran.vn/pic/product/Dell_Gami_638219247169409966-w.250-q.80.png" alt="" />
-                    <div class="font-bold line-clamp-2 my-2">
-                        [Mới 100%] Dell Gaming G15 5530 (Core i7 13650HX, RAM 16GB, SSD
-                        1TB, NVIDIA GeForce RTX 4050 6GB, Màn 15.6’’ FHD)
-                    </div>
-                    <div class="flex my-2">
-                        <div class="text-center text-xs py-1 bg-[#f4f4f4] rounded-lg w-20 border--[#dcdcdc] border mr-3">
-                            16GB
-                        </div>
-                        <div class="text-center text-xs py-1 bg-[#f4f4f4] rounded-lg w-20 border--[#dcdcdc] border">
-                            1TB SSD
-                        </div>
-                    </div>
-                    <ol class="my-2 max-w-md space-y-1 text-gray-500 list-decimal list-inside dark:text-gray-400">
-                        <li class="text-sm truncate">
-                            <span class="font-semibold text-gray-900 dark:text-white">Màn hình</span>
-                            15.6" FHD (1920x1080) 165Hz, 3ms, sRGB-100%, ComfortViewPlus,
-                            NVIDIA G-SYNC+DDS Display
-                        </li>
-                        <li class="text-sm truncate">
-                            <span class="font-semibold text-gray-900 dark:text-white">CPU</span>
-                            Core i7 13650HX (14 cores, 20 threads, up to 4.90 GHz Turbo
-                            Boost Max, 24 MB Cache)
-                        </li>
-                        <li class="text-sm truncate">
-                            <span class="font-semibold text-gray-900 dark:text-white">VGA</span>
-                            NVIDIA GeForce RTX 4050 6GB
-                        </li>
-                        <li class="text-sm truncate">
-                            <span class="font-semibold text-gray-900 dark:text-white">Pin</span>
-                            6 Cell 86WHrs
-                        </li>
-                        <li class="text-sm truncate">
-                            <span class="font-semibold text-gray-900 dark:text-white">Tình trạng</span>
-                            Mới 100%, Nhập khẩu
-                        </li>
-                    </ol>
-                    <div class="flex justify-between my-2 text-sm">
-                        <div class="text-red-700 font-bold">31.500.000 đ</div>
-                        <div class="font-bold text-gray-500 line-through">
-                            49.500.000 đ
-                        </div>
-                        <div class="text-red-700 font-bold">-36%</div>
-                    </div>
-                    <div class="flex">
-                        <img src="https://laptopkhanhtran.vn/css/icon/arrange-square.svg" alt="" class="mr-2" />
-                        <span class="text-sm">So sánh</span>
-                    </div>
-                </a>
-            </div>
+            @endforeach
         </div>
     </div>
 
@@ -979,267 +368,64 @@
             LAPTOP DOANH NHÂN CAO CẤP
         </h2>
         <div class="grid grid-cols-5 gap-3 p-6">
-            <div class="bg-white rounded-lg p-4 hover:border hover:border-[#007745]">
-                <a href="" class="">
-                    <img src="https://laptopkhanhtran.vn/pic/product/Dell_Gami_638219247169409966-w.250-q.80.png" alt="" />
-                    <div class="font-bold line-clamp-2 my-2">
-                        [Mới 100%] Dell Gaming G15 5530 (Core i7 13650HX, RAM 16GB, SSD
-                        1TB, NVIDIA GeForce RTX 4050 6GB, Màn 15.6’’ FHD)
+            @foreach( $products as $product)
+            <div
+                class="bg-white rounded-lg p-4 hover:border hover:border-[#007745]"
+            >
+                <a href={{ route('client.detail',$product -> version_id) }} class="">
+                    <img
+                        src={{ Storage::url('admin/') . $product -> img_5 }}
+                        alt=""
+                        class="rounded-lg"
+                    />
+                    <div class="font-bold text-sm line-clamp-2 my-2">
+                        [Mới 100%] {{ $product -> prd_name }} ({{ $product -> version_name }})
                     </div>
                     <div class="flex my-2">
-                        <div class="text-center text-xs py-1 bg-[#f4f4f4] rounded-lg w-20 border--[#dcdcdc] border mr-3">
+                        <div
+                            class="text-center text-xs py-1 bg-[#f4f4f4] rounded-lg w-20 border--[#dcdcdc] border mr-3"
+                        >
                             16GB
                         </div>
-                        <div class="text-center text-xs py-1 bg-[#f4f4f4] rounded-lg w-20 border--[#dcdcdc] border">
+                        <div
+                            class="text-center text-xs py-1 bg-[#f4f4f4] rounded-lg w-20 border--[#dcdcdc] border"
+                        >
                             1TB SSD
                         </div>
                     </div>
-                    <ol class="my-2 max-w-md space-y-1 text-gray-500 list-decimal list-inside dark:text-gray-400">
-                        <li class="text-sm truncate">
-                            <span class="font-semibold text-gray-900 dark:text-white">Màn hình</span>
-                            15.6" FHD (1920x1080) 165Hz, 3ms, sRGB-100%, ComfortViewPlus,
-                            NVIDIA G-SYNC+DDS Display
-                        </li>
-                        <li class="text-sm truncate">
-                            <span class="font-semibold text-gray-900 dark:text-white">CPU</span>
-                            Core i7 13650HX (14 cores, 20 threads, up to 4.90 GHz Turbo
-                            Boost Max, 24 MB Cache)
-                        </li>
-                        <li class="text-sm truncate">
-                            <span class="font-semibold text-gray-900 dark:text-white">VGA</span>
-                            NVIDIA GeForce RTX 4050 6GB
-                        </li>
-                        <li class="text-sm truncate">
-                            <span class="font-semibold text-gray-900 dark:text-white">Pin</span>
-                            6 Cell 86WHrs
-                        </li>
-                        <li class="text-sm truncate">
-                            <span class="font-semibold text-gray-900 dark:text-white">Tình trạng</span>
-                            Mới 100%, Nhập khẩu
-                        </li>
-                    </ol>
-                    <div class="flex justify-between my-2 text-sm">
-                        <div class="text-red-700 font-bold">31.500.000 đ</div>
-                        <div class="font-bold text-gray-500 line-through">
-                            49.500.000 đ
-                        </div>
-                        <div class="text-red-700 font-bold">-36%</div>
-                    </div>
-                    <div class="flex">
-                        <img src="https://laptopkhanhtran.vn/css/icon/arrange-square.svg" alt="" class="mr-2" />
-                        <span class="text-sm">So sánh</span>
-                    </div>
-                </a>
-            </div>
-            <div class="bg-white rounded-lg p-4 hover:border hover:border-[#007745]">
-                <a href="" class="">
-                    <img src="https://laptopkhanhtran.vn/pic/product/Dell_Gami_638219247169409966-w.250-q.80.png" alt="" />
-                    <div class="font-bold line-clamp-2 my-2">
-                        [Mới 100%] Dell Gaming G15 5530 (Core i7 13650HX, RAM 16GB, SSD
-                        1TB, NVIDIA GeForce RTX 4050 6GB, Màn 15.6’’ FHD)
-                    </div>
-                    <div class="flex my-2">
-                        <div class="text-center text-xs py-1 bg-[#f4f4f4] rounded-lg w-20 border--[#dcdcdc] border mr-3">
-                            16GB
-                        </div>
-                        <div class="text-center text-xs py-1 bg-[#f4f4f4] rounded-lg w-20 border--[#dcdcdc] border">
-                            1TB SSD
-                        </div>
-                    </div>
-                    <ol class="my-2 max-w-md space-y-1 text-gray-500 list-decimal list-inside dark:text-gray-400">
-                        <li class="text-sm truncate">
-                            <span class="font-semibold text-gray-900 dark:text-white">Màn hình</span>
-                            15.6" FHD (1920x1080) 165Hz, 3ms, sRGB-100%, ComfortViewPlus,
-                            NVIDIA G-SYNC+DDS Display
-                        </li>
-                        <li class="text-sm truncate">
-                            <span class="font-semibold text-gray-900 dark:text-white">CPU</span>
-                            Core i7 13650HX (14 cores, 20 threads, up to 4.90 GHz Turbo
-                            Boost Max, 24 MB Cache)
-                        </li>
-                        <li class="text-sm truncate">
-                            <span class="font-semibold text-gray-900 dark:text-white">VGA</span>
-                            NVIDIA GeForce RTX 4050 6GB
-                        </li>
-                        <li class="text-sm truncate">
-                            <span class="font-semibold text-gray-900 dark:text-white">Pin</span>
-                            6 Cell 86WHrs
-                        </li>
-                        <li class="text-sm truncate">
-                            <span class="font-semibold text-gray-900 dark:text-white">Tình trạng</span>
-                            Mới 100%, Nhập khẩu
-                        </li>
-                    </ol>
-                    <div class="flex justify-between my-2 text-sm">
-                        <div class="text-red-700 font-bold">31.500.000 đ</div>
-                        <div class="font-bold text-gray-500 line-through">
-                            49.500.000 đ
-                        </div>
-                        <div class="text-red-700 font-bold">-36%</div>
-                    </div>
-                    <div class="flex">
-                        <img src="https://laptopkhanhtran.vn/css/icon/arrange-square.svg" alt="" class="mr-2" />
-                        <span class="text-sm">So sánh</span>
-                    </div>
-                </a>
-            </div>
-            <div class="bg-white rounded-lg p-4 hover:border hover:border-[#007745]">
-                <a href="" class="">
-                    <img src="https://laptopkhanhtran.vn/pic/product/Dell_Gami_638219247169409966-w.250-q.80.png" alt="" />
-                    <div class="font-bold line-clamp-2 my-2">
-                        [Mới 100%] Dell Gaming G15 5530 (Core i7 13650HX, RAM 16GB, SSD
-                        1TB, NVIDIA GeForce RTX 4050 6GB, Màn 15.6’’ FHD)
-                    </div>
-                    <div class="flex my-2">
-                        <div class="text-center text-xs py-1 bg-[#f4f4f4] rounded-lg w-20 border--[#dcdcdc] border mr-3">
-                            16GB
-                        </div>
-                        <div class="text-center text-xs py-1 bg-[#f4f4f4] rounded-lg w-20 border--[#dcdcdc] border">
-                            1TB SSD
-                        </div>
-                    </div>
-                    <ol class="my-2 max-w-md space-y-1 text-gray-500 list-decimal list-inside dark:text-gray-400">
-                        <li class="text-sm truncate">
-                            <span class="font-semibold text-gray-900 dark:text-white">Màn hình</span>
-                            15.6" FHD (1920x1080) 165Hz, 3ms, sRGB-100%, ComfortViewPlus,
-                            NVIDIA G-SYNC+DDS Display
-                        </li>
-                        <li class="text-sm truncate">
-                            <span class="font-semibold text-gray-900 dark:text-white">CPU</span>
-                            Core i7 13650HX (14 cores, 20 threads, up to 4.90 GHz Turbo
-                            Boost Max, 24 MB Cache)
-                        </li>
-                        <li class="text-sm truncate">
-                            <span class="font-semibold text-gray-900 dark:text-white">VGA</span>
-                            NVIDIA GeForce RTX 4050 6GB
-                        </li>
-                        <li class="text-sm truncate">
-                            <span class="font-semibold text-gray-900 dark:text-white">Pin</span>
-                            6 Cell 86WHrs
-                        </li>
-                        <li class="text-sm truncate">
-                            <span class="font-semibold text-gray-900 dark:text-white">Tình trạng</span>
-                            Mới 100%, Nhập khẩu
-                        </li>
-                    </ol>
-                    <div class="flex justify-between my-2 text-sm">
-                        <div class="text-red-700 font-bold">31.500.000 đ</div>
-                        <div class="font-bold text-gray-500 line-through">
-                            49.500.000 đ
-                        </div>
-                        <div class="text-red-700 font-bold">-36%</div>
-                    </div>
-                    <div class="flex">
-                        <img src="https://laptopkhanhtran.vn/css/icon/arrange-square.svg" alt="" class="mr-2" />
-                        <span class="text-sm">So sánh</span>
-                    </div>
-                </a>
-            </div>
-            <div class="bg-white rounded-lg p-4 hover:border hover:border-[#007745]">
-                <a href="" class="">
-                    <img src="https://laptopkhanhtran.vn/pic/product/Dell_Gami_638219247169409966-w.250-q.80.png" alt="" />
-                    <div class="font-bold line-clamp-2 my-2">
-                        [Mới 100%] Dell Gaming G15 5530 (Core i7 13650HX, RAM 16GB, SSD
-                        1TB, NVIDIA GeForce RTX 4050 6GB, Màn 15.6’’ FHD)
-                    </div>
-                    <div class="flex my-2">
-                        <div class="text-center text-xs py-1 bg-[#f4f4f4] rounded-lg w-20 border--[#dcdcdc] border mr-3">
-                            16GB
-                        </div>
-                        <div class="text-center text-xs py-1 bg-[#f4f4f4] rounded-lg w-20 border--[#dcdcdc] border">
-                            1TB SSD
-                        </div>
-                    </div>
-                    <ol class="my-2 max-w-md space-y-1 text-gray-500 list-decimal list-inside dark:text-gray-400">
-                        <li class="text-sm truncate">
-                            <span class="font-semibold text-gray-900 dark:text-white">Màn hình</span>
-                            15.6" FHD (1920x1080) 165Hz, 3ms, sRGB-100%, ComfortViewPlus,
-                            NVIDIA G-SYNC+DDS Display
-                        </li>
-                        <li class="text-sm truncate">
-                            <span class="font-semibold text-gray-900 dark:text-white">CPU</span>
-                            Core i7 13650HX (14 cores, 20 threads, up to 4.90 GHz Turbo
-                            Boost Max, 24 MB Cache)
-                        </li>
-                        <li class="text-sm truncate">
-                            <span class="font-semibold text-gray-900 dark:text-white">VGA</span>
-                            NVIDIA GeForce RTX 4050 6GB
-                        </li>
-                        <li class="text-sm truncate">
-                            <span class="font-semibold text-gray-900 dark:text-white">Pin</span>
-                            6 Cell 86WHrs
-                        </li>
-                        <li class="text-sm truncate">
-                            <span class="font-semibold text-gray-900 dark:text-white">Tình trạng</span>
-                            Mới 100%, Nhập khẩu
-                        </li>
-                    </ol>
-                    <div class="flex justify-between my-2 text-sm">
-                        <div class="text-red-700 font-bold">31.500.000 đ</div>
-                        <div class="font-bold text-gray-500 line-through">
-                            49.500.000 đ
-                        </div>
-                        <div class="text-red-700 font-bold">-36%</div>
-                    </div>
-                    <div class="flex">
-                        <img src="https://laptopkhanhtran.vn/css/icon/arrange-square.svg" alt="" class="mr-2" />
-                        <span class="text-sm">So sánh</span>
-                    </div>
-                </a>
-            </div>
-            <div class="bg-white rounded-lg p-4 hover:border hover:border-[#007745]">
-                <a href="" class="">
-                    <img src="https://laptopkhanhtran.vn/pic/product/Dell_Gami_638219247169409966-w.250-q.80.png" alt="" />
-                    <div class="font-bold line-clamp-2 my-2">
-                        [Mới 100%] Dell Gaming G15 5530 (Core i7 13650HX, RAM 16GB, SSD
-                        1TB, NVIDIA GeForce RTX 4050 6GB, Màn 15.6’’ FHD)
-                    </div>
-                    <div class="flex my-2">
-                        <div class="text-center text-xs py-1 bg-[#f4f4f4] rounded-lg w-20 border--[#dcdcdc] border mr-3">
-                            16GB
-                        </div>
-                        <div class="text-center text-xs py-1 bg-[#f4f4f4] rounded-lg w-20 border--[#dcdcdc] border">
-                            1TB SSD
-                        </div>
-                    </div>
-                    <ol class="my-2 max-w-md space-y-1 text-gray-500 list-decimal list-inside dark:text-gray-400">
-                        <li class="text-sm truncate">
-                            <span class="font-semibold text-gray-900 dark:text-white">Màn hình</span>
-                            15.6" FHD (1920x1080) 165Hz, 3ms, sRGB-100%, ComfortViewPlus,
-                            NVIDIA G-SYNC+DDS Display
-                        </li>
-                        <li class="text-sm truncate">
-                            <span class="font-semibold text-gray-900 dark:text-white">CPU</span>
-                            Core i7 13650HX (14 cores, 20 threads, up to 4.90 GHz Turbo
-                            Boost Max, 24 MB Cache)
-                        </li>
-                        <li class="text-sm truncate">
-                            <span class="font-semibold text-gray-900 dark:text-white">VGA</span>
-                            NVIDIA GeForce RTX 4050 6GB
-                        </li>
-                        <li class="text-sm truncate">
-                            <span class="font-semibold text-gray-900 dark:text-white">Pin</span>
-                            6 Cell 86WHrs
-                        </li>
-                        <li class="text-sm truncate">
-                            <span class="font-semibold text-gray-900 dark:text-white">Tình trạng</span>
-                            Mới 100%, Nhập khẩu
-                        </li>
-                    </ol>
-                    <div class="flex justify-between my-2 text-sm">
-                        <div class="text-red-700 font-bold">31.500.000 đ</div>
-                        <div class="font-bold text-gray-500 line-through">
-                            49.500.000 đ
-                        </div>
-                        <div class="text-red-700 font-bold">-36%</div>
-                    </div>
-                    <div class="flex">
-                        <img src="https://laptopkhanhtran.vn/css/icon/arrange-square.svg" alt="" class="mr-2" />
-                        <span class="text-sm">So sánh</span>
+                    <ol
+                        class="my-2 list-none max-w-md space-y-1 text-gray-500 list-decimal list-inside dark:text-gray-400"
+                    >
+                        @foreach($arr as $item)
+                            @php
+                                $item = explode(':', $item);
+                                $value = isset($item[1]) ? $item[1] : null;
+                            @endphp
+                            <li class="text-xs truncate">
+                                <span class="font-semibold text-gray-900 dark:text-white">{{ $item[0] }} </span>
+                                {{ $value }}
+                            </li>
+                        @endforeach
 
+                    </ol>
+                    <div class="flex justify-between my-2 text-sm text-sm">
+                        <div class="text-red-700 font-bold">{{ number_format($product -> current_price, 0, ',', '.') }} đ</div>
+                        <div class="font-bold text-gray-500 line-through">
+                            {{ number_format($product -> old_price, 0, ',', '.') }} đ
+                        </div>
+                        <div class="text-red-700 font-bold">-{{ floor((($product -> old_price - $product -> current_price) / ($product -> old_price)) * 100) }}%</div>
+                    </div>
+                    <div class="flex">
+                        <img
+                            src="https://laptopkhanhtran.vn/css/icon/arrange-square.svg"
+                            alt=""
+                            class="mr-2"
+                        />
+                        <span class="text-sm">So sánh</span>
                     </div>
                 </a>
             </div>
+            @endforeach
         </div>
     </div>
 

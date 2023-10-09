@@ -5,15 +5,30 @@ namespace App\Http\Controllers;
 use App\Models\HomeLayout;
 use App\Http\Requests\StoreHomeLayoutRequest;
 use App\Http\Requests\UpdateHomeLayoutRequest;
+use App\Models\Category;
+use App\Models\Product;
+use App\Models\Subcategory;
+use App\Models\Version;
 
 class HomeLayoutController extends Controller
 {
+    private $path = "client/";
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('client/home');
+        $objCategory = new HomeLayout();
+        $categories = $objCategory->getCategories();
+        $objSubcategory = new HomeLayout();
+        $subcategories = $objSubcategory->getSubcategories();
+        $objVersion = new HomeLayout();
+        $products = $objVersion->getLaptopProducts();
+        return view($this->path . 'home', [
+            'categories' => $categories,
+            'subcategories' => $subcategories,
+            'products' => $products
+        ]);
     }
 
     /**

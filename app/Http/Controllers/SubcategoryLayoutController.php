@@ -2,20 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\CategoryLayout;
-use App\Http\Requests\StoreCategoryLayoutRequest;
-use App\Http\Requests\UpdateCategoryLayoutRequest;
+use App\Models\SubcategoryLayout;
+use App\Http\Requests\StoreSubcategoryLayoutRequest;
+use App\Http\Requests\UpdateSubcategoryLayoutRequest;
 use Illuminate\Http\Request;
 
-class CategoryLayoutController extends Controller
+class SubcategoryLayoutController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index(Request $request)
     {
-        $cat_id = $request->id;
-        return view('client/category');
+        //
     }
 
     /**
@@ -29,7 +28,7 @@ class CategoryLayoutController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreCategoryLayoutRequest $request)
+    public function store(StoreSubcategoryLayoutRequest $request)
     {
         //
     }
@@ -37,7 +36,7 @@ class CategoryLayoutController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(CategoryLayout $categoryLayout)
+    public function show(SubcategoryLayout $subcategoryLayout)
     {
         //
     }
@@ -45,7 +44,7 @@ class CategoryLayoutController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(CategoryLayout $categoryLayout)
+    public function edit(SubcategoryLayout $subcategoryLayout)
     {
         //
     }
@@ -53,7 +52,7 @@ class CategoryLayoutController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateCategoryLayoutRequest $request, CategoryLayout $categoryLayout)
+    public function update(UpdateSubcategoryLayoutRequest $request, SubcategoryLayout $subcategoryLayout)
     {
         //
     }
@@ -61,7 +60,7 @@ class CategoryLayoutController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(CategoryLayout $categoryLayout)
+    public function destroy(SubcategoryLayout $subcategoryLayout)
     {
         //
     }

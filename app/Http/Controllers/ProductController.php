@@ -91,7 +91,7 @@ class ProductController extends Controller
             $value = $request->input("value$i");
             $data[] = "$name: $value";
         }
-        $dataString = implode(', ', $data); // Chuyển mảng thành chuỗi
+        $dataString = implode('; ', $data); // Chuyển mảng thành chuỗi
         $objVersion->version_details = $dataString;
         $objVersion->store();
 

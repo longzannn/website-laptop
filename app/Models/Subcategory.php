@@ -94,4 +94,5 @@ class Subcategory extends Model
                 ->delete();
         }
     }
+
 }
