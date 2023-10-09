@@ -14,7 +14,21 @@ class SubcategoryLayoutController extends Controller
      */
     public function index(Request $request)
     {
-        //
+        $objCategory = new SubcategoryLayout();
+        $categories = $objCategory->getCategories();
+        $objSubcategory = new SubcategoryLayout();
+        $subcategories = $objSubcategory->getSubcategories();
+        $sub_id = $request->id;
+        $subcategory = $objSubcategory->getSubcategoryName($sub_id);
+        $sub_name = $subcategory->sub_name;
+        $objProduct = new SubcategoryLayout();
+        $products = $objProduct->getProductsBySubcategory($sub_id);
+        return view('client/subcategory', [
+            'categories' => $categories,
+            'subcategories' => $subcategories,
+            'sub_name' => $sub_name,
+            'products' => $products
+        ]);
     }
 
     /**

@@ -9,13 +9,28 @@ use Illuminate\Http\Request;
 
 class CategoryLayoutController extends Controller
 {
+    private $path = 'client/';
     /**
      * Display a listing of the resource.
      */
     public function index(Request $request)
     {
+        $objCategory = new CategoryLayout();
+        $categories = $objCategory->getCategories();
+        $objSubcategory = new CategoryLayout();
+        $subcategories = $objSubcategory->getSubcategories();
         $cat_id = $request->id;
-        return view('client/category');
+        $category = $objCategory->getCategoryName($cat_id);
+        $cat_name = $category->cat_name;
+        $objProduct = new CategoryLayout();
+        $products = $objProduct->getProductsByCategory($cat_id);
+        return view($this->path . 'category', [
+            'categories' => $categories,
+            'subcategories' => $subcategories,
+            'products' => $products,
+            'cat_name' => $cat_name,
+            'cat_id' => $cat_id,
+        ]);
     }
 
     /**

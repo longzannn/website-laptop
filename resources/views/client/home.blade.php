@@ -17,7 +17,7 @@
     <!-- Header -->
     <nav class="sticky z-20 top-0 left-0 right-0 bg-[#242525] border-gray-200 dark:bg-gray-900">
         <div class="max-w-[1400px] mx-auto p-6 flex flex-wrap items-center justify-between">
-            <a href="#" class="basis-1/5 flex items-center">
+            <a href={{ route('client.home') }} class="basis-1/5 items-center">
                 <img src="https://laptopkhanhtran.vn/pic/banner/logo_6368_638173418442942155.png" class="h-10 mr-3" alt="Flowbite Logo" />
             </a>
             <div class="basis-2/5 flex">
@@ -393,6 +393,9 @@
                             1TB SSD
                         </div>
                     </div>
+                    @php
+                        $arr = explode(';', $product->version_details);
+                    @endphp
                     <ol
                         class="my-2 list-none max-w-md space-y-1 text-gray-500 list-decimal list-inside dark:text-gray-400"
                     >
