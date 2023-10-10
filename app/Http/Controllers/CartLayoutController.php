@@ -6,6 +6,7 @@ use App\Models\CartLayout;
 use App\Http\Requests\StoreCartLayoutRequest;
 use App\Http\Requests\UpdateCartLayoutRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 
@@ -27,27 +28,60 @@ class CartLayoutController extends Controller
     }
 
     public function addToCart(Request $request) {
-
         $version_id = $request->id;
         $quantity = $request->quantity;
         $objCart = new CartLayout();
         $product = $objCart->getProductByVersionId($version_id);
-        $cart = array();
-        $cart[$product -> version_id]['prd_name'] = $product -> prd_name;
-        $cart[$product -> version_id]['version_name'] = $product -> version_name;
-        $cart[$product -> version_id]['quantity'] = intval($quantity);
-        $cart[$product -> version_id]['current_price'] = $product -> current_price;
-        if($product -> cat_name == 'Linh kiện máy tính') {
-            $cart[$product -> version_id]['image'] = $product -> img_1;
+        if(Session::has('cart')) {
+            $cart = Session::get('cart');
         } else {
-            $cart[$product -> version_id]['image'] = $product -> img_5;
+            $cart = array();
         }
-        Session::put('cart[' . $product -> version_id .']', $cart);
+        if(array_key_exists($product -> version_id, $cart)) {
+            $cart[$product -> version_id]['quantity'] += intval($quantity);
+        } else {
+            if($product -> cat_name == 'Linh kiện máy tính') {
+                $cart = Arr::add($cart, $product -> version_id, [
+                    'prd_name' => $product -> prd_name,
+                    'version_name' => $product -> version_name,
+                    'quantity' => intval($quantity),
+                    'current_price' => $product -> current_price,
+                    'image' => $product -> img_1,
+                ]);
+            } else {
+                $cart = Arr::add($cart, $product -> version_id, [
+                    'prd_name' => $product -> prd_name,
+                    'version_name' => $product -> version_name,
+                    'quantity' => intval($quantity),
+                    'current_price' => $product -> current_price,
+                    'image' => $product -> img_5,
+                ]);
+            }
+        }
+        Session::put('cart', $cart);
+        return redirect() -> route('client.cart');
+    }
+
+    public function updateCart() {
+        $cart = Session::get('cart');
+        foreach($cart as $version_id => $product) {
+            $quantity = request() -> quantity[$version_id];
+            $cart[$version_id]['quantity'] = $quantity;
+        }
+        Session::put('cart', $cart);
         return redirect() -> route('client.cart');
     }
 
     public function deleteCart() {
-        Session::flush();
+        Session::forget('cart');
+        return redirect() -> route('client.cart');
+    }
+
+    public function deleteProductInCart() {
+        $version_id = request() -> id;
+        $cart = Session::get('cart');
+        unset($cart[$version_id]);
+        Session::put('cart', $cart);
         return redirect() -> route('client.cart');
     }
 

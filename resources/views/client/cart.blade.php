@@ -107,10 +107,13 @@
                 </li>
             </ol>
         </nav>
-        <h2 class="font-bold text-2xl my-5">Giỏ hàng</h2>
+        @if(Session::has('cart'))<h2 class="font-bold text-2xl my-5">Giỏ hàng</h2>@endif
         <div class="grid grid-cols-12 gap-8">
-            <div class="col-span-9">
-                <div class="relative shadow-md sm:rounded-lg">
+            <form method="POST"action={{ route('client.updateCart') }} @if(Session::has('cart')) class="col-span-9" @else class="col-span-12" @endif>
+                @csrf
+                @method('PUT')
+                <div class="relative shadow-lg sm:rounded-lg">
+                    @if(Session::has('cart'))
                     <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                         <thead font-bold class="text-xs text-gray-700 uppercase bg-[#f4f4f4] dark:bg-gray-700 dark:text-gray-400">
                             <tr>
@@ -133,35 +136,57 @@
                         @foreach(Session::get('cart') as $version_id => $product)
                             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                                 <td class="w-4 p-4 font-bold cursor-pointer text-center">
-                                    <a>x</a>
+                                    <a href={{ route('client.deleteProductInCart', $version_id) }}>x</a>
                                 </td>
                                 <td class="flex items-center px-6 py-4 font-medium text-gray-900 dark:text-white text-center">
-                                    <img class="w-14 h-14 border border-gray-300 rounded-lg" src="https://laptopkhanhtran.vn/pic/product/_638163084233109386.png" alt="" />
+                                    <img class="w-14 h-14 border border-gray-300 rounded-lg" src={{ Storage::url('admin/') . $product['image'] }} alt="" />
                                     <div class="font-semibold">
                                         [Mới 100%] {{ $product['prd_name'] }} ({{ $product['version_name'] }})
                                     </div>
                                 </td>
                                 <td class="px-6 py-4 text-center font-bold">{{ number_format($product['current_price'], 0, ',', '.') }} đ</td>
                                 <td class="px-6 py-4 text-center">
-                                    <input type="number" value={{ $product['quantity'] }} class="w-24 h-8 text-center outline-none border border-gray-300 rounded-lg" />
+                                    <input type="number" name="quantity[{{ $version_id }}]" value={{ $product['quantity'] }} class="w-24 h-8 text-center outline-none border border-gray-300 rounded-lg" />
                                 </td>
                                 <td class="px-6 py-4 text-center font-bold">{{ number_format($product['current_price'] * $product['quantity'], 0, ',', '.') }} đ</td>
                             </tr>
                         @endforeach
                         </tbody>
                     </table>
+                    @else
+                        <div class="flex justify-center items-center h-96">
+                            <div class="text-center">
+                                <h3 class="font-semibold text-xl my-5">Giỏ hàng trống</h3>
+                                <a href={{ route('client.home') }} class="underline text-sm font-semibold">Tiếp tục mua hàng</a>
+                            </div>
+                        </div>
+                    @endif
                 </div>
+                @if(Session::has('cart'))
                 <div class="mt-5 text-right">
-                    <a href="" class="underline text-sm font-semibold">Tiếp tục mua hàng</a>
-                    <a href={{ route('client.deleteCart') }} class="underline text-sm font-semibold">Xóa toàn bộ sản phẩm</a>
+                    <a href={{ route('client.deleteCart') }} class="underline text-sm font-semibold mr-4">Xóa toàn bộ sản phẩm</a>
+                    <a href={{ route('client.home') }} class="underline text-sm font-semibold">Tiếp tục mua hàng</a>
                 </div>
-            </div>
-            <div class="col-span-3">
+                    <button type="submit" class="bg-yellow-400 px-3 py-2 text-white rounded-lg">Cập nhật giỏ hàng</button>
+                @endif
+            </form>
+            @if(Session::has('cart'))
+                @php
+                    $totalPrice = 0;
+                @endphp
+                @foreach(Session::get('cart') as $version_id => $product)
+                    @php
+                        $totalPrice += $product['current_price'] * $product['quantity'];
+                    @endphp
+                @endforeach
+                <div class="col-span-3">
                 <div class="bg-[#f4f4f4] rounded-lg p-6">
                     <h3 class="font-semibold text-xl mb-10">Thông tin đơn hàng</h3>
                     <div class="flex justify-between items-center mb-6">
                         <span class="text-sm font-semibold">Tổng thanh toán:</span>
-                        <span class="text-xl font-semibold text-[#d62454]">15.490.000 đ</span>
+                        <span class="text-xl font-semibold text-[#d62454]">
+                            {{ number_format($totalPrice, 0, ',', '.') }} đ
+                        </span>
                     </div>
                     <div class="grid grid-cols-1 gap-3 mt-5">
                         <button class="bg-[#e00] p-1 rounded-lg">
@@ -195,6 +220,7 @@
                     </div>
                 </div>
             </div>
+            @endif
         </div>
     </div>
 

@@ -64,5 +64,7 @@ Route::prefix('client/')->group(function () {
     Route::get('subcategory/{id}', [\App\Http\Controllers\SubcategoryLayoutController::class, 'index'])->name('client.subcategory');
     Route::get('cart', [\App\Http\Controllers\CartLayoutController::class, 'index'])->name('client.cart');
     Route::put('add-to-cart/{id}', [\App\Http\Controllers\CartLayoutController::class, 'addToCart'])->name('client.addToCart');
+    Route::put('update-cart', [\App\Http\Controllers\CartLayoutController::class, 'updateCart'])->name('client.updateCart');
     Route::get('delete-cart', [\App\Http\Controllers\CartLayoutController::class, 'deleteCart'])->name('client.deleteCart');
+    Route::get('delete-product-in-cart/{id}', [\App\Http\Controllers\CartLayoutController::class, 'deleteProductInCart'])->name('client.deleteProductInCart');
 });
