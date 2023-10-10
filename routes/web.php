@@ -59,8 +59,10 @@ Route::prefix('admin/')->group(function () {
 
 Route::prefix('client/')->group(function () {
     Route::get('home', [\App\Http\Controllers\HomeLayoutController::class, 'index'])->name('client.home');
-    Route::get('detail', [\App\Http\Controllers\DetailLayoutController::class, 'index'])->name('client.detail');
+    Route::get('detail/{id}', [\App\Http\Controllers\DetailLayoutController::class, 'index'])->name('client.detail');
     Route::get('category/{id}', [\App\Http\Controllers\CategoryLayoutController::class, 'index'])->name('client.category');
     Route::get('subcategory/{id}', [\App\Http\Controllers\SubcategoryLayoutController::class, 'index'])->name('client.subcategory');
     Route::get('cart', [\App\Http\Controllers\CartLayoutController::class, 'index'])->name('client.cart');
+    Route::put('add-to-cart/{id}', [\App\Http\Controllers\CartLayoutController::class, 'addToCart'])->name('client.addToCart');
+    Route::get('delete-cart', [\App\Http\Controllers\CartLayoutController::class, 'deleteCart'])->name('client.deleteCart');
 });

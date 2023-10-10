@@ -339,7 +339,6 @@
                                 {{ $value }}
                             </li>
                         @endforeach
-
                     </ol>
                     <div class="flex justify-between my-2 text-sm text-sm">
                         <div class="text-red-700 font-bold">{{ number_format($product -> current_price, 0, ',', '.') }} đ</div>

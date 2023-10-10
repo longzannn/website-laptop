@@ -15,7 +15,7 @@
     <!-- Header -->
     <nav class="sticky z-20 top-0 left-0 right-0 bg-[#242525] border-gray-200 dark:bg-gray-900">
         <div class="max-w-[1400px] mx-auto p-6 flex flex-wrap items-center justify-between">
-            <a href="#" class="basis-1/5 flex items-center">
+            <a href={{ route('client.home') }} class="basis-1/5 flex items-center">
                 <img src="https://laptopkhanhtran.vn/pic/banner/logo_6368_638173418442942155.png" class="h-10 mr-3" alt="Flowbite Logo" />
             </a>
             <div class="basis-2/5 flex">
@@ -64,235 +64,25 @@
 
     <!-- Menu -->
     <div class="sticky z-20 top-[88px] left-0 right-0 flex bg-[#2e3030] h-14">
-        <ul class="flex w-full items-center justify-between px-28">
-            <li class="relative flex items-center text-white opacity-60 hover:opacity-100 h-full">
-                <a class="text-sm" href="">LAPTOP DELL</a><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-3 h-3 ml-1">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                </svg>
-                <div class="hidden absolute top-[100%] left-0 drop-shadow-xl bg-white w-max rounded-lg">
-                    <ul class="">
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Dell XPS</a>
-                        </li>
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Dell Latitude</a>
-                        </li>
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Dell Vostro</a>
-                        </li>
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Dell Inspirion</a>
-                        </li>
-                    </ul>
-                </div>
-            </li>
-            <li class="relative flex items-center text-white opacity-60 hover:opacity-100 h-full">
-                <a class="text-sm" href="">LENOVO THINKPAD</a><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-3 h-3 ml-1">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                </svg>
-                <div class="hidden absolute top-[100%] left-0 drop-shadow-xl bg-white w-max rounded-lg">
-                    <ul class="">
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Thinkpad X1 series</a>
-                        </li>
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Thinkpad X series</a>
-                        </li>
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Thinkpad E series</a>
-                        </li>
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Thinkpad T series</a>
-                        </li>
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Thinkpad Workstation P series</a>
-                        </li>
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Thinkpad Thinkbook series</a>
-                        </li>
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Thinkpad Yoga</a>
-                        </li>
-                    </ul>
-                </div>
-            </li>
-            <li class="relative flex items-center text-white opacity-60 hover:opacity-100 h-full">
-                <a class="text-sm" href="">LAPTOP HP</a><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-3 h-3 ml-1">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                </svg>
-                <div class="hidden absolute top-[100%] left-0 drop-shadow-xl bg-white w-max rounded-lg">
-                    <ul class="">
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">HP Elitebook</a>
-                        </li>
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">HP Envy</a>
-                        </li>
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">HP Probook</a>
-                        </li>
-                    </ul>
-                </div>
-            </li>
-            <li class="relative flex items-center text-white opacity-60 hover:opacity-100 h-full">
-                <a class="text-sm" href="">LAPTOP ASUS</a><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-3 h-3 ml-1">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                </svg>
-                <div class="hidden absolute top-[100%] left-0 drop-shadow-xl bg-white w-max rounded-lg">
-                    <ul class="">
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Dell XPS</a>
-                        </li>
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Dell Latitude</a>
-                        </li>
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Dell Vostro</a>
-                        </li>
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Dell Inspirion</a>
-                        </li>
-                    </ul>
-                </div>
-            </li>
-            <li class="relative flex items-center text-white opacity-60 hover:opacity-100 h-full">
-                <a class="text-sm" href="">LAPTOP SAMSUNG</a><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-3 h-3 ml-1">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                </svg>
-                <div class="hidden absolute top-[100%] left-0 drop-shadow-xl bg-white w-max rounded-lg">
-                    <ul class="">
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Dell XPS</a>
-                        </li>
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Dell Latitude</a>
-                        </li>
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Dell Vostro</a>
-                        </li>
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Dell Inspirion</a>
-                        </li>
-                    </ul>
-                </div>
-            </li>
-            <li class="relative flex items-center text-white opacity-60 hover:opacity-100 h-full">
-                <a class="text-sm" href="">Laptop LG</a><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-3 h-3 ml-1">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                </svg>
-                <div class="hidden absolute top-[100%] left-0 drop-shadow-xl bg-white w-max rounded-lg">
-                    <ul class="">
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Dell XPS</a>
-                        </li>
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Dell Latitude</a>
-                        </li>
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Dell Vostro</a>
-                        </li>
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Dell Inspirion</a>
-                        </li>
-                    </ul>
-                </div>
-            </li>
-            <li class="relative flex items-center text-white opacity-60 hover:opacity-100 h-full">
-                <a class="text-sm" href="">SURFACE</a><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-3 h-3 ml-1">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                </svg>
-                <div class="hidden absolute top-[100%] left-0 drop-shadow-xl bg-white w-max rounded-lg">
-                    <ul class="">
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Surface Pro</a>
-                        </li>
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Surface Laptop</a>
-                        </li>
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Surface Book</a>
-                        </li>
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Surface Go</a>
-                        </li>
-                    </ul>
-                </div>
-            </li>
-            <li class="relative flex items-center text-white opacity-60 hover:opacity-100 h-full">
-                <a class="text-sm" href="">LAPTOP ĐỒ HỌA</a><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-3 h-3 ml-1">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                </svg>
-                <div class="hidden absolute top-[100%] left-0 drop-shadow-xl bg-white w-max rounded-lg">
-                    <ul class="">
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Laptop Dell Precision</a>
-                        </li>
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Laptop Lenovo Thinkpad</a>
-                        </li>
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Laptop HP</a>
-                        </li>
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Dell Inspirion</a>
-                        </li>
-                    </ul>
-                </div>
-            </li>
-            <li class="relative flex items-center text-white opacity-60 hover:opacity-100 h-full">
-                <a class="text-sm" href="">LAPTOP GAMING</a><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-3 h-3 ml-1">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                </svg>
-                <div class="hidden absolute top-[100%] left-0 drop-shadow-xl bg-white w-max rounded-lg">
-                    <ul class="">
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Laptop Dell Gaming</a>
-                        </li>
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Laptop Asus Gaming</a>
-                        </li>
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Laptop Acer Gaming</a>
-                        </li>
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Laptop MSI Gaming</a>
-                        </li>
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Laptop HP Gaming</a>
-                        </li>
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Laptop Lenovo Gaming</a>
-                        </li>
-                    </ul>
-                </div>
-            </li>
-            <li class="relative flex items-center text-white opacity-60 hover:opacity-100 h-full">
-                <a class="text-sm" href="">LINH KIỆN MÁY TÍNH</a><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-3 h-3 ml-1">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                </svg>
-                <div class="hidden absolute top-[100%] left-0 drop-shadow-xl bg-white w-max rounded-lg">
-                    <ul class="">
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Màn Hình Laptop</a>
-                        </li>
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">RAM Laptop</a>
-                        </li>
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Ổ Cứng Laptop</a>
-                        </li>
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Bàn Phím Laptop</a>
-                        </li>
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Sạc Laptop</a>
-                        </li>
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Pin Laptop</a>
-                        </li>
-                    </ul>
-                </div>
-            </li>
+        <ul class="flex w-full items-center justify-between px-32">
+            @foreach($categories as $category)
+                <li class="relative flex items-center text-white opacity-60 hover:opacity-100 h-full">
+                    <a class="text-xs uppercase font-semibold" href={{ route('client.category', $category -> cat_id) }}>{{ $category -> cat_name }}</a><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-3 h-3 ml-1">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                    </svg>
+                    <div class="hidden absolute top-[100%] left-0 drop-shadow-xl bg-white w-max rounded-lg">
+                        <ul class="">
+                            @foreach($subcategories as $subcategory)
+                                @if( $subcategory -> cat_id == $category -> cat_id)
+                                    <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
+                                        <a href={{ route('client.subcategory', $subcategory -> sub_id) }}>{{ $subcategory -> sub_name }}</a>
+                                    </li>
+                                @endif
+                            @endforeach
+                        </ul>
+                    </div>
+                </li>
+            @endforeach
         </ul>
     </div>
 
@@ -300,7 +90,7 @@
         <nav class="flex" aria-label="Breadcrumb">
             <ol class="inline-flex items-center space-x-1 md:space-x-3">
                 <li class="inline-flex items-center opacity-60">
-                    <a href="#" class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-blue-600 dark:text-gray-400 dark:hover:text-white">
+                    <a href={{ route('client.home') }} class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-blue-600 dark:text-gray-400 dark:hover:text-white">
                         <svg class="w-3 h-3 mr-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
                             <path d="m19.707 9.293-2-2-7-7a1 1 0 0 0-1.414 0l-7 7-2 2a1 1 0 0 0 1.414 1.414L2 10.414V18a2 2 0 0 0 2 2h3a1 1 0 0 0 1-1v-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v4a1 1 0 0 0 1 1h3a2 2 0 0 0 2-2v-7.586l.293.293a1 1 0 0 0 1.414-1.414Z" />
                         </svg>
@@ -312,16 +102,7 @@
                         <svg class="w-3 h-3 text-gray-400 mx-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4" />
                         </svg>
-                        <a href="#" class="ml-1 text-sm font-medium text-gray-700 hover:text-blue-600 md:ml-2 dark:text-gray-400 dark:hover:text-white">Sản
-                            phẩm</a>
-                    </div>
-                </li>
-                <li aria-current="page opacity-60">
-                    <div class="flex items-center">
-                        <svg class="w-3 h-3 text-gray-400 mx-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4" />
-                        </svg>
-                        <span class="ml-1 text-sm text-gray-500 md:ml-2 dark:text-gray-400">Laptop Gaming</span>
+                        <a href="#" class="ml-1 text-sm font-medium text-gray-700 hover:text-blue-600 md:ml-2 dark:text-gray-400 dark:hover:text-white">Giỏ hàng</a>
                     </div>
                 </li>
             </ol>
@@ -349,6 +130,7 @@
                             </tr>
                         </thead>
                         <tbody>
+                        @foreach(Session::get('cart') as $version_id => $product)
                             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                                 <td class="w-4 p-4 font-bold cursor-pointer text-center">
                                     <a>x</a>
@@ -356,21 +138,22 @@
                                 <td class="flex items-center px-6 py-4 font-medium text-gray-900 dark:text-white text-center">
                                     <img class="w-14 h-14 border border-gray-300 rounded-lg" src="https://laptopkhanhtran.vn/pic/product/_638163084233109386.png" alt="" />
                                     <div class="font-semibold">
-                                        [Mới 100%] Dell Vostro 5625 (AMD Ryzen 5 5625U, RAM 8GB,
-                                        SSD 512GB, AMD Radeon Graphics, Màn 16″ FHD+)
+                                        [Mới 100%] {{ $product['prd_name'] }} ({{ $product['version_name'] }})
                                     </div>
                                 </td>
-                                <td class="px-6 py-4 text-center font-bold">15.490.000 đ</td>
+                                <td class="px-6 py-4 text-center font-bold">{{ number_format($product['current_price'], 0, ',', '.') }} đ</td>
                                 <td class="px-6 py-4 text-center">
-                                    <input type="number" value="1" class="w-24 h-8 text-center outline-none border border-gray-300 rounded-lg" />
+                                    <input type="number" value={{ $product['quantity'] }} class="w-24 h-8 text-center outline-none border border-gray-300 rounded-lg" />
                                 </td>
-                                <td class="px-6 py-4 text-center font-bold">15.490.000 đ</td>
+                                <td class="px-6 py-4 text-center font-bold">{{ number_format($product['current_price'] * $product['quantity'], 0, ',', '.') }} đ</td>
                             </tr>
+                        @endforeach
                         </tbody>
                     </table>
                 </div>
                 <div class="mt-5 text-right">
                     <a href="" class="underline text-sm font-semibold">Tiếp tục mua hàng</a>
+                    <a href={{ route('client.deleteCart') }} class="underline text-sm font-semibold">Xóa toàn bộ sản phẩm</a>
                 </div>
             </div>
             <div class="col-span-3">

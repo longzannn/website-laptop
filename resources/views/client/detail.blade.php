@@ -15,7 +15,7 @@
     <!-- Header -->
     <nav class="sticky z-20 top-0 left-0 right-0 bg-[#242525] border-gray-200 dark:bg-gray-900">
         <div class="max-w-[1400px] mx-auto p-6 flex flex-wrap items-center justify-between">
-            <a href="#" class="basis-1/5 flex items-center">
+            <a href={{ route('client.home') }} class="basis-1/5 flex items-center">
                 <img src="https://laptopkhanhtran.vn/pic/banner/logo_6368_638173418442942155.png" class="h-10 mr-3" alt="Flowbite Logo" />
             </a>
             <div class="basis-2/5 flex">
@@ -65,238 +65,29 @@
     <!-- Menu -->
     <div class="sticky z-20 top-[88px] left-0 right-0 flex bg-[#2e3030] h-14">
         <ul class="flex w-full items-center justify-between px-32">
-            <li class="relative flex items-center text-white opacity-60 hover:opacity-100 h-full">
-                <a class="text-sm" href="">LAPTOP DELL</a><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-3 h-3 ml-1">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                </svg>
-                <div class="hidden absolute top-[100%] left-0 drop-shadow-xl bg-white w-max rounded-lg">
-                    <ul class="">
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Dell XPS</a>
-                        </li>
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Dell Latitude</a>
-                        </li>
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Dell Vostro</a>
-                        </li>
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Dell Inspirion</a>
-                        </li>
-                    </ul>
-                </div>
-            </li>
-            <li class="relative flex items-center text-white opacity-60 hover:opacity-100 h-full">
-                <a class="text-sm" href="">LENOVO THINKPAD</a><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-3 h-3 ml-1">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                </svg>
-                <div class="hidden absolute top-[100%] left-0 drop-shadow-xl bg-white w-max rounded-lg">
-                    <ul class="">
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Thinkpad X1 series</a>
-                        </li>
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Thinkpad X series</a>
-                        </li>
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Thinkpad E series</a>
-                        </li>
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Thinkpad T series</a>
-                        </li>
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Thinkpad Workstation P series</a>
-                        </li>
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Thinkpad Thinkbook series</a>
-                        </li>
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Thinkpad Yoga</a>
-                        </li>
-                    </ul>
-                </div>
-            </li>
-            <li class="relative flex items-center text-white opacity-60 hover:opacity-100 h-full">
-                <a class="text-sm" href="">LAPTOP HP</a><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-3 h-3 ml-1">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                </svg>
-                <div class="hidden absolute top-[100%] left-0 drop-shadow-xl bg-white w-max rounded-lg">
-                    <ul class="">
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">HP Elitebook</a>
-                        </li>
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">HP Envy</a>
-                        </li>
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">HP Probook</a>
-                        </li>
-                    </ul>
-                </div>
-            </li>
-            <li class="relative flex items-center text-white opacity-60 hover:opacity-100 h-full">
-                <a class="text-sm" href="">LAPTOP ASUS</a><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-3 h-3 ml-1">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                </svg>
-                <div class="hidden absolute top-[100%] left-0 drop-shadow-xl bg-white w-max rounded-lg">
-                    <ul class="">
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Dell XPS</a>
-                        </li>
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Dell Latitude</a>
-                        </li>
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Dell Vostro</a>
-                        </li>
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Dell Inspirion</a>
-                        </li>
-                    </ul>
-                </div>
-            </li>
-            <li class="relative flex items-center text-white opacity-60 hover:opacity-100 h-full">
-                <a class="text-sm" href="">LAPTOP SAMSUNG</a><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-3 h-3 ml-1">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                </svg>
-                <div class="hidden absolute top-[100%] left-0 drop-shadow-xl bg-white w-max rounded-lg">
-                    <ul class="">
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Dell XPS</a>
-                        </li>
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Dell Latitude</a>
-                        </li>
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Dell Vostro</a>
-                        </li>
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Dell Inspirion</a>
-                        </li>
-                    </ul>
-                </div>
-            </li>
-            <li class="relative flex items-center text-white opacity-60 hover:opacity-100 h-full">
-                <a class="text-sm" href="">Laptop LG</a><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-3 h-3 ml-1">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                </svg>
-                <div class="hidden absolute top-[100%] left-0 drop-shadow-xl bg-white w-max rounded-lg">
-                    <ul class="">
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Dell XPS</a>
-                        </li>
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Dell Latitude</a>
-                        </li>
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Dell Vostro</a>
-                        </li>
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Dell Inspirion</a>
-                        </li>
-                    </ul>
-                </div>
-            </li>
-            <li class="relative flex items-center text-white opacity-60 hover:opacity-100 h-full">
-                <a class="text-sm" href="">SURFACE</a><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-3 h-3 ml-1">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                </svg>
-                <div class="hidden absolute top-[100%] left-0 drop-shadow-xl bg-white w-max rounded-lg">
-                    <ul class="">
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Surface Pro</a>
-                        </li>
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Surface Laptop</a>
-                        </li>
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Surface Book</a>
-                        </li>
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Surface Go</a>
-                        </li>
-                    </ul>
-                </div>
-            </li>
-            <li class="relative flex items-center text-white opacity-60 hover:opacity-100 h-full">
-                <a class="text-sm" href="">LAPTOP ĐỒ HỌA</a><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-3 h-3 ml-1">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                </svg>
-                <div class="hidden absolute top-[100%] left-0 drop-shadow-xl bg-white w-max rounded-lg">
-                    <ul class="">
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Laptop Dell Precision</a>
-                        </li>
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Laptop Lenovo Thinkpad</a>
-                        </li>
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Laptop HP</a>
-                        </li>
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Dell Inspirion</a>
-                        </li>
-                    </ul>
-                </div>
-            </li>
-            <li class="relative flex items-center text-white opacity-60 hover:opacity-100 h-full">
-                <a class="text-sm" href="">LAPTOP GAMING</a><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-3 h-3 ml-1">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                </svg>
-                <div class="hidden absolute top-[100%] left-0 drop-shadow-xl bg-white w-max rounded-lg">
-                    <ul class="">
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Laptop Dell Gaming</a>
-                        </li>
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Laptop Asus Gaming</a>
-                        </li>
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Laptop Acer Gaming</a>
-                        </li>
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Laptop MSI Gaming</a>
-                        </li>
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Laptop HP Gaming</a>
-                        </li>
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Laptop Lenovo Gaming</a>
-                        </li>
-                    </ul>
-                </div>
-            </li>
-            <li class="relative flex items-center text-white opacity-60 hover:opacity-100 h-full">
-                <a class="text-sm" href="">LINH KIỆN MÁY TÍNH</a><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-3 h-3 ml-1">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                </svg>
-                <div class="hidden absolute top-[100%] left-0 drop-shadow-xl bg-white w-max rounded-lg">
-                    <ul class="">
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Màn Hình Laptop</a>
-                        </li>
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">RAM Laptop</a>
-                        </li>
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Ổ Cứng Laptop</a>
-                        </li>
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Bàn Phím Laptop</a>
-                        </li>
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Sạc Laptop</a>
-                        </li>
-                        <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                            <a href="">Pin Laptop</a>
-                        </li>
-                    </ul>
-                </div>
-            </li>
+            @foreach($categories as $category)
+                <li class="relative flex items-center text-white opacity-60 hover:opacity-100 h-full">
+                    <a class="text-xs uppercase font-semibold" href={{ route('client.category', $category -> cat_id) }}>{{ $category -> cat_name }}</a><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-3 h-3 ml-1">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                    </svg>
+                    <div class="hidden absolute top-[100%] left-0 drop-shadow-xl bg-white w-max rounded-lg">
+                        <ul class="">
+                            @foreach($subcategories as $subcategory)
+                                @if( $subcategory -> cat_id == $category -> cat_id)
+                                    <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
+                                        <a href={{ route('client.subcategory', $subcategory -> sub_id) }}>{{ $subcategory -> sub_name }}</a>
+                                    </li>
+                                @endif
+                            @endforeach
+                        </ul>
+                    </div>
+                </li>
+            @endforeach
         </ul>
     </div>
 
     <div class="max-w-[1400px] mx-auto mt-5 mb-20 p-6">
+        <!-- Breadcrumb -->
         <nav class="flex" aria-label="Breadcrumb">
             <ol class="inline-flex items-center space-x-1 md:space-x-3">
                 <li class="inline-flex items-center opacity-60">
@@ -321,11 +112,12 @@
                         <svg class="w-3 h-3 text-gray-400 mx-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4" />
                         </svg>
-                        <span class="ml-1 text-sm text-gray-500 md:ml-2 dark:text-gray-400">Laptop Gaming</span>
+                        <span class="ml-1 text-sm text-gray-500 md:ml-2 dark:text-gray-400">{{ $product -> cat_name }}</span>
                     </div>
                 </li>
             </ol>
         </nav>
+        <!-- Product -->
         <div class="grid grid-cols-12 gap-8 mt-10">
             <div class="col-span-6">
                 <div id="controls-carousel" class="relative z-0 w-full" data-carousel="static">
@@ -333,23 +125,23 @@
                     <div class="relative z-0 h-[30rem] overflow-hidden rounded-lg">
                         <!-- Item 1 -->
                         <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                            <img src="https://laptopkhanhtran.vn/pic/product/thinkpad__637921228653607151_HasThumb.jpg" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..." />
+                            <img src={{ Storage::url('admin/') . $product -> img_5 }} class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..." />
                         </div>
                         <!-- Item 2 -->
                         <div class="hidden duration-700 ease-in-out" data-carousel-item="active">
-                            <img src="https://laptopkhanhtran.vn/pic/product/thinkpad__637921228238421148_HasThumb.jpg" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..." />
+                            <img src={{ Storage::url('admin/') . $product -> img_4 }} class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..." />
                         </div>
                         <!-- Item 3 -->
                         <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                            <img src="https://laptopkhanhtran.vn/pic/product/thinkpad__637921228293749751_HasThumb.jpg" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..." />
+                            <img src={{ Storage::url('admin/') . $product -> img_3 }} class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..." />
                         </div>
                         <!-- Item 4 -->
                         <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                            <img src="https://laptopkhanhtran.vn/pic/product/thinkpad__637921228335963765_HasThumb.jpg" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..." />
+                            <img src={{ Storage::url('admin/') . $product -> img_2 }} class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..." />
                         </div>
                         <!-- Item 5 -->
                         <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                            <img src="https://laptopkhanhtran.vn/pic/product/thinkpad__637921228495334352_HasThumb.jpg" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..." />
+                            <img src={{ Storage::url('admin/') . $product -> img_1 }} class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..." />
                         </div>
                     </div>
                     <!-- Slider controls -->
@@ -430,45 +222,29 @@
                 </div>
             </div>
             <div class="col-span-6">
-                <h2 class="font-bold text-3xl mb-5">
-                    [ Mới 100% ] ThinkPad X1 Carbon Gen 10 ( Core i5-1240P, RAM 16GB,
-                    SSD 512GB, Intel Iris Xe Graphics, Màn 14'' 2.2K, LTE 4G )
+                <h2 class="font-bold text-2xl mb-5">
+                    [ Mới 100% ]  {{ $product -> prd_name }} ({{ $product -> version_name }})
                 </h2>
                 <div class="flex items-end my-2 gap-3">
-                    <div class="text-red-500 font-bold text-3xl">33.500.000 đ</div>
-                    <div class="font-bold text-gray-500 line-through text-lg">
-                        52.000.000 đ
+                    <div class="text-red-500 font-bold text-2xl">{{ number_format($product -> current_price, 0, ',', '.') }} đ</div>
+                    <div class="font-semibold text-gray-500 line-through text-lg">
+                        {{ number_format($product -> old_price, 0, ',', '.') }} đ
                     </div>
                 </div>
-                <ol class="my-5 max-w-md space-y-1 text-gray-500 list-decimal list-inside dark:text-gray-400">
-                    <li class="text-base">
-                        <span class="font-semibold text-gray-900 dark:text-white">RAM</span>
-                        16GB LPDDR5 5200MHz onboard
+                @php
+                    $arr = explode(';', $product->version_details);
+                @endphp
+                <ol class="my-5 list-none max-w-md space-y-1 text-gray-500 list-decimal list-inside dark:text-gray-400">
+                    @foreach($arr as $item)
+                        @php
+                            $item = explode(':', $item);
+                            $value = isset($item[1]) ? $item[1] : null;
+                        @endphp
+                    <li class="text-sm">
+                        <span class="font-semibold text-gray-900 dark:text-white">{{ $item[0] }} </span>
+                        {{ $value }}
                     </li>
-                    <li class="text-base">
-                        <span class="font-semibold text-gray-900 dark:text-white">Ổ cứng</span>
-                        SSD 512GB M.2 PCIe NVMe
-                    </li>
-                    <li class="text-base">
-                        <span class="font-semibold text-gray-900 dark:text-white">Màn hình</span>
-                        14.0" 2.2K IPS, Anti-glare, low power, Contrast Ratio
-                    </li>
-                    <li class="text-base">
-                        <span class="font-semibold text-gray-900 dark:text-white">CPU</span>
-                        Core i5-1240P (1.70GHz up to 4.40GHz, 12MB Cache)
-                    </li>
-                    <li class="text-base">
-                        <span class="font-semibold text-gray-900 dark:text-white">Card</span>
-                        Intel Iris Xe Graphics
-                    </li>
-                    <li class="text-base">
-                        <span class="font-semibold text-gray-900 dark:text-white">Pin</span>
-                        6 Cell 86WHrs
-                    </li>
-                    <li class="text-base">
-                        <span class="font-semibold text-gray-900 dark:text-white">Tình trạng</span>
-                        Mới 100%, Nhập khẩu
-                    </li>
+                    @endforeach
                 </ol>
                 <div class="flex">
                     <div class="text-sm text-green-700 underline">
@@ -479,78 +255,25 @@
                 </div>
                 <h3 class="my-5 font-semibold text-xl">Tùy chọn cấu hình</h3>
                 <div class="grid grid-cols-2 gap-3">
-                    <div class="border border-green-600 p-3 bg-[#ebfff7] rounded-lg">
-                        <div class="text-sm mb-2">
-                            Core i5 1240P - RAM 16GB - SSD 512GB - Intel Iris Xe Graphics -
-                            Màn 14'' 2.2K - LTE 4G
-                        </div>
-                        <div class="flex">
-                            <div class="text-base font-semibold mr-3">34.300.000 đ</div>
-                            <div class="text-base font-semibold opacity-60 line-through">
-                                52.000.000 đ
+                    @foreach($products as $product )
+                    <div class="@if ($product -> version_id == $version_id)
+                        border border-green-600 p-3 bg-[#ebfff7] rounded-lg
+                    @else
+                        border border-gray-300 hover:border-green-600 hover:bg-[#ebfff7] p-3 bg-white rounded-lg
+                    @endif">
+                        <a href={{ route('client.detail', $product -> version_id) }}>
+                            <div class="text-sm mb-2">
+                                {{ $product -> version_name }}
                             </div>
-                        </div>
-                    </div>
-                    <div class="border border-gray-300 hover:border-green-600 hover:bg-[#ebfff7] p-3 bg-white rounded-lg">
-                        <div class="text-sm mb-2">
-                            Core i5 1240P - RAM 16GB - SSD 512GB - Intel Iris Xe Graphics -
-                            Màn 14'' 2.2K - LTE 4G
-                        </div>
-                        <div class="flex">
-                            <div class="text-base font-semibold mr-3">34.300.000 đ</div>
-                            <div class="text-base font-semibold opacity-60 line-through">
-                                52.000.000 đ
+                            <div class="flex">
+                                <div class="text-sm font-semibold mr-3">{{ number_format($product -> current_price, 0, ',', '.') }} đ</div>
+                                <div class="text-sm font-semibold opacity-60 line-through">
+                                    {{ number_format($product -> old_price, 0, ',', '.') }} đ
+                                </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
-                    <div class="border border-gray-300 hover:border-green-600 hover:bg-[#ebfff7] p-3 bg-white rounded-lg">
-                        <div class="text-sm mb-2">
-                            Core i5 1240P - RAM 16GB - SSD 512GB - Intel Iris Xe Graphics -
-                            Màn 14'' 2.2K - LTE 4G
-                        </div>
-                        <div class="flex">
-                            <div class="text-base font-semibold mr-3">34.300.000 đ</div>
-                            <div class="text-base font-semibold opacity-60 line-through">
-                                52.000.000 đ
-                            </div>
-                        </div>
-                    </div>
-                    <div class="border border-gray-300 hover:border-green-600 hover:bg-[#ebfff7] p-3 bg-white rounded-lg">
-                        <div class="text-sm mb-2">
-                            Core i5 1240P - RAM 16GB - SSD 512GB - Intel Iris Xe Graphics -
-                            Màn 14'' 2.2K - LTE 4G
-                        </div>
-                        <div class="flex">
-                            <div class="text-base font-semibold mr-3">34.300.000 đ</div>
-                            <div class="text-base font-semibold opacity-60 line-through">
-                                52.000.000 đ
-                            </div>
-                        </div>
-                    </div>
-                    <div class="border border-gray-300 hover:border-green-600 hover:bg-[#ebfff7] p-3 bg-white rounded-lg">
-                        <div class="text-sm mb-2">
-                            Core i5 1240P - RAM 16GB - SSD 512GB - Intel Iris Xe Graphics -
-                            Màn 14'' 2.2K - LTE 4G
-                        </div>
-                        <div class="flex">
-                            <div class="text-base font-semibold mr-3">34.300.000 đ</div>
-                            <div class="text-base font-semibold opacity-60 line-through">
-                                52.000.000 đ
-                            </div>
-                        </div>
-                    </div>
-                    <div class="border border-gray-300 hover:border-green-600 hover:bg-[#ebfff7] p-3 bg-white rounded-lg">
-                        <div class="text-sm mb-2">
-                            Core i5 1240P - RAM 16GB - SSD 512GB - Intel Iris Xe Graphics -
-                            Màn 14'' 2.2K - LTE 4G
-                        </div>
-                        <div class="flex">
-                            <div class="text-base font-semibold mr-3">34.300.000 đ</div>
-                            <div class="text-base font-semibold opacity-60 line-through">
-                                52.000.000 đ
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
                 <ul class="list-none mt-5 px-5 py-6 bg-[#f4f4f4] text-sm rounded-lg">
                     <li class="py-2">
@@ -564,15 +287,17 @@
                         🎁Tặng gói cài đặt + vệ sinh, bảo dưỡng, trọn đời
                     </li>
                 </ul>
-                <div class="flex mt-5">
+                <form class="flex mt-5" method="POST" action={{ route('client.addToCart', $version_id) }}>
+                    @csrf
+                    @method('PUT')
                     <div class="flex items-center w-[65%]">
                         <div class="text-base font-semibold mr-2">Số lượng</div>
-                        <input type="number" name="" id="" class="rounded-lg text-center h-full" />
+                        <input type="number" name="quantity" value="1" class="rounded-lg text-center h-full" />
                     </div>
-                    <button class="ml-2 text-sm text-white bg-[#d62454] uppercase w-full rounded-lg">
-                        <a>Thêm vào giỏ hàng</a>
+                    <button type="submit" class="ml-2 text-sm text-white bg-[#d62454] uppercase w-full rounded-lg">
+                        Thêm vào giỏ hàng
                     </button>
-                </div>
+                </form>
                 <div class="grid grid-cols-3 gap-3 mt-5">
                     <button class="bg-[#e00] p-1 rounded-lg">
                         <a>

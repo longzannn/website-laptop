@@ -5,15 +5,30 @@ namespace App\Http\Controllers;
 use App\Models\DetailLayout;
 use App\Http\Requests\StoreDetailLayoutRequest;
 use App\Http\Requests\UpdateDetailLayoutRequest;
+use Illuminate\Http\Request;
 
 class DetailLayoutController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('client/detail');
+        $objCategory = new DetailLayout();
+        $categories = $objCategory->getCategories();
+        $objSubcategory = new DetailLayout();
+        $subcategories = $objSubcategory->getSubcategories();
+        $objProduct = new DetailLayout();
+        $version_id = $request->id;
+        $product = $objProduct->getProductByVersionId($version_id);
+        $products = $objProduct->getProductsHaveTheSameName($product->prd_name);
+        return view('client/detail', [
+            'product' => $product,
+            'categories' => $categories,
+            'subcategories' => $subcategories,
+            'products' => $products,
+            'version_id' => $version_id,
+        ]);
     }
 
     /**
