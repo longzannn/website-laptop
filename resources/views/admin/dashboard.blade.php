@@ -89,9 +89,9 @@
                 <div class="box">
                     <div class="right-side">
                         <div class="box-topic">
-                            <i class="bx bx-list-check"></i>Total Order
+                            <i class="bx bx-list-check"></i>Total Subcategory
                         </div>
-                        <div class="number">40,876</div>
+                        <div class="number">{{ $subcategoryCount }}</div>
                         <div class="indicator">
                             <i class="bx bx-up-arrow-alt"></i>
                             <span class="text">Up From Today</span>
@@ -104,7 +104,7 @@
                         <div class="box-topic">
                             <i class="bx bx-shopping-bag"></i> Total Product
                         </div>
-                        <div class="number">38,876</div>
+                        <div class="number">{{ $productCount }}</div>
                         <div class="indicator">
                             <i class="bx bx-up-arrow-alt"></i>
                             <span class="text">Up From Today</span>
@@ -117,7 +117,7 @@
                         <div class="box-topic">
                             <i class="bx bx-list-ul"></i> Total Category
                         </div>
-                        <div class="number">$12,876</div>
+                        <div class="number">{{ $categoryCount }}</div>
                         <div class="indicator">
                             <i class="bx bx-up-arrow-alt"></i>
                             <span class="text">Up From Today</span>
@@ -130,7 +130,7 @@
                         <div class="box-topic">
                             <i class="bx bx-user"></i> Total User
                         </div>
-                        <div class="number">11,086</div>
+                        <div class="number">{{ $userCount }}</div>
                         <div class="indicator">
                             <i class="bx bx-up-arrow-alt"></i>
                             <span class="text">Up From Today</span>
@@ -195,69 +195,6 @@
                     <div class="button">
                         <a href="#">See All</a>
                     </div>
-                </div>
-                <div class="top-sales box">
-                    <div class="title">Top Selling Product</div>
-                    <ul class="top-sales-details">
-                        <li>
-                            <a href="#">
-                                <img src="https://fptshop.com.vn/Uploads/Originals/2023/4/19/638175171985162982_asus-vivobook-e1404fa-nk186w-r5-7520u-den-dd-moi.jpg" alt="" />
-                                <span class="product">Laptop ACER</span>
-                            </a>
-                            <span class="price">20.000.000 VNĐ</span>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <img src="https://fptshop.com.vn/Uploads/Originals/2023/4/19/638175171985162982_asus-vivobook-e1404fa-nk186w-r5-7520u-den-dd-moi.jpg" alt="" />
-                                <span class="product">Laptop MSI</span>
-                            </a>
-                            <span class="price">20.000.000 VNĐ</span>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <img src="https://fptshop.com.vn/Uploads/Originals/2023/4/19/638175171985162982_asus-vivobook-e1404fa-nk186w-r5-7520u-den-dd-moi.jpg" alt="" />
-                                <span class="product">Laptop ACER</span>
-                            </a>
-                            <span class="price">20.000.000 VNĐ</span>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <img src="https://fptshop.com.vn/Uploads/Originals/2023/4/19/638175171985162982_asus-vivobook-e1404fa-nk186w-r5-7520u-den-dd-moi.jpg" alt="" />
-                                <span class="product">Laptop MSI</span>
-                            </a>
-                            <span class="price">20.000.000 VNĐ</span>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <img src="https://fptshop.com.vn/Uploads/Originals/2023/4/19/638175171985162982_asus-vivobook-e1404fa-nk186w-r5-7520u-den-dd-moi.jpg" alt="" />
-                                <span class="product">Laptop MSI</span>
-                            </a>
-                            <span class="price">20.000.000 VNĐ</span>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <img src="https://fptshop.com.vn/Uploads/Originals/2023/4/19/638175171985162982_asus-vivobook-e1404fa-nk186w-r5-7520u-den-dd-moi.jpg" alt="" />
-                                <span class="product">Laptop HP</span>
-                            </a>
-                            <span class="price">20.000.000 VNĐ</span>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <img src="https://fptshop.com.vn/Uploads/Originals/2023/4/19/638175171985162982_asus-vivobook-e1404fa-nk186w-r5-7520u-den-dd-moi.jpg" alt="" />
-                                <span class="product">Laptop MSI</span>
-                            </a>
-                            <span class="price">20.000.000 VNĐ</span>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <img src="https://fptshop.com.vn/Uploads/Originals/2023/4/19/638175171985162982_asus-vivobook-e1404fa-nk186w-r5-7520u-den-dd-moi.jpg" alt="" />
-                                <span class="product">Laptop LENOVO</span>
-                            </a>
-                            <span class="price">20.000.000 VNĐ</span>
-                        </li>
-
-
-                    </ul>
                 </div>
             </div>
         </div>

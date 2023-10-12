@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="Shortcut icon" href="https://laptopkhanhtran.vn/pic/system/logo-kt-01636837754534945606.png" type="image/x-icon">
-    <title>Laptop cũ Hà Nội giá rẻ | Địa chỉ mua bán laptop cũ uy tín tại Hà Nội và trên Toàn Quốc</title>
+    <title>[ Mới 100% ]  {{ $product -> prd_name }} ({{ $product -> version_name }})</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
@@ -15,49 +15,53 @@
     <!-- Header -->
     <nav class="sticky z-20 top-0 left-0 right-0 bg-[#242525] border-gray-200 dark:bg-gray-900">
         <div class="max-w-[1400px] mx-auto p-6 flex flex-wrap items-center justify-between">
-            <a href={{ route('client.home') }} class="basis-1/5 flex items-center">
-                <img src="https://laptopkhanhtran.vn/pic/banner/logo_6368_638173418442942155.png" class="h-10 mr-3" alt="Flowbite Logo" />
+            <a href={{ route('client.home') }} class="basis-1/5 items-center">
+            <img src="https://laptopkhanhtran.vn/pic/banner/logo_6368_638173418442942155.png" class="h-10 mr-3" alt="Flowbite Logo" />
             </a>
             <div class="basis-2/5 flex">
-                <div class="w-4/5 relative hidden md:block">
-                    <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                <form class="w-4/5 relative hidden md:block" method="POST" action={{ route('client.search') }}>
+                    @csrf
+                    @method('PUT')
+                    <button type="submit" class="absolute inset-y-0 left-0 z-10 flex items-center pl-3">
                         <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
                         </svg>
-                    </div>
-                    <input type="text" id="search-navbar" class="block w-full p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-full bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Bạn muốn tìm sản phẩm gì..." />
-                </div>
+                    </button>
+                    <input type="text" name="keyword" id="search-navbar" class="block w-full p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-full bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Bạn muốn tìm sản phẩm gì..." />
+                </form>
             </div>
             <div class="justify-between hidden w-full md:flex md:w-auto" id="navbar-search">
-                <ul class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg md:flex-row md:space-x-6 md:mt-0 md:border-0 bg-[#242525]">
+                <ul class="flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg md:flex-row md:space-x-6 md:mt-0 md:border-0 bg-[#242525]">
                     <li>
-                        <a href="#" class="block opacity-60 hover:opacity-100 rounded bg-[#242525] text-white font-normal md:p-0" aria-current="page">Trang chủ</a>
+                        <a href="#" class="block opacity-60 hover:opacity-100 rounded bg-[#242525] text-white font-semibold md:p-0" aria-current="page">Trang chủ</a>
                     </li>
                     <li>
-                        <a href="#" class="block opacity-60 hover:opacity-100 rounded bg-[#242525] text-white font-normal md:p-0">Sản
+                        <a href="#" class="block opacity-60 hover:opacity-100 rounded bg-[#242525] text-white font-semibold md:p-0">Sản
                             phẩm</a>
                     </li>
                     <li>
-                        <a href="#" class="block opacity-60 hover:opacity-100 rounded bg-[#242525] text-white font-normal md:p-0">Tin
+                        <a href="#" class="block opacity-60 hover:opacity-100 rounded bg-[#242525] text-white font-semibold md:p-0">Tin
                             tức</a>
                     </li>
                     <li>
-                        <a href="#" class="block opacity-60 hover:opacity-100 rounded bg-[#242525] text-white font-normal md:p-0">Giới
+                        <a href="#" class="block opacity-60 hover:opacity-100 rounded bg-[#242525] text-white font-semibold md:p-0">Giới
                             thiệu</a>
                     </li>
                     <li>
-                        <a href="#" class="block opacity-60 hover:opacity-100 rounded bg-[#242525] text-white font-normal md:p-0">Liên
+                        <a href="#" class="block opacity-60 hover:opacity-100 rounded bg-[#242525] text-white font-semibold md:p-0">Liên
                             hệ</a>
                     </li>
                 </ul>
             </div>
             <div class="relative text-white ms-12">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
-                </svg>
-                <div class="absolute p-1 w-5 h-5 bg-red-500 rounded-full top-[-10px] right-[-10px] text-xs flex items-center justify-center">
-                    0
-                </div>
+                <a href={{ route('client.cart') }}>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
+                    </svg>
+                    <div class="absolute p-1 w-5 h-5 bg-red-500 rounded-full top-[-10px] right-[-10px] text-xs flex items-center justify-center">
+                        0
+                    </div>
+                </a>
             </div>
         </div>
     </nav>

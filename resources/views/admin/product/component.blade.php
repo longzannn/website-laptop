@@ -103,12 +103,12 @@
                     </div>
                     <div class="title">Component Information</div>
                     <div class="sales-details">
-                        <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+                        <div class="relative shadow-md sm:rounded-lg">
                             <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                                     <tr>
-                                        <th scope="col" class="px-6 py-3">Product name</th>
-                                        <th scope="col" class="px-6 py-3">Image</th>
+                                        <th scope="col" class="px-6 py-3" width="40%">Product name</th>
+                                        <th scope="col" class="px-6 py-3" width="20%">Image</th>
                                         <th scope="col" class="px-6 py-3">Subcategory</th>
                                         <th scope="col" class="px-6 py-3">Price</th>
                                         <th scope="col" class="px-6 py-3">Action</th>
@@ -117,22 +117,24 @@
                                 <tbody>
                                     @foreach($components as $component)
                                     <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
-                                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white">
                                             {{ $component -> prd_name }} ({{ $component -> version_name }})
                                         </th>
-                                        <td class="px-6 py-4"><img class="w-14 h-14" src="{{ Storage::url('admin/') . $component -> img_1 }}" alt=""></td>
+                                        <td class="px-6 py-4"><img class="w-16 h-16 rounded-lg" src="{{ Storage::url('admin/') . $component -> img_1 }}" alt=""></td>
                                         <td class="px-6 py-4">{{ $component -> sub_name }}</td>
                                         <td class="px-6 py-4">{{ number_format($component -> current_price, 0, ',', '.') }}</td>
                                         <td class="px-6 py-4">
-                                            <a href="{{ route('product.edit', $component -> version_id) }}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                                            <form method="POST" action="{{ route('product.destroy', $component -> version_id ) }}">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button
-                                                    class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
-                                                    Delete
-                                                </button>
-                                            </form>
+                                            <div class="flex">
+                                                <a href="{{ route('product.edit', $component -> version_id) }}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                                                <form method="POST" action="{{ route('product.destroy', $component -> version_id ) }}">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button
+                                                        class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
+                                                        Delete
+                                                    </button>
+                                                </form>
+                                            </div>
                                         </td>
                                     </tr>
                                     @endforeach

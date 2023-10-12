@@ -1,4 +1,4 @@
-var listForm = document.querySelectorAll("form.filter.hidden");
+var listForm = document.querySelectorAll(".filter.hidden");
 var listFilter = document.querySelectorAll(
     ".flex.justify-between.items-center.mb-4"
 );

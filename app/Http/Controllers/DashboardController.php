@@ -13,7 +13,19 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('admin/dashboard');
+        $obj = new Dashboard();
+        $productCount = $obj->getProductCount();
+        $categoryCount = $obj->getCategoryCount();
+        $subcategoryCount = $obj->getSubcategoryCount();
+        $customerCount = $obj->getCustomerCount();
+        $staffCount = $obj->getStaffCount();
+        $userCount = $staffCount + $customerCount;
+        return view('admin/dashboard', [
+            'productCount' => $productCount,
+            'categoryCount' => $categoryCount,
+            'subcategoryCount' => $subcategoryCount,
+            'userCount' => $userCount,
+        ]);
     }
 
     /**

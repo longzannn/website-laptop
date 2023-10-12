@@ -5,59 +5,62 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="Shortcut icon" href="https://laptopkhanhtran.vn/pic/system/logo-kt-01636837754534945606.png" type="image/x-icon">
-    <title>Laptop cũ Hà Nội giá rẻ | Địa chỉ mua bán laptop cũ uy tín tại Hà Nội và trên Toàn Quốc</title>
+    <title>{{ $cat_name }}</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 </head>
-
 <body>
     <!-- Header -->
     <nav class="sticky z-20 top-0 left-0 right-0 bg-[#242525] border-gray-200 dark:bg-gray-900">
         <div class="max-w-[1400px] mx-auto p-6 flex flex-wrap items-center justify-between">
-            <a href={{ route('client.home') }} class="basis-1/5 flex items-center">
-                <img src="https://laptopkhanhtran.vn/pic/banner/logo_6368_638173418442942155.png" class="h-10 mr-3" alt="Flowbite Logo" />
+            <a href={{ route('client.home') }} class="basis-1/5 items-center">
+            <img src="https://laptopkhanhtran.vn/pic/banner/logo_6368_638173418442942155.png" class="h-10 mr-3" alt="Flowbite Logo" />
             </a>
             <div class="basis-2/5 flex">
-                <div class="w-4/5 relative hidden md:block">
-                    <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                <form class="w-4/5 relative hidden md:block" method="POST" action={{ route('client.search') }}>
+                    @csrf
+                    @method('PUT')
+                    <button type="submit" class="absolute inset-y-0 left-0 z-10 flex items-center pl-3">
                         <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
                         </svg>
-                    </div>
-                    <input type="text" id="search-navbar" class="block w-full p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-full bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Bạn muốn tìm sản phẩm gì..." />
-                </div>
+                    </button>
+                    <input type="text" name="keyword" id="search-navbar" class="block w-full p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-full bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Bạn muốn tìm sản phẩm gì..." />
+                </form>
             </div>
             <div class="justify-between hidden w-full md:flex md:w-auto" id="navbar-search">
-                <ul class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-[#242525] md:flex-row md:space-x-6 md:mt-0 md:border-0">
+                <ul class="flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg md:flex-row md:space-x-6 md:mt-0 md:border-0 bg-[#242525]">
                     <li>
-                        <a href="#" class="block opacity-60 hover:opacity-100 rounded bg-[#242525] text-white font-normal md:p-0" aria-current="page">Trang chủ</a>
+                        <a href="#" class="block opacity-60 hover:opacity-100 rounded bg-[#242525] text-white font-semibold md:p-0" aria-current="page">Trang chủ</a>
                     </li>
                     <li>
-                        <a href="#" class="block opacity-60 hover:opacity-100 rounded bg-[#242525] text-white font-normal md:p-0">Sản
+                        <a href="#" class="block opacity-60 hover:opacity-100 rounded bg-[#242525] text-white font-semibold md:p-0">Sản
                             phẩm</a>
                     </li>
                     <li>
-                        <a href="#" class="block opacity-60 hover:opacity-100 rounded bg-[#242525] text-white font-normal md:p-0">Tin
+                        <a href="#" class="block opacity-60 hover:opacity-100 rounded bg-[#242525] text-white font-semibold md:p-0">Tin
                             tức</a>
                     </li>
                     <li>
-                        <a href="#" class="block opacity-60 hover:opacity-100 rounded bg-[#242525] text-white font-normal md:p-0">Giới
+                        <a href="#" class="block opacity-60 hover:opacity-100 rounded bg-[#242525] text-white font-semibold md:p-0">Giới
                             thiệu</a>
                     </li>
                     <li>
-                        <a href="#" class="block opacity-60 hover:opacity-100 rounded bg-[#242525] text-white font-normal md:p-0">Liên
+                        <a href="#" class="block opacity-60 hover:opacity-100 rounded bg-[#242525] text-white font-semibold md:p-0">Liên
                             hệ</a>
                     </li>
                 </ul>
             </div>
             <div class="relative text-white ms-12">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
-                </svg>
-                <div class="absolute p-1 w-5 h-5 bg-red-500 rounded-full top-[-10px] right-[-10px] text-xs flex items-center justify-center">
-                    0
-                </div>
+                <a href={{ route('client.cart') }}>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
+                    </svg>
+                    <div class="absolute p-1 w-5 h-5 bg-red-500 rounded-full top-[-10px] right-[-10px] text-xs flex items-center justify-center">
+                        0
+                    </div>
+                </a>
             </div>
         </div>
     </nav>
@@ -114,7 +117,7 @@
                             <svg class="w-3 h-3 text-gray-400 mx-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4" />
                             </svg>
-                            <span class="ml-1 text-sm text-gray-500 md:ml-2 dark:text-gray-400">Laptop Gaming</span>
+                            <span class="ml-1 text-sm text-gray-500 md:ml-2 dark:text-gray-400">{{ $cat_name }}</span>
                         </div>
                     </li>
                 </ol>
@@ -133,44 +136,57 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                             </svg>
                         </div>
-                        <form class="filter hidden price" method="POST" action="">
-                            @csrf
-                            <div class="flex items-center mb-3">
-                                <input id="default-checkbox" name="under_10" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-white border-gray-300 rounded" />
+                        <div class="filter hidden price">
+                            <form class="flex items-center mb-3"  method="POST" action={{ route('client.filterProductInCategory', $cat_id) }}>
+                                @csrf
+                                @method('PUT')
+                                <input id="default-checkbox" name="price" type="checkbox" value="10000000" class="w-4 h-4 text-blue-600 bg-white border-gray-300 rounded" />
                                 <label for="default-checkbox" class="ml-2 text-sm text-gray-900 dark:text-gray-300 hover:underline">Dưới 10
                                     triệu</label>
-                            </div>
-                            <div class="flex items-center mb-3">
-                                <input id="checked-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-white border-gray-300 rounded" />
+                            </form>
+                            <form class="flex items-center mb-3" method="POST" action={{ route('client.filterProductInCategory', $cat_id) }}>
+                                @csrf
+                                @method('PUT')
+                                <input id="checked-checkbox" name="price" type="checkbox" value="15000000" class="w-4 h-4 text-blue-600 bg-white border-gray-300 rounded" />
                                 <label for="checked-checkbox" class="ml-2 text-sm text-gray-900 dark:text-gray-300 hover:underline">10 triệu - 15
                                     triệu</label>
-                            </div>
-                            <div class="flex items-center mb-3">
-                                <input id="checked-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-white border-gray-300 rounded" />
+                            </form>
+                            <form class="flex items-center mb-3" method="POST" action={{ route('client.filterProductInCategory', $cat_id) }}>
+                                @csrf
+                                @method('PUT')
+                                <input id="checked-checkbox" name="price" type="checkbox" value="20000000" class="w-4 h-4 text-blue-600 bg-white border-gray-300 rounded" />
                                 <label for="checked-checkbox" class="ml-2 text-sm text-gray-900 dark:text-gray-300 hover:underline">15 triệu - 20
                                     triệu</label>
-                            </div>
-                            <div class="flex items-center mb-3">
-                                <input id="checked-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-white border-gray-300 rounded" />
+                            </form>
+                            <form class="flex items-center mb-3" method="POST" action={{ route('client.filterProductInCategory', $cat_id) }}>
+                                @csrf
+                                @method('PUT')
+                                <input id="checked-checkbox" name="price" type="checkbox" value="30000000" class="w-4 h-4 text-blue-600 bg-white border-gray-300 rounded" />
                                 <label for="checked-checkbox" class="ml-2 text-sm text-gray-900 dark:text-gray-300 hover:underline">20 triệu - 30
                                     triệu</label>
-                            </div>
-                            <div class="flex items-center mb-3">
-                                <input id="checked-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-white border-gray-300 rounded" />
+                            </form>
+                            <form class="flex items-center mb-3" method="POST" action={{ route('client.filterProductInCategory', $cat_id) }}>
+                                @csrf
+                                @method('PUT')
+                                <input id="checked-checkbox" name="price" type="checkbox" value="45000000" class="w-4 h-4 text-blue-600 bg-white border-gray-300 rounded" />
                                 <label for="checked-checkbox" class="ml-2 text-sm text-gray-900 dark:text-gray-300 hover:underline">30 triệu - 45
                                     triệu</label>
-                            </div>
-                            <div class="flex items-center mb-3">
-                                <input id="checked-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-white border-gray-300 rounded" />
+                            </form>
+                            <form class="flex items-center mb-3" method="POST" action={{ route('client.filterProductInCategory', $cat_id) }}>
+                                @csrf
+                                @method('PUT')
+                                <input id="checked-checkbox" name="price" type="checkbox" value="55000000" class="w-4 h-4 text-blue-600 bg-white border-gray-300 rounded" />
                                 <label for="checked-checkbox" class="ml-2 text-sm text-gray-900 dark:text-gray-300 hover:underline">45 triệu - 55
                                     triệu</label>
-                            </div>
-                            <div class="flex items-center mb-3">
-                                <input id="checked-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-white border-gray-300 rounded" />
+                            </form>
+                            <form class="flex items-center mb-3" method="POST" action={{ route('client.filterProductInCategory', $cat_id) }}>
+                                @csrf
+                                @method('PUT')
+                                <input id="checked-checkbox" name="price" type="checkbox" value="80000000" class="w-4 h-4 text-blue-600 bg-white border-gray-300 rounded" />
                                 <label for="checked-checkbox" class="ml-2 text-sm text-gray-900 dark:text-gray-300 hover:underline">55 triệu - 80
                                     triệu</label>
-                            </div>
-                        </form>
+                            </form>
+                        </div>
                     </div>
                     <div class="mb-4 cursor-pointer">
                         <div class="flex justify-between items-center mb-4">
@@ -181,66 +197,50 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                             </svg>
                         </div>
-                        <form class="filter hidden">
-                            <div class="flex items-center mb-3">
-                                <input id="default-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-white border-gray-300 rounded" />
-                                <label for="default-checkbox" class="ml-2 text-sm text-gray-900 dark:text-gray-300 hover:underline">12,5
+                        <div class="filter hidden screen">
+                            <form class="flex items-center mb-3" method="POST" action={{ route('client.filterProductInCategory', $cat_id) }}>
+                                @csrf
+                                @method('PUT')
+                                <input id="default-checkbox" name="screen" type="checkbox" value="13.3" class="w-4 h-4 text-blue-600 bg-white border-gray-300 rounded" />
+                                <label for="default-checkbox" class="ml-2 text-sm text-gray-900 dark:text-gray-300 hover:underline">13.3
                                     inch</label>
-                            </div>
-                            <div class="flex items-center mb-3">
-                                <input id="checked-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-white border-gray-300 rounded" />
-                                <label for="checked-checkbox" class="ml-2 text-sm text-gray-900 dark:text-gray-300 hover:underline">13
-                                    inch</label>
-                            </div>
-                            <div class="flex items-center mb-3">
-                                <input id="checked-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-white border-gray-300 rounded" />
+                            </form>
+                            <form class="flex items-center mb-3" method="POST" action={{ route('client.filterProductInCategory', $cat_id) }}>
+                                @csrf
+                                @method('PUT')
+                                <input id="checked-checkbox" name="screen" type="checkbox" value="14" class="w-4 h-4 text-blue-600 bg-white border-gray-300 rounded" />
                                 <label for="checked-checkbox" class="ml-2 text-sm text-gray-900 dark:text-gray-300 hover:underline">14
                                     inch</label>
-                            </div>
-                            <div class="flex items-center mb-3">
-                                <input id="checked-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-white border-gray-300 rounded" />
+                            </form>
+                            <form class="flex items-center mb-3" method="POST" action={{ route('client.filterProductInCategory', $cat_id) }}>
+                                @csrf
+                                @method('PUT')
+                                <input id="checked-checkbox" name="screen" type="checkbox" value="15.6" class="w-4 h-4 text-blue-600 bg-white border-gray-300 rounded" />
                                 <label for="checked-checkbox" class="ml-2 text-sm text-gray-900 dark:text-gray-300 hover:underline">15.6
                                     inch</label>
-                            </div>
-                            <div class="flex items-center mb-3">
-                                <input id="checked-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-white border-gray-300 rounded" />
+                            </form>
+                            <form class="flex items-center mb-3" method="POST" action={{ route('client.filterProductInCategory', $cat_id) }}>
+                                @csrf
+                                @method('PUT')
+                                <input id="checked-checkbox" name="screen" type="checkbox" value="16" class="w-4 h-4 text-blue-600 bg-white border-gray-300 rounded" />
                                 <label for="checked-checkbox" class="ml-2 text-sm text-gray-900 dark:text-gray-300 hover:underline">16
                                     inch</label>
-                            </div>
-                            <div class="flex items-center mb-3">
-                                <input id="checked-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-white border-gray-300 rounded" />
+                            </form>
+                            <form class="flex items-center mb-3" method="POST" action={{ route('client.filterProductInCategory', $cat_id) }}>
+                                @csrf
+                                @method('PUT')
+                                <input id="checked-checkbox" name="screen" type="checkbox" value="17" class="w-4 h-4 text-blue-600 bg-white border-gray-300 rounded" />
+                                <label for="checked-checkbox" class="ml-2 text-sm text-gray-900 dark:text-gray-300 hover:underline">17
+                                    inch</label>
+                            </form>
+                            <form class="flex items-center mb-3" method="POST" action={{ route('client.filterProductInCategory', $cat_id) }}>
+                                @csrf
+                                @method('PUT')
+                                <input id="checked-checkbox" name="screen" type="checkbox" value="17.3" class="w-4 h-4 text-blue-600 bg-white border-gray-300 rounded" />
                                 <label for="checked-checkbox" class="ml-2 text-sm text-gray-900 dark:text-gray-300 hover:underline">17.3
                                     inch</label>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="mb-4 cursor-pointer">
-                        <div class="flex justify-between items-center mb-4">
-                            <div class="font-semibold hover:underline text-sm">
-                                Tấm nền màn hình
-                            </div>
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                            </svg>
+                            </form>
                         </div>
-                        <form class="filter hidden">
-                            <div class="flex items-center mb-3">
-                                <input id="default-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-white border-gray-300 rounded" />
-                                <label for="default-checkbox" class="ml-2 text-sm text-gray-900 dark:text-gray-300 hover:underline">IPS</label>
-                            </div>
-                            <div class="flex items-center mb-3">
-                                <input id="checked-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-white border-gray-300 rounded" />
-                                <label for="checked-checkbox" class="ml-2 text-sm text-gray-900 dark:text-gray-300 hover:underline">OLED</label>
-                            </div>
-                            <div class="flex items-center mb-3">
-                                <input id="checked-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-white border-gray-300 rounded" />
-                                <label for="checked-checkbox" class="ml-2 text-sm text-gray-900 dark:text-gray-300 hover:underline">TN</label>
-                            </div>
-                            <div class="flex items-center mb-3">
-                                <input id="checked-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-white border-gray-300 rounded" />
-                                <label for="checked-checkbox" class="ml-2 text-sm text-gray-900 dark:text-gray-300 hover:underline">WVA</label>
-                            </div>
-                        </form>
                     </div>
                     <div class="mb-4 cursor-pointer">
                         <div class="flex justify-between items-center mb-4">
@@ -251,33 +251,21 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                             </svg>
                         </div>
-                        <form class="filter hidden">
-                            <div class="flex items-center mb-3">
-                                <input id="default-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-white border-gray-300 rounded" />
+                        <div class="filter hidden display">
+                            <form class="flex items-center mb-3" method="POST" action={{ route('client.filterProductInCategory', $cat_id) }}>
+                                @csrf
+                                @method('PUT')
+                                <input id="default-checkbox" name="display" type="checkbox" value="HD" class="w-4 h-4 text-blue-600 bg-white border-gray-300 rounded" />
                                 <label for="default-checkbox" class="ml-2 text-sm text-gray-900 dark:text-gray-300 hover:underline">HD</label>
-                            </div>
-                            <div class="flex items-center mb-3">
-                                <input id="checked-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-white border-gray-300 rounded" />
+                            </form>
+                            <form class="flex items-center mb-3" method="POST" action={{ route('client.filterProductInCategory', $cat_id) }}>
+                                @csrf
+                                @method('PUT')
+                                <input id="checked-checkbox" name="display" type="checkbox" value="FHD" class="w-4 h-4 text-blue-600 bg-white border-gray-300 rounded" />
                                 <label for="checked-checkbox" class="ml-2 text-sm text-gray-900 dark:text-gray-300 hover:underline">Full
                                     HD</label>
-                            </div>
-                            <div class="flex items-center mb-3">
-                                <input id="checked-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-white border-gray-300 rounded" />
-                                <label for="checked-checkbox" class="ml-2 text-sm text-gray-900 dark:text-gray-300 hover:underline">Retina</label>
-                            </div>
-                            <div class="flex items-center mb-3">
-                                <input id="checked-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-white border-gray-300 rounded" />
-                                <label for="checked-checkbox" class="ml-2 text-sm text-gray-900 dark:text-gray-300 hover:underline">2K</label>
-                            </div>
-                            <div class="flex items-center mb-3">
-                                <input id="checked-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-white border-gray-300 rounded" />
-                                <label for="checked-checkbox" class="ml-2 text-sm text-gray-900 dark:text-gray-300 hover:underline">3K</label>
-                            </div>
-                            <div class="flex items-center mb-3">
-                                <input id="checked-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-white border-gray-300 rounded" />
-                                <label for="checked-checkbox" class="ml-2 text-sm text-gray-900 dark:text-gray-300 hover:underline">4K</label>
-                            </div>
-                        </form>
+                            </form>
+                        </div>
                     </div>
                     <div class="mb-4 cursor-pointer">
                         <div class="flex justify-between items-center mb-4">
@@ -286,48 +274,64 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                             </svg>
                         </div>
-                        <form class="filter hidden">
-                            <div class="flex items-center mb-3">
-                                <input id="default-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-white border-gray-300 rounded" />
+                        <div class="filter hidden">
+                            <form class="flex items-center mb-3"  method="POST" action={{ route('client.filterProductInCategory', $cat_id) }}>
+                                @csrf
+                                @method('PUT')
+                                <input id="default-checkbox" name="cpu" type="checkbox" value="Ryzen 3" class="w-4 h-4 text-blue-600 bg-white border-gray-300 rounded" />
                                 <label for="default-checkbox" class="ml-2 text-sm text-gray-900 dark:text-gray-300 hover:underline">Ryzen
                                     3</label>
-                            </div>
-                            <div class="flex items-center mb-3">
-                                <input id="checked-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-white border-gray-300 rounded" />
+                            </form>
+                            <form class="flex items-center mb-3"  method="POST" action={{ route('client.filterProductInCategory', $cat_id) }}>
+                                @csrf
+                                @method('PUT')
+                                <input id="checked-checkbox" name="cpu" type="checkbox" value="Ryzen 5" class="w-4 h-4 text-blue-600 bg-white border-gray-300 rounded" />
                                 <label for="checked-checkbox" class="ml-2 text-sm text-gray-900 dark:text-gray-300 hover:underline">Ryzen
                                     5</label>
-                            </div>
-                            <div class="flex items-center mb-3">
-                                <input id="checked-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-white border-gray-300 rounded" />
+                            </form>
+                            <form class="flex items-center mb-3"  method="POST" action={{ route('client.filterProductInCategory', $cat_id) }}>
+                                @csrf
+                                @method('PUT')
+                                <input id="checked-checkbox" name="cpu" type="checkbox" value="Ryzen 7" class="w-4 h-4 text-blue-600 bg-white border-gray-300 rounded" />
                                 <label for="checked-checkbox" class="ml-2 text-sm text-gray-900 dark:text-gray-300 hover:underline">Ryzen
                                     7</label>
-                            </div>
-                            <div class="flex items-center mb-3">
-                                <input id="checked-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-white border-gray-300 rounded" />
+                            </form>
+                            <form class="flex items-center mb-3"  method="POST" action={{ route('client.filterProductInCategory', $cat_id) }}>
+                                @csrf
+                                @method('PUT')
+                                <input id="checked-checkbox" name="cpu" type="checkbox" value="Ryzen 9" class="w-4 h-4 text-blue-600 bg-white border-gray-300 rounded" />
                                 <label for="checked-checkbox" class="ml-2 text-sm text-gray-900 dark:text-gray-300 hover:underline">Ryzen
                                     9</label>
-                            </div>
-                            <div class="flex items-center mb-3">
-                                <input id="checked-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-white border-gray-300 rounded" />
+                            </form>
+                            <form class="flex items-center mb-3"  method="POST" action={{ route('client.filterProductInCategory', $cat_id) }}>
+                                @csrf
+                                @method('PUT')
+                                <input id="checked-checkbox" name="cpu" type="checkbox" value="Core i3" class="w-4 h-4 text-blue-600 bg-white border-gray-300 rounded" />
                                 <label for="checked-checkbox" class="ml-2 text-sm text-gray-900 dark:text-gray-300 hover:underline">Core
                                     i3</label>
-                            </div>
-                            <div class="flex items-center mb-3">
-                                <input id="checked-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-white border-gray-300 rounded" />
+                            </form>
+                            <form class="flex items-center mb-3"  method="POST" action={{ route('client.filterProductInCategory', $cat_id) }}>
+                                @csrf
+                                @method('PUT')
+                                <input id="checked-checkbox" name="cpu" type="checkbox" value="Core i5" class="w-4 h-4 text-blue-600 bg-white border-gray-300 rounded" />
                                 <label for="checked-checkbox" class="ml-2 text-sm text-gray-900 dark:text-gray-300 hover:underline">Core
                                     i5</label>
-                            </div>
-                            <div class="flex items-center mb-3">
-                                <input id="checked-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-white border-gray-300 rounded" />
+                            </form>
+                            <form class="flex items-center mb-3"  method="POST" action={{ route('client.filterProductInCategory', $cat_id) }}>
+                                @csrf
+                                @method('PUT')
+                                <input id="checked-checkbox" name="cpu" type="checkbox" value="Core i7" class="w-4 h-4 text-blue-600 bg-white border-gray-300 rounded" />
                                 <label for="checked-checkbox" class="ml-2 text-sm text-gray-900 dark:text-gray-300 hover:underline">Core
                                     i7</label>
-                            </div>
-                            <div class="flex items-center mb-3">
-                                <input id="checked-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-white border-gray-300 rounded" />
+                            </form>
+                            <form class="flex items-center mb-3"  method="POST" action={{ route('client.filterProductInCategory', $cat_id) }}>
+                                @csrf
+                                @method('PUT')
+                                <input id="checked-checkbox" name="cpu" type="checkbox" value="Core i9" class="w-4 h-4 text-blue-600 bg-white border-gray-300 rounded" />
                                 <label for="checked-checkbox" class="ml-2 text-sm text-gray-900 dark:text-gray-300 hover:underline">Core
                                     i9</label>
-                            </div>
-                        </form>
+                            </form>
+                        </div>
                     </div>
                     <div class="mb-4 cursor-pointer">
                         <div class="flex justify-between items-center mb-4">
@@ -336,28 +340,38 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                             </svg>
                         </div>
-                        <form class="filter hidden">
-                            <div class="flex items-center mb-3">
-                                <input id="default-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-white border-gray-300 rounded" />
+                        <div class="filter hidden">
+                            <form class="flex items-center mb-3" method="POST" action={{ route('client.filterProductInCategory', $cat_id) }}>
+                                @csrf
+                                @method('PUT')
+                                <input id="default-checkbox" name="ram" type="checkbox" value="4GB" class="w-4 h-4 text-blue-600 bg-white border-gray-300 rounded" />
                                 <label for="default-checkbox" class="ml-2 text-sm text-gray-900 dark:text-gray-300 hover:underline">4GB</label>
-                            </div>
-                            <div class="flex items-center mb-3">
-                                <input id="checked-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-white border-gray-300 rounded" />
+                            </form>
+                            <form class="flex items-center mb-3" method="POST" action={{ route('client.filterProductInCategory', $cat_id) }}>
+                                @csrf
+                                @method('PUT')
+                                <input id="checked-checkbox" name="ram" type="checkbox" value="8GB" class="w-4 h-4 text-blue-600 bg-white border-gray-300 rounded" />
                                 <label for="checked-checkbox" class="ml-2 text-sm text-gray-900 dark:text-gray-300 hover:underline">8GB</label>
-                            </div>
-                            <div class="flex items-center mb-3">
-                                <input id="checked-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-white border-gray-300 rounded" />
+                            </form>
+                            <form class="flex items-center mb-3" method="POST" action={{ route('client.filterProductInCategory', $cat_id) }}>
+                                @csrf
+                                @method('PUT')
+                                <input id="checked-checkbox" name="ram" type="checkbox" value="16GB" class="w-4 h-4 text-blue-600 bg-white border-gray-300 rounded" />
                                 <label for="checked-checkbox" class="ml-2 text-sm text-gray-900 dark:text-gray-300 hover:underline">16GB</label>
-                            </div>
-                            <div class="flex items-center mb-3">
-                                <input id="checked-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-white border-gray-300 rounded" />
+                            </form>
+                            <form class="flex items-center mb-3" method="POST" action={{ route('client.filterProductInCategory', $cat_id) }}>
+                                @csrf
+                                @method('PUT')
+                                <input id="checked-checkbox" name="ram" type="checkbox" value="32GB" class="w-4 h-4 text-blue-600 bg-white border-gray-300 rounded" />
                                 <label for="checked-checkbox" class="ml-2 text-sm text-gray-900 dark:text-gray-300 hover:underline">32GB</label>
-                            </div>
-                            <div class="flex items-center mb-3">
-                                <input id="checked-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-white border-gray-300 rounded" />
+                            </form>
+                            <form class="flex items-center mb-3" method="POST" action={{ route('client.filterProductInCategory', $cat_id) }}>
+                                @csrf
+                                @method('PUT')
+                                <input id="checked-checkbox" name="ram" type="checkbox" value="64GB" class="w-4 h-4 text-blue-600 bg-white border-gray-300 rounded" />
                                 <label for="checked-checkbox" class="ml-2 text-sm text-gray-900 dark:text-gray-300 hover:underline">64GB</label>
-                            </div>
-                        </form>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -374,7 +388,8 @@
                             cao đến thấp</a>
                     </div>
                 </div>
-                <div class="grid grid-cols-4 gap-3 p-6 mb-10">
+                @if( !($products -> isEmpty()))
+                    <div class="grid grid-cols-4 gap-3 p-6 mb-10">
                     @foreach( $products as $product)
                         <div
                             class="bg-white rounded-lg p-4 hover:border hover:border-[#007745]"
@@ -416,7 +431,6 @@
                                             {{ $value }}
                                         </li>
                                     @endforeach
-
                                 </ol>
                                 <div class="flex justify-between my-2 text-sm text-sm">
                                     <div class="text-red-700 font-bold">{{ number_format($product -> current_price, 0, ',', '.') }} đ</div>
@@ -437,41 +451,44 @@
                         </div>
                     @endforeach
                 </div>
-                <nav aria-label="Page navigation example">
-                    <ul class="flex items-center justify-center gap-3 -space-x-px h-10 text-base">
-                        <li>
-                            <a href="#" class="flex items-center justify-center px-4 h-10 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
-                                <span class="sr-only">Previous</span>
-                                <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4" />
-                                </svg>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">1</a>
-                        </li>
-                        <li>
-                            <a href="#" class="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">2</a>
-                        </li>
-                        <li>
-                            <a href="#" aria-current="page" class="z-20 flex items-center justify-center px-4 h-10 leading-tight text-blue-600 border border-blue-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white">3</a>
-                        </li>
-                        <li>
-                            <a href="#" class="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">4</a>
-                        </li>
-                        <li>
-                            <a href="#" class="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">5</a>
-                        </li>
-                        <li>
-                            <a href="#" class="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
-                                <span class="sr-only">Next</span>
-                                <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4" />
-                                </svg>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
+                    <nav aria-label="Page navigation example">
+                        <ul class="flex items-center justify-center gap-3 -space-x-px h-10 text-base">
+                            <li>
+                                <a href="#" class="flex items-center justify-center px-4 h-10 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                                    <span class="sr-only">Previous</span>
+                                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4" />
+                                    </svg>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">1</a>
+                            </li>
+                            <li>
+                                <a href="#" class="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">2</a>
+                            </li>
+                            <li>
+                                <a href="#" aria-current="page" class="z-20 flex items-center justify-center px-4 h-10 leading-tight text-blue-600 border border-blue-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white">3</a>
+                            </li>
+                            <li>
+                                <a href="#" class="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">4</a>
+                            </li>
+                            <li>
+                                <a href="#" class="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">5</a>
+                            </li>
+                            <li>
+                                <a href="#" class="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                                    <span class="sr-only">Next</span>
+                                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4" />
+                                    </svg>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                @else
+                    <div class="mt-10 text-lg font-bold text-center">Không có sản phẩm nào</div>
+                @endif
             </div>
         </div>
     </div>
@@ -490,7 +507,7 @@
             </div>
             <div class="">
                 <h3 class="font-bold text-lg mb-6">Thông tin liên hệ</h3>
-                <ol class="my-2 max-w-md space-y-1 text-gray-500 list-decimal list-inside dark:text-gray-400">
+                <ol class="my-2 list-none max-w-md space-y-1 text-gray-500 list-decimal list-inside dark:text-gray-400">
                     <li class="text-sm">
                         <span class="font-semibold text-gray-900 dark:text-white">Địa chỉ:</span>
                         26 Ngõ 165 Thái Hà, Láng Hạ, Đống Đa, Hà Nội
@@ -498,10 +515,6 @@
                     <li class="text-sm">
                         <span class="font-semibold text-gray-900 dark:text-white">Điện thoại:</span>
                         0936 23 1234
-                    </li>
-                    <li class="text-sm">
-                        <span class="font-semibold text-gray-900 dark:text-white">VGA</span>
-                        NVIDIA GeForce RTX 4050 6GB
                     </li>
                     <li class="text-sm">
                         <span class="font-semibold text-gray-900 dark:text-white">Email:</span>

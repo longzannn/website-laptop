@@ -6,16 +6,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 
-class CategoryLayout extends Model
+class SearchLayout extends Model
 {
     use HasFactory;
-
-    public function getCategoryName($cat_id)
-    {
-        return DB::table('category')
-            ->where('cat_id', '=', $cat_id)
-            ->first();
-    }
 
     public function getCategories()
     {
@@ -33,8 +26,7 @@ class CategoryLayout extends Model
             ->get();
     }
 
-    public function getProductsByCategory($cat_id)
-    {
+    public function getProducts($keyword) {
         return DB::table('version')
             ->join('product', 'version.prd_id', '=', 'product.prd_id')
             ->join('subcategory', 'product.sub_id', '=', 'subcategory.sub_id')
@@ -53,11 +45,11 @@ class CategoryLayout extends Model
                 'version.version_details AS version_details',
                 'category.cat_name AS cat_name'
             )
-            ->where('category.cat_id', '=', $cat_id)
+            ->where('product.prd_name', 'LIKE', '%' . $keyword . '%')
             ->get();
     }
 
-    public function filterPrice($cat_id, $start_price, $end_price) {
+    public function filterPrice($keyword, $start_price, $end_price) {
         return DB::table('version')
             ->join('product', 'version.prd_id', '=', 'product.prd_id')
             ->join('subcategory', 'product.sub_id', '=', 'subcategory.sub_id')
@@ -76,13 +68,13 @@ class CategoryLayout extends Model
                 'version.version_details AS version_details',
                 'category.cat_name AS cat_name'
             )
-            ->where('category.cat_id', '=', $cat_id)
+            ->where('product.prd_name', 'LIKE', '%' . $keyword . '%')
             ->where('version.current_price', '>', $start_price)
             ->where('version.current_price', '<=', $end_price)
             ->get();
     }
 
-    public function filterScreen($cat_id, $screen) {
+    public function filterScreen($keyword, $screen) {
         return DB::table('version')
             ->join('product', 'version.prd_id', '=', 'product.prd_id')
             ->join('subcategory', 'product.sub_id', '=', 'subcategory.sub_id')
@@ -101,12 +93,12 @@ class CategoryLayout extends Model
                 'version.version_details AS version_details',
                 'category.cat_name AS cat_name'
             )
-            ->where('category.cat_id', '=', $cat_id)
+            ->where('product.prd_name', 'LIKE', '%' . $keyword . '%')
             ->where('version.version_details', 'LIKE', '%' . $screen . '"%')
             ->get();
     }
 
-    public function filterDisplay($cat_id, $display) {
+    public function filterDisplay($keyword, $display) {
         return DB::table('version')
             ->join('product', 'version.prd_id', '=', 'product.prd_id')
             ->join('subcategory', 'product.sub_id', '=', 'subcategory.sub_id')
@@ -125,12 +117,12 @@ class CategoryLayout extends Model
                 'version.version_details AS version_details',
                 'category.cat_name AS cat_name'
             )
-            ->where('category.cat_id', '=', $cat_id)
+            ->where('product.prd_name', 'LIKE', '%' . $keyword . '%')
             ->where('version.version_details', 'LIKE', '% ' . $display . ' %')
             ->get();
     }
 
-    public function filterCpu($cat_id, $cpu) {
+    public function filterCpu($keyword, $cpu) {
         return DB::table('version')
             ->join('product', 'version.prd_id', '=', 'product.prd_id')
             ->join('subcategory', 'product.sub_id', '=', 'subcategory.sub_id')
@@ -149,12 +141,12 @@ class CategoryLayout extends Model
                 'version.version_details AS version_details',
                 'category.cat_name AS cat_name'
             )
-            ->where('category.cat_id', '=', $cat_id)
+            ->where('product.prd_name', 'LIKE', '%' . $keyword . '%')
             ->where('version.version_details', 'LIKE', '%' . $cpu . '%')
             ->get();
     }
 
-    public function filterRam($cat_id, $ram) {
+    public function filterRam($keyword, $ram) {
         return DB::table('version')
             ->join('product', 'version.prd_id', '=', 'product.prd_id')
             ->join('subcategory', 'product.sub_id', '=', 'subcategory.sub_id')
@@ -173,7 +165,7 @@ class CategoryLayout extends Model
                 'version.version_details AS version_details',
                 'category.cat_name AS cat_name'
             )
-            ->where('category.cat_id', '=', $cat_id)
+            ->where('product.prd_name', 'LIKE', '%' . $keyword . '%')
             ->where('version.version_details', 'LIKE', '%' . $ram . '%')
             ->get();
     }

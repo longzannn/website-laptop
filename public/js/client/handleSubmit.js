@@ -1,14 +1,11 @@
-var inputCheckboxPrice = document.querySelectorAll('.price input[type="checkbox"]');
-var formPrice = document.querySelector('.price');
+var inputCheckboxPrice = document.querySelectorAll('form input[type="checkbox"]');
+var formPrice = document.querySelectorAll('form.flex.items-center.mb-3');
 
-function handleSubmit(inputCheckbox, form) {
-    inputCheckbox.addEventListener('change', function () {
-        if (this.checked) {
-            form.submit();
-        }
+inputCheckboxPrice.forEach(function (input) {
+    input.addEventListener('change', function () {
+        const form = input.parentElement;
+        form.submit();
     });
-}
+});
 
-for (var i = 0; i < inputCheckboxPrice.length; i++) {
-    handleSubmit(inputCheckboxPrice[i], formPrice);
-}
+

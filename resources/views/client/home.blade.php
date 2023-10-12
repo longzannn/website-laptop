@@ -21,45 +21,49 @@
                 <img src="https://laptopkhanhtran.vn/pic/banner/logo_6368_638173418442942155.png" class="h-10 mr-3" alt="Flowbite Logo" />
             </a>
             <div class="basis-2/5 flex">
-                <div class="w-4/5 relative hidden md:block">
-                    <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                <form class="w-4/5 relative hidden md:block" method="POST" action={{ route('client.search') }}>
+                    @csrf
+                    @method('PUT')
+                    <button type="submit" class="absolute inset-y-0 left-0 z-10 flex items-center pl-3">
                         <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
                         </svg>
-                    </div>
-                    <input type="text" id="search-navbar" class="block w-full p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-full bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Bạn muốn tìm sản phẩm gì..." />
-                </div>
+                    </button>
+                    <input type="text" name="keyword" id="search-navbar" class="block w-full p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-full bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Bạn muốn tìm sản phẩm gì..." />
+                </form>
             </div>
             <div class="justify-between hidden w-full md:flex md:w-auto" id="navbar-search">
-                <ul class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg md:flex-row md:space-x-6 md:mt-0 md:border-0 bg-[#242525]">
+                <ul class="flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg md:flex-row md:space-x-6 md:mt-0 md:border-0 bg-[#242525]">
                     <li>
-                        <a href="#" class="block opacity-60 hover:opacity-100 rounded bg-[#242525] text-white font-normal md:p-0" aria-current="page">Trang chủ</a>
+                        <a href="#" class="block opacity-60 hover:opacity-100 rounded bg-[#242525] text-white font-semibold md:p-0" aria-current="page">Trang chủ</a>
                     </li>
                     <li>
-                        <a href="#" class="block opacity-60 hover:opacity-100 rounded bg-[#242525] text-white font-normal md:p-0">Sản
+                        <a href="#" class="block opacity-60 hover:opacity-100 rounded bg-[#242525] text-white font-semibold md:p-0">Sản
                             phẩm</a>
                     </li>
                     <li>
-                        <a href="#" class="block opacity-60 hover:opacity-100 rounded bg-[#242525] text-white font-normal md:p-0">Tin
+                        <a href="#" class="block opacity-60 hover:opacity-100 rounded bg-[#242525] text-white font-semibold md:p-0">Tin
                             tức</a>
                     </li>
                     <li>
-                        <a href="#" class="block opacity-60 hover:opacity-100 rounded bg-[#242525] text-white font-normal md:p-0">Giới
+                        <a href="#" class="block opacity-60 hover:opacity-100 rounded bg-[#242525] text-white font-semibold md:p-0">Giới
                             thiệu</a>
                     </li>
                     <li>
-                        <a href="#" class="block opacity-60 hover:opacity-100 rounded bg-[#242525] text-white font-normal md:p-0">Liên
+                        <a href="#" class="block opacity-60 hover:opacity-100 rounded bg-[#242525] text-white font-semibold md:p-0">Liên
                             hệ</a>
                     </li>
                 </ul>
             </div>
             <div class="relative text-white ms-12">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
-                </svg>
-                <div class="absolute p-1 w-5 h-5 bg-red-500 rounded-full top-[-10px] right-[-10px] text-xs flex items-center justify-center">
-                    0
-                </div>
+                <a href={{ route('client.cart') }}>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
+                    </svg>
+                    <div class="absolute p-1 w-5 h-5 bg-red-500 rounded-full top-[-10px] right-[-10px] text-xs flex items-center justify-center">
+                        0
+                    </div>
+                </a>
             </div>
         </div>
     </nav>
@@ -69,7 +73,7 @@
         <ul class="flex w-full items-center justify-between px-32">
             @foreach($categories as $category)
             <li class="relative flex items-center text-white opacity-60 hover:opacity-100 h-full">
-                <a class="text-xs uppercase font-semibold" href={{ route('client.category', $category -> cat_id) }}>{{ $category -> cat_name }}</a><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-3 h-3 ml-1">
+                <a class="text-xs font-semibold uppercase font-semibold" href={{ route('client.category', $category -> cat_id) }}>{{ $category -> cat_name }}</a><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-3 h-3 ml-1">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                 </svg>
                 <div class="hidden absolute top-[100%] left-0 drop-shadow-xl bg-white w-max rounded-lg">
@@ -77,7 +81,7 @@
                         @foreach($subcategories as $subcategory)
                             @if( $subcategory -> cat_id == $category -> cat_id)
                             <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                                <a href={{ route('client.subcategory', $subcategory -> sub_id) }}>{{ $subcategory -> sub_name }}</a>
+                                <a class="font-semibold" href={{ route('client.subcategory', $subcategory -> sub_id) }}>{{ $subcategory -> sub_name }}</a>
                             </li>
                             @endif
                         @endforeach
@@ -445,7 +449,7 @@
             </div>
             <div class="">
                 <h3 class="font-bold text-lg mb-6">Thông tin liên hệ</h3>
-                <ol class="my-2 max-w-md space-y-1 text-gray-500 list-decimal list-inside dark:text-gray-400">
+                <ol class="my-2 list-none max-w-md space-y-1 text-gray-500 list-decimal list-inside dark:text-gray-400">
                     <li class="text-sm">
                         <span class="font-semibold text-gray-900 dark:text-white">Địa chỉ:</span>
                         26 Ngõ 165 Thái Hà, Láng Hạ, Đống Đa, Hà Nội
@@ -453,10 +457,6 @@
                     <li class="text-sm">
                         <span class="font-semibold text-gray-900 dark:text-white">Điện thoại:</span>
                         0936 23 1234
-                    </li>
-                    <li class="text-sm">
-                        <span class="font-semibold text-gray-900 dark:text-white">VGA</span>
-                        NVIDIA GeForce RTX 4050 6GB
                     </li>
                     <li class="text-sm">
                         <span class="font-semibold text-gray-900 dark:text-white">Email:</span>

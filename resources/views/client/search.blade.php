@@ -5,12 +5,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="Shortcut icon" href="https://laptopkhanhtran.vn/pic/system/logo-kt-01636837754534945606.png" type="image/x-icon">
-    <title>{{ $sub_name }}</title>
+    <title></title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 </head>
-
 <body>
 <!-- Header -->
 <nav class="sticky z-20 top-0 left-0 right-0 bg-[#242525] border-gray-200 dark:bg-gray-900">
@@ -93,7 +92,7 @@
 <!-- Products -->
 <div class="max-w-[1400px] mx-auto mt-5 mb-20 p-6">
     <div class="flex justify-between">
-        <h2 class="text-3xl font-bold uppercase">{{ $sub_name }}</h2>
+        <h2 class="text-3xl font-bold uppercase">Kết quả tìm kiếm: {{ $keyword }}</h2>
         <nav class="flex" aria-label="Breadcrumb">
             <ol class="inline-flex items-center space-x-1 md:space-x-3">
                 <li class="inline-flex items-center opacity-60">
@@ -118,7 +117,7 @@
                         <svg class="w-3 h-3 text-gray-400 mx-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4" />
                         </svg>
-                        <span class="ml-1 text-sm text-gray-500 md:ml-2 dark:text-gray-400">{{ $sub_name }}</span>
+                        <span class="ml-1 text-sm text-gray-500 md:ml-2 dark:text-gray-400">{{ $keyword }}</span>
                     </div>
                 </li>
             </ol>
@@ -138,49 +137,49 @@
                         </svg>
                     </div>
                     <div class="filter hidden price">
-                        <form class="flex items-center mb-3"  method="POST" action={{ route('client.filterProductInSubcategory', $sub_id) }}>
+                        <form class="flex items-center mb-3"  method="POST" action={{ route('client.filterProductInSearch', $keyword) }}>
                             @csrf
                             @method('PUT')
                             <input id="default-checkbox" name="price" type="checkbox" value="10000000" class="w-4 h-4 text-blue-600 bg-white border-gray-300 rounded" />
                             <label for="default-checkbox" class="ml-2 text-sm text-gray-900 dark:text-gray-300 hover:underline">Dưới 10
                                 triệu</label>
                         </form>
-                        <form class="flex items-center mb-3" method="POST" action={{ route('client.filterProductInSubcategory', $sub_id) }}>
+                        <form class="flex items-center mb-3" method="POST" action={{ route('client.filterProductInSearch', $keyword) }}>
                             @csrf
                             @method('PUT')
                             <input id="checked-checkbox" name="price" type="checkbox" value="15000000" class="w-4 h-4 text-blue-600 bg-white border-gray-300 rounded" />
                             <label for="checked-checkbox" class="ml-2 text-sm text-gray-900 dark:text-gray-300 hover:underline">10 triệu - 15
                                 triệu</label>
                         </form>
-                        <form class="flex items-center mb-3" method="POST" action={{ route('client.filterProductInSubcategory', $sub_id) }}>
+                        <form class="flex items-center mb-3" method="POST" action={{ route('client.filterProductInSearch', $keyword) }}>
                             @csrf
                             @method('PUT')
                             <input id="checked-checkbox" name="price" type="checkbox" value="20000000" class="w-4 h-4 text-blue-600 bg-white border-gray-300 rounded" />
                             <label for="checked-checkbox" class="ml-2 text-sm text-gray-900 dark:text-gray-300 hover:underline">15 triệu - 20
                                 triệu</label>
                         </form>
-                        <form class="flex items-center mb-3" method="POST" action={{ route('client.filterProductInSubcategory', $sub_id) }}>
+                        <form class="flex items-center mb-3" method="POST" action={{ route('client.filterProductInSearch', $keyword) }}>
                             @csrf
                             @method('PUT')
                             <input id="checked-checkbox" name="price" type="checkbox" value="30000000" class="w-4 h-4 text-blue-600 bg-white border-gray-300 rounded" />
                             <label for="checked-checkbox" class="ml-2 text-sm text-gray-900 dark:text-gray-300 hover:underline">20 triệu - 30
                                 triệu</label>
                         </form>
-                        <form class="flex items-center mb-3" method="POST" action={{ route('client.filterProductInSubcategory', $sub_id) }}>
+                        <form class="flex items-center mb-3" method="POST" action={{ route('client.filterProductInSearch', $keyword) }}>
                             @csrf
                             @method('PUT')
                             <input id="checked-checkbox" name="price" type="checkbox" value="45000000" class="w-4 h-4 text-blue-600 bg-white border-gray-300 rounded" />
                             <label for="checked-checkbox" class="ml-2 text-sm text-gray-900 dark:text-gray-300 hover:underline">30 triệu - 45
                                 triệu</label>
                         </form>
-                        <form class="flex items-center mb-3" method="POST" action={{ route('client.filterProductInSubcategory', $sub_id) }}>
+                        <form class="flex items-center mb-3" method="POST" action={{ route('client.filterProductInSearch', $keyword) }}>
                             @csrf
                             @method('PUT')
                             <input id="checked-checkbox" name="price" type="checkbox" value="55000000" class="w-4 h-4 text-blue-600 bg-white border-gray-300 rounded" />
                             <label for="checked-checkbox" class="ml-2 text-sm text-gray-900 dark:text-gray-300 hover:underline">45 triệu - 55
                                 triệu</label>
                         </form>
-                        <form class="flex items-center mb-3" method="POST" action={{ route('client.filterProductInSubcategory', $sub_id) }}>
+                        <form class="flex items-center mb-3" method="POST" action={{ route('client.filterProductInSearch', $keyword) }}>
                             @csrf
                             @method('PUT')
                             <input id="checked-checkbox" name="price" type="checkbox" value="80000000" class="w-4 h-4 text-blue-600 bg-white border-gray-300 rounded" />
@@ -199,42 +198,42 @@
                         </svg>
                     </div>
                     <div class="filter hidden screen">
-                        <form class="flex items-center mb-3" method="POST" action={{ route('client.filterProductInSubcategory', $sub_id) }}>
+                        <form class="flex items-center mb-3" method="POST" action={{ route('client.filterProductInSearch', $keyword) }}>
                             @csrf
                             @method('PUT')
                             <input id="default-checkbox" name="screen" type="checkbox" value="13.3" class="w-4 h-4 text-blue-600 bg-white border-gray-300 rounded" />
                             <label for="default-checkbox" class="ml-2 text-sm text-gray-900 dark:text-gray-300 hover:underline">13.3
                                 inch</label>
                         </form>
-                        <form class="flex items-center mb-3" method="POST" action={{ route('client.filterProductInSubcategory', $sub_id) }}>
+                        <form class="flex items-center mb-3" method="POST" action={{ route('client.filterProductInSearch', $keyword) }}>
                             @csrf
                             @method('PUT')
                             <input id="checked-checkbox" name="screen" type="checkbox" value="14" class="w-4 h-4 text-blue-600 bg-white border-gray-300 rounded" />
                             <label for="checked-checkbox" class="ml-2 text-sm text-gray-900 dark:text-gray-300 hover:underline">14
                                 inch</label>
                         </form>
-                        <form class="flex items-center mb-3" method="POST" action={{ route('client.filterProductInSubcategory', $sub_id) }}>
+                        <form class="flex items-center mb-3" method="POST" action={{ route('client.filterProductInSearch', $keyword) }}>
                             @csrf
                             @method('PUT')
                             <input id="checked-checkbox" name="screen" type="checkbox" value="15.6" class="w-4 h-4 text-blue-600 bg-white border-gray-300 rounded" />
                             <label for="checked-checkbox" class="ml-2 text-sm text-gray-900 dark:text-gray-300 hover:underline">15.6
                                 inch</label>
                         </form>
-                        <form class="flex items-center mb-3" method="POST" action={{ route('client.filterProductInSubcategory', $sub_id) }}>
+                        <form class="flex items-center mb-3" method="POST" action={{ route('client.filterProductInSearch', $keyword) }}>
                             @csrf
                             @method('PUT')
                             <input id="checked-checkbox" name="screen" type="checkbox" value="16" class="w-4 h-4 text-blue-600 bg-white border-gray-300 rounded" />
                             <label for="checked-checkbox" class="ml-2 text-sm text-gray-900 dark:text-gray-300 hover:underline">16
                                 inch</label>
                         </form>
-                        <form class="flex items-center mb-3" method="POST" action={{ route('client.filterProductInSubcategory', $sub_id) }}>
+                        <form class="flex items-center mb-3" method="POST" action={{ route('client.filterProductInSearch', $keyword) }}>
                             @csrf
                             @method('PUT')
                             <input id="checked-checkbox" name="screen" type="checkbox" value="17" class="w-4 h-4 text-blue-600 bg-white border-gray-300 rounded" />
                             <label for="checked-checkbox" class="ml-2 text-sm text-gray-900 dark:text-gray-300 hover:underline">17
                                 inch</label>
                         </form>
-                        <form class="flex items-center mb-3" method="POST" action={{ route('client.filterProductInSubcategory', $sub_id) }}>
+                        <form class="flex items-center mb-3" method="POST" action={{ route('client.filterProductInSearch', $keyword) }}>
                             @csrf
                             @method('PUT')
                             <input id="checked-checkbox" name="screen" type="checkbox" value="17.3" class="w-4 h-4 text-blue-600 bg-white border-gray-300 rounded" />
@@ -253,13 +252,13 @@
                         </svg>
                     </div>
                     <div class="filter hidden display">
-                        <form class="flex items-center mb-3" method="POST" action={{ route('client.filterProductInSubcategory', $sub_id) }}>
+                        <form class="flex items-center mb-3" method="POST" action={{ route('client.filterProductInSearch', $keyword) }}>
                             @csrf
                             @method('PUT')
                             <input id="default-checkbox" name="display" type="checkbox" value="HD" class="w-4 h-4 text-blue-600 bg-white border-gray-300 rounded" />
                             <label for="default-checkbox" class="ml-2 text-sm text-gray-900 dark:text-gray-300 hover:underline">HD</label>
                         </form>
-                        <form class="flex items-center mb-3" method="POST" action={{ route('client.filterProductInSubcategory', $sub_id) }}>
+                        <form class="flex items-center mb-3" method="POST" action={{ route('client.filterProductInSearch', $keyword) }}>
                             @csrf
                             @method('PUT')
                             <input id="checked-checkbox" name="display" type="checkbox" value="FHD" class="w-4 h-4 text-blue-600 bg-white border-gray-300 rounded" />
@@ -276,56 +275,56 @@
                         </svg>
                     </div>
                     <div class="filter hidden">
-                        <form class="flex items-center mb-3"  method="POST" action={{ route('client.filterProductInSubcategory', $sub_id) }}>
+                        <form class="flex items-center mb-3"  method="POST" action={{ route('client.filterProductInSearch', $keyword) }}>
                             @csrf
                             @method('PUT')
                             <input id="default-checkbox" name="cpu" type="checkbox" value="Ryzen 3" class="w-4 h-4 text-blue-600 bg-white border-gray-300 rounded" />
                             <label for="default-checkbox" class="ml-2 text-sm text-gray-900 dark:text-gray-300 hover:underline">Ryzen
                                 3</label>
                         </form>
-                        <form class="flex items-center mb-3"  method="POST" action={{ route('client.filterProductInSubcategory', $sub_id) }}>
+                        <form class="flex items-center mb-3"  method="POST" action={{ route('client.filterProductInSearch', $keyword) }}>
                             @csrf
                             @method('PUT')
                             <input id="checked-checkbox" name="cpu" type="checkbox" value="Ryzen 5" class="w-4 h-4 text-blue-600 bg-white border-gray-300 rounded" />
                             <label for="checked-checkbox" class="ml-2 text-sm text-gray-900 dark:text-gray-300 hover:underline">Ryzen
                                 5</label>
                         </form>
-                        <form class="flex items-center mb-3"  method="POST" action={{ route('client.filterProductInSubcategory', $sub_id) }}>
+                        <form class="flex items-center mb-3"  method="POST" action={{ route('client.filterProductInSearch', $keyword) }}>
                             @csrf
                             @method('PUT')
                             <input id="checked-checkbox" name="cpu" type="checkbox" value="Ryzen 7" class="w-4 h-4 text-blue-600 bg-white border-gray-300 rounded" />
                             <label for="checked-checkbox" class="ml-2 text-sm text-gray-900 dark:text-gray-300 hover:underline">Ryzen
                                 7</label>
                         </form>
-                        <form class="flex items-center mb-3"  method="POST" action={{ route('client.filterProductInSubcategory', $sub_id) }}>
+                        <form class="flex items-center mb-3"  method="POST" action={{ route('client.filterProductInSearch', $keyword) }}>
                             @csrf
                             @method('PUT')
                             <input id="checked-checkbox" name="cpu" type="checkbox" value="Ryzen 9" class="w-4 h-4 text-blue-600 bg-white border-gray-300 rounded" />
                             <label for="checked-checkbox" class="ml-2 text-sm text-gray-900 dark:text-gray-300 hover:underline">Ryzen
                                 9</label>
                         </form>
-                        <form class="flex items-center mb-3"  method="POST" action={{ route('client.filterProductInSubcategory', $sub_id) }}>
+                        <form class="flex items-center mb-3"  method="POST" action={{ route('client.filterProductInSearch', $keyword) }}>
                             @csrf
                             @method('PUT')
                             <input id="checked-checkbox" name="cpu" type="checkbox" value="Core i3" class="w-4 h-4 text-blue-600 bg-white border-gray-300 rounded" />
                             <label for="checked-checkbox" class="ml-2 text-sm text-gray-900 dark:text-gray-300 hover:underline">Core
                                 i3</label>
                         </form>
-                        <form class="flex items-center mb-3"  method="POST" action={{ route('client.filterProductInSubcategory', $sub_id) }}>
+                        <form class="flex items-center mb-3"  method="POST" action={{ route('client.filterProductInSearch', $keyword) }}>
                             @csrf
                             @method('PUT')
                             <input id="checked-checkbox" name="cpu" type="checkbox" value="Core i5" class="w-4 h-4 text-blue-600 bg-white border-gray-300 rounded" />
                             <label for="checked-checkbox" class="ml-2 text-sm text-gray-900 dark:text-gray-300 hover:underline">Core
                                 i5</label>
                         </form>
-                        <form class="flex items-center mb-3"  method="POST" action={{ route('client.filterProductInSubcategory', $sub_id) }}>
+                        <form class="flex items-center mb-3"  method="POST" action={{ route('client.filterProductInSearch', $keyword) }}>
                             @csrf
                             @method('PUT')
                             <input id="checked-checkbox" name="cpu" type="checkbox" value="Core i7" class="w-4 h-4 text-blue-600 bg-white border-gray-300 rounded" />
                             <label for="checked-checkbox" class="ml-2 text-sm text-gray-900 dark:text-gray-300 hover:underline">Core
                                 i7</label>
                         </form>
-                        <form class="flex items-center mb-3"  method="POST" action={{ route('client.filterProductInSubcategory', $sub_id) }}>
+                        <form class="flex items-center mb-3"  method="POST" action={{ route('client.filterProductInSearch', $keyword) }}>
                             @csrf
                             @method('PUT')
                             <input id="checked-checkbox" name="cpu" type="checkbox" value="Core i9" class="w-4 h-4 text-blue-600 bg-white border-gray-300 rounded" />
@@ -342,31 +341,31 @@
                         </svg>
                     </div>
                     <div class="filter hidden">
-                        <form class="flex items-center mb-3" method="POST" action={{ route('client.filterProductInSubcategory', $sub_id) }}>
+                        <form class="flex items-center mb-3" method="POST" action={{ route('client.filterProductInSearch', $keyword) }}>
                             @csrf
                             @method('PUT')
                             <input id="default-checkbox" name="ram" type="checkbox" value="4GB" class="w-4 h-4 text-blue-600 bg-white border-gray-300 rounded" />
                             <label for="default-checkbox" class="ml-2 text-sm text-gray-900 dark:text-gray-300 hover:underline">4GB</label>
                         </form>
-                        <form class="flex items-center mb-3" method="POST" action={{ route('client.filterProductInSubcategory', $sub_id) }}>
+                        <form class="flex items-center mb-3" method="POST" action={{ route('client.filterProductInSearch', $keyword) }}>
                             @csrf
                             @method('PUT')
                             <input id="checked-checkbox" name="ram" type="checkbox" value="8GB" class="w-4 h-4 text-blue-600 bg-white border-gray-300 rounded" />
                             <label for="checked-checkbox" class="ml-2 text-sm text-gray-900 dark:text-gray-300 hover:underline">8GB</label>
                         </form>
-                        <form class="flex items-center mb-3" method="POST" action={{ route('client.filterProductInSubcategory', $sub_id) }}>
+                        <form class="flex items-center mb-3" method="POST" action={{ route('client.filterProductInSearch', $keyword) }}>
                             @csrf
                             @method('PUT')
                             <input id="checked-checkbox" name="ram" type="checkbox" value="16GB" class="w-4 h-4 text-blue-600 bg-white border-gray-300 rounded" />
                             <label for="checked-checkbox" class="ml-2 text-sm text-gray-900 dark:text-gray-300 hover:underline">16GB</label>
                         </form>
-                        <form class="flex items-center mb-3" method="POST" action={{ route('client.filterProductInSubcategory', $sub_id) }}>
+                        <form class="flex items-center mb-3" method="POST" action={{ route('client.filterProductInSearch', $keyword) }}>
                             @csrf
                             @method('PUT')
                             <input id="checked-checkbox" name="ram" type="checkbox" value="32GB" class="w-4 h-4 text-blue-600 bg-white border-gray-300 rounded" />
                             <label for="checked-checkbox" class="ml-2 text-sm text-gray-900 dark:text-gray-300 hover:underline">32GB</label>
                         </form>
-                        <form class="flex items-center mb-3" method="POST" action={{ route('client.filterProductInSubcategory', $sub_id) }}>
+                        <form class="flex items-center mb-3" method="POST" action={{ route('client.filterProductInSearch', $keyword) }}>
                             @csrf
                             @method('PUT')
                             <input id="checked-checkbox" name="ram" type="checkbox" value="64GB" class="w-4 h-4 text-blue-600 bg-white border-gray-300 rounded" />

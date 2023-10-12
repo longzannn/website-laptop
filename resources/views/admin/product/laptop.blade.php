@@ -103,12 +103,12 @@
                     </div>
                     <div class="title">Laptop Information</div>
                     <div class="sales-details">
-                        <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+                        <div class="relative shadow-md sm:rounded-lg">
                             <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                                     <tr>
-                                        <th scope="col" class="px-6 py-3">Product name</th>
-                                        <th scope="col" class="px-6 py-3">Image</th>
+                                        <th scope="col" class="px-6 py-3" width="40%">Product name</th>
+                                        <th scope="col" class="px-6 py-3" width="20%">Image</th>
                                         <th scope="col" class="px-6 py-3">Subcategory</th>
                                         <th scope="col" class="px-6 py-3">Price</th>
                                         <th scope="col" class="px-6 py-3">Action</th>
@@ -117,24 +117,26 @@
                                 <tbody>
                                     @foreach($laptops as $laptop)
                                     <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
-                                        <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                        <td class="px-6 py-4 font-medium text-gray-900 dark:text-white">
                                             {{ $laptop -> prd_name }} ({{ $laptop -> version_name }})
                                         </td>
                                         <td class="px-6 py-4">
-                                            <img class="w-14 h-14" src="{{ Storage::url('admin/') . $laptop -> img_1 }}" alt="">
+                                            <img class="w-16 h-16 rounded-lg" src="{{ Storage::url('admin/') . $laptop -> img_1 }}" alt="">
                                         </td>
                                         <td class="px-6 py-4">{{ $laptop -> sub_name }}</td>
                                         <td class="px-6 py-4">{{ number_format($laptop -> current_price, 0, ',', '.') }}</td>
-                                        <td class="px-6 py-4 flex">
-                                            <a href="{{ route('product.edit', $laptop -> version_id) }}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                                            <form method="POST" action="{{ route('product.destroy', $laptop -> version_id ) }}">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button
-                                                    class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
-                                                    Delete
-                                                </button>
-                                            </form>
+                                        <td class="px-6 py-4">
+                                            <div class="flex">
+                                                <a href="{{ route('product.edit', $laptop -> version_id) }}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                                                <form method="POST" action="{{ route('product.destroy', $laptop -> version_id ) }}">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button
+                                                        class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
+                                                        Delete
+                                                    </button>
+                                                </form>
+                                            </div>
                                         </td>
                                     </tr>
                                     @endforeach

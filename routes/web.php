@@ -3,8 +3,10 @@
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('admin/')->group(function () {
+    // Route dashboard
     Route::get('dashboard', [\App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
 
+    // Route category
     Route::prefix('category/')->group(function () {
         Route::get('category', [\App\Http\Controllers\CategoryController::class, 'index'])->name('category.index');
         Route::get('add_category', [\App\Http\Controllers\CategoryController::class, 'create'])->name('category.create');
@@ -14,6 +16,7 @@ Route::prefix('admin/')->group(function () {
         Route::delete('category/{id}', [\App\Http\Controllers\CategoryController::class, 'destroy'])->name('category.destroy');
     });
 
+    // Route product
     Route::prefix('product/')->group(function () {
         Route::get('laptop', [\App\Http\Controllers\ProductController::class, 'indexLaptop'])->name('product.laptop');
         Route::get('component', [\App\Http\Controllers\ProductController::class, 'indexComponent'])->name('product.component');
@@ -25,6 +28,7 @@ Route::prefix('admin/')->group(function () {
         Route::delete('component/{id}', [\App\Http\Controllers\ProductController::class, 'destroy'])->name('product.destroy');
     });
 
+    // Route customer
     Route::prefix('customer/')->group(function () {
         Route::get('customer', [\App\Http\Controllers\CustomerController::class, 'index'])->name('customer.index');
         Route::get('add_customer', [\App\Http\Controllers\CustomerController::class, 'create'])->name('customer.create');
@@ -34,6 +38,7 @@ Route::prefix('admin/')->group(function () {
         Route::delete('customer/{id}', [\App\Http\Controllers\CustomerController::class, 'destroy'])->name('customer.destroy');
     });
 
+    // Route staff
     Route::prefix('staff/')->group(function () {
         Route::get('staff', [\App\Http\Controllers\StaffController::class, 'index'])->name('staff.index');
         Route::get('add_staff', [\App\Http\Controllers\StaffController::class, 'create'])->name('staff.create');
@@ -43,10 +48,12 @@ Route::prefix('admin/')->group(function () {
         Route::delete('staff/{id}', [\App\Http\Controllers\StaffController::class, 'destroy'])->name('staff.destroy');
     });
 
+    // Route order
     Route::prefix('order/')->group(function () {
         Route::get('order', [\App\Http\Controllers\OrderController::class, 'index'])->name('order.index');
     });
 
+    // Route subcategory
     Route::prefix('subcategory/')->group(function () {
         Route::get('subcategory', [\App\Http\Controllers\SubcategoryController::class, 'index'])->name('subcategory.index');
         Route::get('add_subcategory', [\App\Http\Controllers\SubcategoryController::class, 'create'])->name('subcategory.create');
@@ -58,10 +65,25 @@ Route::prefix('admin/')->group(function () {
 });
 
 Route::prefix('client/')->group(function () {
+    // Route home
     Route::get('home', [\App\Http\Controllers\HomeLayoutController::class, 'index'])->name('client.home');
+
+    // Route detail
     Route::get('detail/{id}', [\App\Http\Controllers\DetailLayoutController::class, 'index'])->name('client.detail');
+
+    // Route category
     Route::get('category/{id}', [\App\Http\Controllers\CategoryLayoutController::class, 'index'])->name('client.category');
+    Route::put('filter-category/{id}', [\App\Http\Controllers\CategoryLayoutController::class, 'filter'])->name('client.filterProductInCategory');
+
+    // Route subcategory
     Route::get('subcategory/{id}', [\App\Http\Controllers\SubcategoryLayoutController::class, 'index'])->name('client.subcategory');
+    Route::put('filter-subcategory/{id}', [\App\Http\Controllers\SubcategoryLayoutController::class, 'filter'])->name('client.filterProductInSubcategory');
+
+    // Route search
+    Route::put('search', [\App\Http\Controllers\SearchLayoutController::class, 'index'])->name('client.search');
+    Route::put('filter-search/{keyword}', [\App\Http\Controllers\SearchLayoutController::class, 'filter'])->name('client.filterProductInSearch');
+
+    // Route cart
     Route::get('cart', [\App\Http\Controllers\CartLayoutController::class, 'index'])->name('client.cart');
     Route::put('add-to-cart/{id}', [\App\Http\Controllers\CartLayoutController::class, 'addToCart'])->name('client.addToCart');
     Route::put('update-cart', [\App\Http\Controllers\CartLayoutController::class, 'updateCart'])->name('client.updateCart');
