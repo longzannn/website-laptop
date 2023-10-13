@@ -195,7 +195,7 @@
                     </div>
                     <div class="grid grid-cols-1 gap-3 mt-5">
                         <button class="bg-[#e00] p-1 rounded-lg">
-                            <a>
+                            <a href={{ Session::has('cart') ? route('client.checkout') : '' }}>
                                 <div class="text-sm font-semibold text-white uppercase">
                                     Mua ngay
                                 </div>

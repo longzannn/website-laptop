@@ -62,6 +62,9 @@ Route::prefix('admin/')->group(function () {
         Route::put('edit_subcategory/{id}', [\App\Http\Controllers\SubcategoryController::class, 'update'])->name('subcategory.update');
         Route::delete('subcategory/{id}', [\App\Http\Controllers\SubcategoryController::class, 'destroy'])->name('subcategory.destroy');
     });
+
+    // Route login
+    Route::get('login', [\App\Http\Controllers\LoginController::class, 'index'])->name('login');
 });
 
 Route::prefix('client/')->group(function () {
@@ -89,4 +92,7 @@ Route::prefix('client/')->group(function () {
     Route::put('update-cart', [\App\Http\Controllers\CartLayoutController::class, 'updateCart'])->name('client.updateCart');
     Route::get('delete-cart', [\App\Http\Controllers\CartLayoutController::class, 'deleteCart'])->name('client.deleteCart');
     Route::get('delete-product-in-cart/{id}', [\App\Http\Controllers\CartLayoutController::class, 'deleteProductInCart'])->name('client.deleteProductInCart');
+
+    // Route checkout
+    Route::get('checkout', [\App\Http\Controllers\CheckoutLayoutController::class, 'index'])->name('client.checkout');
 });
