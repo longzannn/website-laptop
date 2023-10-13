@@ -38,10 +38,10 @@ class StaffController extends Controller
     {
         $obj = new Staff();
         $obj->staff_name = $request->staff_name;
-        $obj->staff_email = $request->staff_email;
+        $obj->email = $request->email;
         $obj->staff_phone = $request->staff_phone;
         $obj->staff_address = $request->staff_address;
-        $obj->staff_password = $request->staff_password;
+        $obj->password = $request->password;
         $obj->store();
         return Redirect::route('staff.index');;
     }
@@ -76,10 +76,10 @@ class StaffController extends Controller
         $obj = new Staff();
         $obj->staff_id = $request->id;
         $obj->staff_name = $request->staff_name;
-        $obj->staff_email = $request->staff_email;
+        $obj->email = $request->email;
         $obj->staff_phone = $request->staff_phone;
         $obj->staff_address = $request->staff_address;
-        $obj->staff_password = $request->staff_password;
+        $obj->password = $request->password;
 
         $obj->updateStaff();
         return Redirect::route('staff.index');

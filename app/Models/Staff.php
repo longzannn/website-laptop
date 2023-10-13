@@ -20,10 +20,10 @@ class Staff extends Model
     {
         DB::table('staff')->insert([
             'staff_name' => $this->staff_name,
-            'staff_email' => $this->staff_email,
+            'email' => $this->email,
             'staff_phone' => $this->staff_phone,
             'staff_address' => $this->staff_address,
-            'staff_password' => $this->staff_password,
+            'password' => $this->password,
         ]);
     }
 
@@ -41,10 +41,10 @@ class Staff extends Model
             ->where('staff_id', $this->staff_id)
             ->update([
                 'staff_name' => $this->staff_name,
-                'staff_email' => $this->staff_email,
+                'email' => $this->email,
                 'staff_phone' => $this->staff_phone,
                 'staff_address' => $this->staff_address,
-                'staff_password' => $this->staff_password,
+                'password' => $this->password,
             ]);
     }
 

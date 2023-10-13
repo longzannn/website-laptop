@@ -120,7 +120,7 @@
                                         <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                             {{ $staff -> staff_name }}
                                         </th>
-                                        <td class="px-6 py-4"> {{ $staff -> staff_email }}</td>
+                                        <td class="px-6 py-4"> {{ $staff -> email }}</td>
                                         <td class="px-6 py-4"> {{ $staff -> staff_phone }}</td>
                                         <td class="px-6 py-4"> {{ $staff -> staff_address }}</td>
                                         <td class="px-6 py-4 flex">

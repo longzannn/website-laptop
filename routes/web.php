@@ -64,7 +64,8 @@ Route::prefix('admin/')->group(function () {
     });
 
     // Route login
-    Route::get('login', [\App\Http\Controllers\LoginController::class, 'index'])->name('login');
+    Route::get('login/login', [\App\Http\Controllers\LoginController::class, 'login'])->name('login');
+    Route::post('login/login', [\App\Http\Controllers\LoginController::class, 'loginProcess'])->name('loginProcess');
 });
 
 Route::prefix('client/')->group(function () {
