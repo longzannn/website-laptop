@@ -4,10 +4,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::prefix('admin/')->group(function () {
     // Route dashboard
-    Route::get('dashboard', [\App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
+    Route::middleware('checkLoginStaff')->get('dashboard', [\App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
 
     // Route category
-    Route::prefix('category/')->group(function () {
+    Route::middleware('checkLoginStaff')->prefix('category/')->group(function () {
         Route::get('category', [\App\Http\Controllers\CategoryController::class, 'index'])->name('category.index');
         Route::get('add_category', [\App\Http\Controllers\CategoryController::class, 'create'])->name('category.create');
         Route::post('add_category', [\App\Http\Controllers\CategoryController::class, 'store'])->name('category.store');
@@ -17,7 +17,7 @@ Route::prefix('admin/')->group(function () {
     });
 
     // Route product
-    Route::prefix('product/')->group(function () {
+    Route::middleware('checkLoginStaff')->prefix('product/')->group(function () {
         Route::get('laptop', [\App\Http\Controllers\ProductController::class, 'indexLaptop'])->name('product.laptop');
         Route::get('component', [\App\Http\Controllers\ProductController::class, 'indexComponent'])->name('product.component');
         Route::get('add_product', [\App\Http\Controllers\ProductController::class, 'create'])->name('product.create');
@@ -29,7 +29,7 @@ Route::prefix('admin/')->group(function () {
     });
 
     // Route customer
-    Route::prefix('customer/')->group(function () {
+    Route::middleware('checkLoginStaff')->prefix('customer/')->group(function () {
         Route::get('customer', [\App\Http\Controllers\CustomerController::class, 'index'])->name('customer.index');
         Route::get('add_customer', [\App\Http\Controllers\CustomerController::class, 'create'])->name('customer.create');
         Route::post('add_customer', [\App\Http\Controllers\CustomerController::class, 'store'])->name('customer.store');
@@ -39,7 +39,7 @@ Route::prefix('admin/')->group(function () {
     });
 
     // Route staff
-    Route::prefix('staff/')->group(function () {
+    Route::middleware('checkLoginStaff')->prefix('staff/')->group(function () {
         Route::get('staff', [\App\Http\Controllers\StaffController::class, 'index'])->name('staff.index');
         Route::get('add_staff', [\App\Http\Controllers\StaffController::class, 'create'])->name('staff.create');
         Route::post('add_staff', [\App\Http\Controllers\StaffController::class, 'store'])->name('staff.store');
@@ -49,12 +49,12 @@ Route::prefix('admin/')->group(function () {
     });
 
     // Route order
-    Route::prefix('order/')->group(function () {
+    Route::middleware('checkLoginStaff')->prefix('order/')->group(function () {
         Route::get('order', [\App\Http\Controllers\OrderController::class, 'index'])->name('order.index');
     });
 
     // Route subcategory
-    Route::prefix('subcategory/')->group(function () {
+    Route::middleware('checkLoginStaff')->prefix('subcategory/')->group(function () {
         Route::get('subcategory', [\App\Http\Controllers\SubcategoryController::class, 'index'])->name('subcategory.index');
         Route::get('add_subcategory', [\App\Http\Controllers\SubcategoryController::class, 'create'])->name('subcategory.create');
         Route::post('add_subcategory', [\App\Http\Controllers\SubcategoryController::class, 'store'])->name('subcategory.store');
@@ -64,8 +64,11 @@ Route::prefix('admin/')->group(function () {
     });
 
     // Route login
-    Route::get('login/login', [\App\Http\Controllers\LoginController::class, 'login'])->name('login');
-    Route::post('login/login', [\App\Http\Controllers\LoginController::class, 'loginProcess'])->name('loginProcess');
+    Route::prefix('login/')->group(function () {
+        Route::get('login', [\App\Http\Controllers\LoginController::class, 'login'])->name('login');
+        Route::post('login', [\App\Http\Controllers\LoginController::class, 'loginProcess'])->name('loginProcess');
+        Route::get('logout', [\App\Http\Controllers\LoginController::class, 'logout'])->name('logout');
+    });
 });
 
 Route::prefix('client/')->group(function () {

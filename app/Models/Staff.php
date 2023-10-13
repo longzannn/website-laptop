@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\DB;
 class Staff extends Model
 {
     use HasFactory;
+    public $timestamps = false;
+    const UPDATED_AT = null;
 
     public function index()
     {

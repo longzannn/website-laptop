@@ -43,7 +43,7 @@ class StaffController extends Controller
         $obj->staff_address = $request->staff_address;
         $obj->password = $request->password;
         $obj->store();
-        return Redirect::route('staff.index');;
+        return Redirect::route('staff.index');
     }
 
     /**

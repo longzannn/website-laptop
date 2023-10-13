@@ -23,7 +23,7 @@ class StoreStaffRequest extends FormRequest
     {
         return [
             'staff_name' => 'required',
-            'email' => 'required|email|unique:staff,staff_email',
+            'email' => 'required|email|unique:staff,email',
             'staff_phone' => 'required',
             'staff_address' => 'required',
             'password' => 'required|min:8|confirmed',

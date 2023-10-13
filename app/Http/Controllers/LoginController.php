@@ -21,8 +21,6 @@ class LoginController extends Controller
 
     public function loginProcess(Request $request) {
         $account = $request->only(['email', 'password']);
-        $check = Auth::guard('staff')->attempt($account);
-        dd($check);
         if(Auth::guard('staff')->attempt($account)) {
             $staff = Auth::guard('staff')->user();
             Auth::guard('staff')->login($staff);
@@ -31,6 +29,12 @@ class LoginController extends Controller
         } else {
             return Redirect::back();
         }
+    }
+
+    public function logout() {
+        Auth::guard('staff')->logout();
+        session()->forget('staff');
+        return Redirect::route('login');
     }
 
     /**
