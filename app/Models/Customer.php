@@ -23,7 +23,6 @@ class Customer extends Model
             'cus_email' => $this->cus_email,
             'cus_phone' => $this->cus_phone,
             'cus_address' => $this->cus_address,
-            'cus_password' => $this->cus_password,
         ]);
     }
 
@@ -44,7 +43,6 @@ class Customer extends Model
                 'cus_email' => $this->cus_email,
                 'cus_phone' => $this->cus_phone,
                 'cus_address' => $this->cus_address,
-                'cus_password' => $this->cus_password,
             ]);
     }
 

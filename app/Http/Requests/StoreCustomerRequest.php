@@ -26,7 +26,6 @@ class StoreCustomerRequest extends FormRequest
             'cus_email' => 'required|email|unique:customer,cus_email',
             'cus_phone' => 'required|numeric|min:10',
             'cus_address' => 'required',
-            'cus_password' => 'required|min:8|confirmed',
         ];
     }
 
@@ -41,9 +40,6 @@ class StoreCustomerRequest extends FormRequest
             'cus_phone.numeric' => 'Không phải định dạng số điện thoại',
             'cus_phone.min' => 'Số điện thoại phải từ 10 số trở lên',
             'cus_address.required' => 'Vui lòng nhập địa chỉ.',
-            'cus_password.required' => 'Vui lòng nhập mật khẩu.',
-            'cus_password.min' => 'Mật khẩu phải chứa ít nhất 8 ký tự.',
-            'cus_password.confirmed' => 'Xác nhận mật khẩu không khớp với mật khẩu.',
         ];
     }
 }

@@ -96,25 +96,26 @@
     <div class="grid grid-cols-5 gap-8 mt-20">
         <div class="col-span-3">
             <h3 class="text-xl font-bold">Thông tin khách hàng</h3>
-            <form action="">
+            <form method="POST" action={{ route('client.storeCheckout') }}>
+                @csrf
                 <div class="my-3">
                     <div class="text-lg opacity-60 mb-2">Họ tên</div>
-                    <input type="text" class="w-full border border-gray-300 rounded-lg p-3" placeholder="Nhập họ tên">
+                    <input name="cus_name" type="text" class="w-full border border-gray-300 rounded-lg p-3" placeholder="Nhập họ tên">
                 </div>
                 <div class="my-3">
                     <div class="text-lg opacity-60 mb-2">Email</div>
-                    <input type="text" class="w-full border border-gray-300 rounded-lg p-3" placeholder="Nhập email">
+                    <input name="cus_email" type="text" class="w-full border border-gray-300 rounded-lg p-3" placeholder="Nhập email">
                 </div>
                 <div class="my-3">
                     <div class="text-lg opacity-60 mb-2">Địa chỉ</div>
-                    <input type="text" class="w-full border border-gray-300 rounded-lg p-3" placeholder="Nhập địa chỉ">
+                    <input name="cus_address" type="text" class="w-full border border-gray-300 rounded-lg p-3" placeholder="Nhập địa chỉ">
                 </div>
                 <div class="my-3">
                     <div class="text-lg opacity-60 mb-2">Số điện thoại</div>
-                    <input type="text" class="w-full border border-gray-300 rounded-lg p-3" placeholder="Nhập số điện thoại">
+                    <input name="cus_phone" type="text" class="w-full border border-gray-300 rounded-lg p-3" placeholder="Nhập số điện thoại">
                 </div>
                 <div class="my-3">
-                    <button class="bg-blue-500 w-full rounded-lg text-white font-bold text-lg text-center py-3 px-2 mt-8">Đặt hàng</button>
+                    <button type="submit" class="bg-blue-500 w-full rounded-lg text-white font-bold text-lg text-center py-3 px-2 mt-8">Đặt hàng</button>
                 </div>
             </form>
         </div>

@@ -95,53 +95,46 @@
                             <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                                     <tr>
-                                        <th scope="col" class="px-6 py-3">Product name</th>
-                                        <th scope="col" class="px-6 py-3">User Name</th>
-                                        <th scope="col" class="px-6 py-3">Address</th>
-                                        <th scope="col" class="px-6 py-3">Status</th>
-                                        <th scope="col" class="px-6 py-3">Total Price</th>
+                                        <th scope="col" class="px-6 py-3">Mã Đơn Hàng</th>
+                                        <th scope="col" class="px-6 py-3">Khách Hàng</th>
+                                        <th scope="col" class="px-6 py-3">Trạng Thái</th>
+                                        <th scope="col" class="px-6 py-3">Thanh Toán</th>
+                                        <th scope="col" class="px-6 py-3">Ngày Tạo</th>
+                                        <th scope="col" class="px-6 py-3">Tổng Tiền</th>
                                         <th scope="col" class="px-6 py-3">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                @foreach($orders as $order)
                                     <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
-                                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                            Apple MacBook Pro 17"
+                                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white">
+                                            {{ $order->code }}
                                         </th>
-                                        <td class="px-6 py-4">Silver</td>
-                                        <td class="px-6 py-4">Viet Nam</td>
+                                        <td class="px-6 py-4">{{ $order->cus_name }}</td>
                                         <td class="px-6 py-4">
-                                            <button type="button" disabled class="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
-                                                Đã gửi
+                                            <button type="button" class="text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-lime-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
+                                                {{ $order->status }}
                                             </button>
                                         </td>
-                                        <td class="px-6 py-4">$2999</td>
                                         <td class="px-6 py-4">
-                                            <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                                            <button type="button" class="text-white bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
+                                                {{ $order->payment }}
+                                            </button>
+                                        </td>
+                                        <td class="px-6 py-4">
+                                            {{ $order->order_date }}
+                                        </td>
+                                        <td class="px-6 py-4">
+                                            {{ number_format($order->total_price, 0, ',', '.') }} đ
+                                        </td>
+                                        <td class="px-6 py-4">
+                                            <a href="" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
                                             <a href="" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
                                                 Delete
                                             </a>
                                         </td>
                                     </tr>
-                                    <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
-                                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                            Apple MacBook Pro 17"
-                                        </th>
-                                        <td class="px-6 py-4">Silver</td>
-                                        <td class="px-6 py-4">Viet Nam</td>
-                                        <td class="px-6 py-4">
-                                            <button type="button" disabled class="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
-                                                Đã gửi
-                                            </button>
-                                        </td>
-                                        <td class="px-6 py-4">$2999</td>
-                                        <td class="px-6 py-4">
-                                            <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                                            <a href="" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
-                                                Delete
-                                            </a>
-                                        </td>
-                                    </tr>
+                                @endforeach
                                 </tbody>
                             </table>
                         </div>

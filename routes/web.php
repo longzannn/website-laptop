@@ -99,4 +99,5 @@ Route::prefix('client/')->group(function () {
 
     // Route checkout
     Route::get('checkout', [\App\Http\Controllers\CheckoutLayoutController::class, 'index'])->name('client.checkout');
+    Route::post('checkout', [\App\Http\Controllers\CheckoutLayoutController::class, 'store'])->name('client.storeCheckout');
 });

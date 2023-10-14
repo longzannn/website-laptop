@@ -25,4 +25,31 @@ class CheckoutLayout extends Model
             ])
             ->get();
     }
+
+    public function storeCustomer() {
+        return DB::table('customer')->insertGetId([
+            'cus_name' => $this->cus_name,
+            'cus_phone' => $this->cus_phone,
+            'cus_email' => $this->cus_email,
+            'cus_address' => $this->cus_address
+        ]);
+    }
+
+    public function storeOrder() {
+        return DB::table('order')->insertGetId([
+            'cus_id' => $this->cus_id,
+            'staff_id' => $this->staff_id,
+            'total_price' => $this->total_price,
+            'order_date' => $this->order_date
+        ]);
+    }
+
+    public function storeOrderDetail() {
+        return DB::table('order_detail')->insert([
+            'order_id' => $this->order_id,
+            'payment' => $this->payment,
+            'status' => $this->status,
+            'code' => $this->code,
+        ]);
+    }
 }

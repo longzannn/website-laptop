@@ -14,7 +14,11 @@ class OrderController extends Controller
      */
     public function index()
     {
-        return view($this->path . 'order');
+        $obj = new Order();
+        $orders = $obj->getAllOrder();
+        return view($this->path . 'order', [
+            'orders' => $orders,
+        ]);
     }
 
     /**

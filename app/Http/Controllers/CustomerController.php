@@ -41,9 +41,8 @@ class CustomerController extends Controller
         $obj->cus_email = $request->cus_email;
         $obj->cus_phone = $request->cus_phone;
         $obj->cus_address = $request->cus_address;
-        $obj->cus_password = $request->cus_password;
         $obj->store();
-        return Redirect::route('customer.index');;
+        return Redirect::route('customer.index');
     }
 
     /**
@@ -79,7 +78,6 @@ class CustomerController extends Controller
         $obj->cus_email = $request->cus_email;
         $obj->cus_phone = $request->cus_phone;
         $obj->cus_address = $request->cus_address;
-        $obj->cus_password = $request->cus_password;
 
         $obj->updateCustomer();
         return Redirect::route('customer.index');
