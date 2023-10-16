@@ -51,6 +51,9 @@ Route::prefix('admin/')->group(function () {
     // Route order
     Route::middleware('checkLoginStaff')->prefix('order/')->group(function () {
         Route::get('order', [\App\Http\Controllers\OrderController::class, 'index'])->name('order.index');
+        Route::get('edit_order/{id}', [\App\Http\Controllers\OrderController::class, 'edit'])->name('order.edit');
+        Route::put('edit_order/{id}', [\App\Http\Controllers\OrderController::class, 'update'])->name('order.update');
+        Route::delete('order/{id}', [\App\Http\Controllers\OrderController::class, 'destroy'])->name('order.destroy');
     });
 
     // Route subcategory

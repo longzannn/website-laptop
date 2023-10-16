@@ -72,7 +72,7 @@ class Product extends Model
     public function updateProduct() {
         // Cập nhật thông tin product
         DB::table('product')
-            ->where('prd_id', $this->prd_id)
+            ->where('prd_id','=', $this->prd_id)
             ->update([
                 'prd_name' => $this->prd_name,
                 'sub_id' => $this->sub_id,
@@ -80,7 +80,7 @@ class Product extends Model
 
         // Truy vấn lại thông tin product sau khi cập nhật
         $updatedProduct = DB::table('product')
-            ->where('prd_id', $this->prd_id)
+            ->where('prd_id','=', $this->prd_id)
             ->first();
 
         // Lấy giá trị img_id từ bản ghi được cập nhật

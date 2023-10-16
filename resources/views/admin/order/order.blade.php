@@ -106,32 +106,49 @@
                                 </thead>
                                 <tbody>
                                 @foreach($orders as $order)
-                                    <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+                                    <tr class="border-b dark:bg-gray-900 dark:border-gray-700
+                                    @if($order->status == 'Hủy đơn hàng')
+                                        {{ 'bg-red-200' }}
+                                    @else
+                                        {{ 'bg-white' }}
+                                    @endif">
                                         <th scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white">
                                             {{ $order->code }}
                                         </th>
                                         <td class="px-6 py-4">{{ $order->cus_name }}</td>
-                                        <td class="px-6 py-4">
-                                            <button type="button" class="text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-lime-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
-                                                {{ $order->status }}
-                                            </button>
+                                        <td class="px-6 py-4 font-semibold
+                                        @if($order->status == 'Hoàn thành')
+                                            {{ 'text-green-500' }}
+                                        @elseif($order->status == 'Hủy đơn hàng')
+                                            {{ 'text-red-600' }}
+                                        @endif">
+                                            {{ $order->status }}
                                         </td>
-                                        <td class="px-6 py-4">
-                                            <button type="button" class="text-white bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
-                                                {{ $order->payment }}
-                                            </button>
+                                        <td class="px-6 py-4 font-semibold
+                                        @if($order->payment == 'Chưa thanh toán')
+                                            {{ 'text-blue-500' }}
+                                        @elseif($order->payment == 'Đã thanh toán')
+                                            {{ 'text-green-600' }}
+                                        @endif">
+                                            {{ $order->payment }}
                                         </td>
                                         <td class="px-6 py-4">
                                             {{ $order->order_date }}
                                         </td>
-                                        <td class="px-6 py-4">
+                                        <td class="px-6 py-4 @if($order->status == 'Hủy đơn hàng')
+                                            {{ 'line-through' }}
+                                        @endif">
                                             {{ number_format($order->total_price, 0, ',', '.') }} đ
                                         </td>
-                                        <td class="px-6 py-4">
-                                            <a href="" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                                            <a href="" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
-                                                Delete
-                                            </a>
+                                        <td class="px-6 py-4 flex">
+                                            <a href="{{ route('order.edit', $order->order_id) }}" class="font-medium text-blue-600 hover:underline">Edit</a>
+                                            <form method="POST" action="{{ route('order.destroy', $order->order_id) }}">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
+                                                    Delete
+                                                </button>
+                                            </form>
                                         </td>
                                     </tr>
                                 @endforeach

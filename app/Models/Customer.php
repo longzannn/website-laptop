@@ -29,7 +29,7 @@ class Customer extends Model
     public function edit()
     {
         $customers = DB::table('customer')
-            ->where('cus_id', $this->cus_id)
+            ->where('cus_id','=', $this->cus_id)
             ->get();
         return $customers;
     }
@@ -37,7 +37,7 @@ class Customer extends Model
     public function updateCustomer()
     {
         DB::table('customer')
-            ->where('cus_id', $this->cus_id)
+            ->where('cus_id','=', $this->cus_id)
             ->update([
                 'cus_name' => $this->cus_name,
                 'cus_email' => $this->cus_email,
@@ -49,7 +49,15 @@ class Customer extends Model
     public function deleteCustomer()
     {
         DB::table('customer')
-            ->where('cus_id', $this->cus_id)
+            ->where('cus_id','=', $this->cus_id)
             ->delete();
+    }
+
+    public function getCusIdByOrderId($order_id)
+    {
+        $order = DB::table('order')
+            ->where('order_id', '=', $order_id)
+            ->first();
+        return $order->cus_id;
     }
 }

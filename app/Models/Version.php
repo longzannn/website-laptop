@@ -59,7 +59,7 @@ class Version extends Model
 
         // Truy vấn lại thông tin version sau khi cập nhật
         $updatedVersion = DB::table('version')
-            ->where('version_id', $this->version_id)
+            ->where('version_id','=', $this->version_id)
             ->first();
 
         // Lấy giá trị prd_id từ bản ghi được cập nhật

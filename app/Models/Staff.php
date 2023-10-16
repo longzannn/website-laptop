@@ -32,7 +32,7 @@ class Staff extends Model
     public function edit()
     {
         $staffs = DB::table('staff')
-            ->where('staff_id', $this->staff_id)
+            ->where('staff_id','=', $this->staff_id)
             ->get();
         return $staffs;
     }
@@ -40,7 +40,7 @@ class Staff extends Model
     public function updateStaff()
     {
         DB::table('staff')
-            ->where('staff_id', $this->staff_id)
+            ->where('staff_id','=', $this->staff_id)
             ->update([
                 'staff_name' => $this->staff_name,
                 'email' => $this->email,
@@ -53,7 +53,7 @@ class Staff extends Model
     public function deleteStaff()
     {
         DB::table('staff')
-            ->where('staff_id', $this->staff_id)
+            ->where('staff_id','=', $this->staff_id)
             ->delete();
     }
 }
