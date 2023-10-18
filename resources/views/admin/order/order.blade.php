@@ -81,7 +81,7 @@
                 <span class="dashboard">Order List</span>
             </div>
             <div class="profile-details">
-                <img src="images/profile.jpg" alt="" />
+                <img src="" alt="" />
                 <span class="admin_name">Long Văn</span>
                 <i class="bx bx-chevron-down"></i>
             </div>
@@ -91,7 +91,7 @@
                 <div class="recent-sales box">
                     <div class="title">Order Information</div>
                     <div class="sales-details">
-                        <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+                        <div class="relative shadow-md sm:rounded-lg">
                             <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                                     <tr>
@@ -107,42 +107,42 @@
                                 <tbody>
                                 @foreach($orders as $order)
                                     <tr class="border-b dark:bg-gray-900 dark:border-gray-700
-                                    @if($order->status == 'Hủy đơn hàng')
+                                    @if($order['status'] == 'Hủy đơn hàng')
                                         {{ 'bg-red-200' }}
                                     @else
                                         {{ 'bg-white' }}
                                     @endif">
                                         <th scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white">
-                                            {{ $order->code }}
+                                            {{ $order['code'] }}
                                         </th>
-                                        <td class="px-6 py-4">{{ $order->cus_name }}</td>
+                                        <td class="px-6 py-4">{{ $order['cus_name'] }}</td>
                                         <td class="px-6 py-4 font-semibold
-                                        @if($order->status == 'Hoàn thành')
+                                        @if($order['status'] == 'Hoàn thành')
                                             {{ 'text-green-500' }}
-                                        @elseif($order->status == 'Hủy đơn hàng')
+                                        @elseif($order['status'] == 'Hủy đơn hàng')
                                             {{ 'text-red-600' }}
                                         @endif">
-                                            {{ $order->status }}
+                                            {{ $order['status'] }}
                                         </td>
                                         <td class="px-6 py-4 font-semibold
-                                        @if($order->payment == 'Chưa thanh toán')
+                                        @if($order['payment'] == 'Chưa thanh toán')
                                             {{ 'text-blue-500' }}
-                                        @elseif($order->payment == 'Đã thanh toán')
+                                        @elseif($order['payment'] == 'Đã thanh toán')
                                             {{ 'text-green-600' }}
                                         @endif">
-                                            {{ $order->payment }}
+                                            {{ $order['payment'] }}
                                         </td>
                                         <td class="px-6 py-4">
-                                            {{ $order->order_date }}
+                                            {{ $order['order_date'] }}
                                         </td>
-                                        <td class="px-6 py-4 @if($order->status == 'Hủy đơn hàng')
+                                        <td class="px-6 py-4 @if($order['status'] == 'Hủy đơn hàng')
                                             {{ 'line-through' }}
                                         @endif">
-                                            {{ number_format($order->total_price, 0, ',', '.') }} đ
+                                            {{ number_format($order['total_price'], 0, ',', '.') }} đ
                                         </td>
                                         <td class="px-6 py-4 flex">
-                                            <a href="{{ route('order.edit', $order->order_id) }}" class="font-medium text-blue-600 hover:underline">Edit</a>
-                                            <form method="POST" action="{{ route('order.destroy', $order->order_id) }}">
+                                            <a href="{{ route('order.edit', $order['order_id']) }}" class="font-medium text-blue-600 hover:underline">Edit</a>
+                                            <form method="POST" action="{{ route('order.destroy', $order['order_id']) }}">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button class="font-medium text-blue-600 dark:text-blue-500 hover:underline">

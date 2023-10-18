@@ -81,7 +81,7 @@
                 <span class="dashboard">Product</span>
             </div>
             <div class="profile-details">
-                <img src="images/profile.jpg" alt="" />
+                <img src="" alt="" />
                 <span class="admin_name">Long Văn</span>
                 <i class="bx bx-chevron-down"></i>
             </div>

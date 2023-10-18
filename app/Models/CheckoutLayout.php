@@ -39,6 +39,7 @@ class CheckoutLayout extends Model
         return DB::table('order')->insertGetId([
             'cus_id' => $this->cus_id,
             'staff_id' => $this->staff_id,
+            'quantity' => $this->quantity,
             'total_price' => $this->total_price,
             'order_date' => $this->order_date
         ]);
@@ -47,6 +48,7 @@ class CheckoutLayout extends Model
     public function storeOrderDetail() {
         return DB::table('order_detail')->insert([
             'order_id' => $this->order_id,
+            'version_id' => $this->version_id,
             'payment' => $this->payment,
             'status' => $this->status,
             'code' => $this->code,

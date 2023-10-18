@@ -21,8 +21,29 @@ class OrderController extends Controller
     {
         $obj = new Order();
         $orders = $obj->getAllOrder();
+        $arrOrders = array();
+        $existingOrderIds = array();
+        foreach ($orders as $order) {
+            $orderId = $order->order_id;
+            // Kiểm tra xem order_id đã tồn tại trong mảng hay chưa
+            if (!in_array($orderId, $existingOrderIds)) {
+                // Nếu chưa tồn tại, thêm order_id vào mảng tạm thời
+                $existingOrderIds[] = $orderId;
+                // Thêm bản ghi vào mảng chính
+                $arrOrders[] = array(
+                    'order_id' => $orderId,
+                    'code' => $order->code,
+                    'cus_name' => $order->cus_name,
+                    'status' => $order->status,
+                    'payment' => $order->payment,
+                    'order_date' => $order->order_date,
+                    'total_price' => $order->total_price,
+                );
+            }
+        }
+
         return view($this->path . 'order', [
-            'orders' => $orders,
+            'orders' => $arrOrders,
         ]);
     }
 
@@ -57,9 +78,56 @@ class OrderController extends Controller
     {
         $order_id = $request->id;
         $obj = new Order();
-        $order = $obj->getOrderById($order_id);
+        $orders = $obj->getOrderById($order_id);
+        $arrOrders = array();
+        $arrProducts = array();
+        $existingOrderIds = array();
+        foreach ($orders as $order) {
+            $orderId = $order->order_id;
+            $arrProducts[] = $order->version_id; // Lấy ra version_id của sản phẩm và thêm vào mảng
+            // Kiểm tra xem order_id đã tồn tại trong mảng hay chưa
+            if (!in_array($orderId, $existingOrderIds)) {
+                // Nếu chưa tồn tại, thêm order_id vào mảng tạm thời
+                $existingOrderIds[] = $orderId;
+                // Thêm bản ghi vào mảng chính
+                $arrOrders[] = array(
+                    'order_id' => $orderId,
+                    'code' => $order->code,
+                    'cus_name' => $order->cus_name,
+                    'cus_address' => $order->cus_address,
+                    'cus_phone' => $order->cus_phone,
+                    'cus_email' => $order->cus_email,
+                    'status' => $order->status,
+                    'payment' => $order->payment,
+                    'order_date' => $order->order_date,
+                    'quantity' => $order->quantity,
+                    'total_price' => $order->total_price,
+                );
+            }
+        }
+
+        $arr = array();
+        foreach ($arrProducts as $version_id) {
+            $product = $obj->getProductByOrderId($version_id);
+                if($product->cat_name == 'Linh kiện máy tính') {
+                    $arr[] = array(
+                        'version_id' => $product->version_id,
+                        'prd_name' => $product->prd_name,
+                        'version_name' => $product->version_name,
+                        'image' => $product->img_1
+                    );
+                } else {
+                    $arr[] = array(
+                        'version_id' => $product->version_id,
+                        'prd_name' => $product->prd_name,
+                        'version_name' => $product->version_name,
+                        'image' => $product->img_5
+                    );
+                }
+        }
         return view($this->path . 'edit_order', [
-            'order' => $order,
+            'order' => $arrOrders[0],
+            'products' => $arr,
         ]);
     }
 

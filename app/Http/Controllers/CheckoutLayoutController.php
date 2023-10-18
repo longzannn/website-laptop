@@ -49,22 +49,30 @@ class CheckoutLayoutController extends Controller
 
         $cart = Session::get('cart');
         $total_price = 0;
+        $arr_version_id = array();
+        $quantity = 0;
         foreach ($cart as $version_id => $product) {
+            $quantity += $product['quantity'];
             $total_price += $product['current_price'] * $product['quantity'];
+            $arr_version_id[] = $version_id;
         }
         $objCheckoutLayout->cus_id = $cus_id;
         $objCheckoutLayout->staff_id = null;    // Chưa có staff
+        $objCheckoutLayout->quantity = $quantity;
         $objCheckoutLayout->total_price = $total_price;
         $date = date('Y-m-d H:i:s');
         $objCheckoutLayout->order_date = $date;
         $order_id = $objCheckoutLayout->storeOrder();
 
-        $objCheckoutLayout->order_id = $order_id;
-        $objCheckoutLayout->payment = 'Chưa thanh toán';
-        $objCheckoutLayout->status = 'Đơn hàng mới';
-        $code = 'DH00' . $order_id ;
-        $objCheckoutLayout->code =  $code;
-        $objCheckoutLayout->storeOrderDetail();
+        for ($i = 0; $i < count($arr_version_id); $i++) {
+            $objCheckoutLayout->order_id = $order_id;
+            $objCheckoutLayout->version_id = $arr_version_id[$i];
+            $objCheckoutLayout->payment = 'Chưa thanh toán';
+            $objCheckoutLayout->status = 'Đơn hàng mới';
+            $code = 'DH00' . $order_id;
+            $objCheckoutLayout->code = $code;
+            $objCheckoutLayout->storeOrderDetail();
+        }
 
         Session::forget('cart');
 
