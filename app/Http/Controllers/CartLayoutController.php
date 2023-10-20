@@ -59,6 +59,7 @@ class CartLayoutController extends Controller
             }
         }
         Session::put('cart', $cart);
+        flash()->addSuccess('Thêm sản phẩm vào giỏ hàng thành công!');
         return redirect() -> route('client.cart');
     }
 
@@ -69,11 +70,13 @@ class CartLayoutController extends Controller
             $cart[$version_id]['quantity'] = $quantity;
         }
         Session::put('cart', $cart);
+        flash()->addSuccess('Cập nhật giỏ hàng thành công!');
         return redirect() -> route('client.cart');
     }
 
     public function deleteCart() {
         Session::forget('cart');
+        flash()->addSuccess('Xóa giỏ hàng thành công!');
         return redirect() -> route('client.cart');
     }
 
@@ -82,6 +85,7 @@ class CartLayoutController extends Controller
         $cart = Session::get('cart');
         unset($cart[$version_id]);
         Session::put('cart', $cart);
+        flash()->addSuccess('Xóa sản phẩm khỏi giỏ hàng thành công!');
         return redirect() -> route('client.cart');
     }
 

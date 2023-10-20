@@ -12,8 +12,11 @@ class Category extends Model
 
     public function index()
     {
-        $categories = DB::table('category')->get();
-        return $categories;
+        return DB::table('category')->paginate(5);
+    }
+
+    public function getCategories() {
+        return DB::table('category')->get();
     }
 
     public function store()
@@ -25,10 +28,9 @@ class Category extends Model
 
     public function edit()
     {
-        $categories = DB::table('category')
+        return DB::table('category')
             ->where('cat_id','=', $this->cat_id)
             ->get();
-        return $categories;
     }
 
     public function updateCategory()

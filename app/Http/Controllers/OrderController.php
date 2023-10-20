@@ -7,6 +7,7 @@ use App\Models\Order;
 use App\Http\Requests\StoreOrderRequest;
 use App\Http\Requests\UpdateOrderRequest;
 use Illuminate\Http\Request;
+use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
@@ -42,9 +43,22 @@ class OrderController extends Controller
             }
         }
 
+        $ordersAfterPaginate = $this->PaginateArray($arrOrders, 2);
+
         return view($this->path . 'order', [
-            'orders' => $arrOrders,
+            'orders' => $ordersAfterPaginate,
         ]);
+    }
+
+    private function PaginateArray(array $arrOrders, int $int)
+    {
+        $currentPage = LengthAwarePaginator::resolveCurrentPage();
+        $itemCollection = collect($arrOrders);
+        $perPage = $int;
+        $currentPageItems = $itemCollection->slice(($currentPage * $perPage) - $perPage, $perPage)->all();
+        $ordersAfterPaginate = new LengthAwarePaginator($currentPageItems, count($itemCollection), $perPage);
+        $ordersAfterPaginate->setPath(route('order.index'));
+        return $ordersAfterPaginate;
     }
 
     /**
@@ -154,16 +168,7 @@ class OrderController extends Controller
         $order->staff_id = $staff_id;
         $order->updateOrder();
 
-        // Cập nhật thông tin customer
-        $customer = new Customer();
-        $cus_id = $customer->getCusIdByOrderId($order_id);
-        $customer->cus_id = $cus_id;
-        $customer->cus_name = $request->cus_name;
-        $customer->cus_address = $request->cus_address;
-        $customer->cus_phone = $request->cus_phone;
-        $customer->cus_email = $request->cus_email;
-        $customer->updateCustomer();
-
+        flash()->addSuccess('Cập nhật đơn hàng thành công');
         return Redirect::route('order.index');
     }
 
@@ -173,13 +178,6 @@ class OrderController extends Controller
      */
     public function destroy(Order $order, Request $request)
     {
-        $order_id = $request->id;
-        $order = new Order();
-        $order->deleteOrderDetail($order_id);
-        $cus_id = $order->deleteOrder($order_id);
-        $customer = new Customer();
-        $customer->cus_id = $cus_id;
-        $customer->deleteCustomer();
-        return Redirect::route('order.index');
+
     }
 }

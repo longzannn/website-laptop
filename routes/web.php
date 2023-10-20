@@ -31,11 +31,11 @@ Route::prefix('admin/')->group(function () {
     // Route customer
     Route::middleware('checkLoginStaff')->prefix('customer/')->group(function () {
         Route::get('customer', [\App\Http\Controllers\CustomerController::class, 'index'])->name('customer.index');
-        Route::get('add_customer', [\App\Http\Controllers\CustomerController::class, 'create'])->name('customer.create');
+//        Route::get('add_customer', [\App\Http\Controllers\CustomerController::class, 'create'])->name('customer.create');
         Route::post('add_customer', [\App\Http\Controllers\CustomerController::class, 'store'])->name('customer.store');
         Route::get('edit_customer/{id}', [\App\Http\Controllers\CustomerController::class, 'edit'])->name('customer.edit');
         Route::put('edit_customer/{id}', [\App\Http\Controllers\CustomerController::class, 'update'])->name('customer.update');
-        Route::delete('customer/{id}', [\App\Http\Controllers\CustomerController::class, 'destroy'])->name('customer.destroy');
+//        Route::delete('customer/{id}', [\App\Http\Controllers\CustomerController::class, 'destroy'])->name('customer.destroy');
     });
 
     // Route staff
@@ -53,7 +53,6 @@ Route::prefix('admin/')->group(function () {
         Route::get('order', [\App\Http\Controllers\OrderController::class, 'index'])->name('order.index');
         Route::get('edit_order/{id}', [\App\Http\Controllers\OrderController::class, 'edit'])->name('order.edit');
         Route::put('edit_order/{id}', [\App\Http\Controllers\OrderController::class, 'update'])->name('order.update');
-        Route::delete('order/{id}', [\App\Http\Controllers\OrderController::class, 'destroy'])->name('order.destroy');
     });
 
     // Route subcategory

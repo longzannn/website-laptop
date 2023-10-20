@@ -154,7 +154,7 @@
         </div>
     </section>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.js"></script>
-    <script src="../../../public/js/admin/show_hide.js"></script>
+    <script src="{{ asset('js/admin/show_hide.js') }}"></script>
 </body>
 
 </html>

@@ -125,20 +125,20 @@
                                         <td class="px-6 py-4"> {{ $customer -> cus_address }}</td>
                                         <td class="px-6 py-4 flex">
                                             <a href="{{ route('customer.edit', $customer -> cus_id) }}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                                            <form method="POST" action="{{ route('customer.destroy', $customer -> cus_id) }}">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
-                                                    Delete
-                                                </button>
-                                            </form>
+{{--                                            <form method="POST" action="{{ route('customer.destroy', $customer -> cus_id) }}">--}}
+{{--                                                @csrf--}}
+{{--                                                @method('DELETE')--}}
+{{--                                                <button class="font-medium text-blue-600 dark:text-blue-500 hover:underline">--}}
+{{--                                                    Delete--}}
+{{--                                                </button>--}}
+{{--                                            </form>--}}
                                         </td>
                                     </tr>
                                     @endforeach
                                 </tbody>
                             </table>
                         </div>
-                        <button type="button" class="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mt-8 mb-2"><a href="{{ route('customer.create') }}">Add a new customer</a></button>
+{{--                        <button type="button" class="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mt-8 mb-2"><a href="{{ route('customer.create') }}">Add a new customer</a></button>--}}
                     </div>
                     <div class="pagination">
                         <nav aria-label="Page navigation example">

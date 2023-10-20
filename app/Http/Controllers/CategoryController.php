@@ -39,6 +39,7 @@ class CategoryController extends Controller
         $obj = new Category();
         $obj->cat_name = $request->cat_name;
         $obj->store();
+        flash()->addSuccess('Thêm mới thành công');
         return Redirect::route('category.index');
     }
 
@@ -73,6 +74,7 @@ class CategoryController extends Controller
         $obj->cat_id = $request->id;
         $obj->cat_name = $request->cat_name;
         $obj->updateCategory();
+        flash()->addSuccess('Cập nhật thành công');
         return Redirect::route('category.index');
     }
 
@@ -84,6 +86,7 @@ class CategoryController extends Controller
         $obj = new Category();
         $obj->cat_id = $request->id;
         $obj->deleteCategory();
+        flash()->addSuccess('Xóa thành công');
         return Redirect::route('category.index');
     }
 }

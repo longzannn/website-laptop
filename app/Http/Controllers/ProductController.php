@@ -42,7 +42,7 @@ class ProductController extends Controller
     public function create()
     {
         $objSubcategory = new Subcategory();
-        $subcategories = $objSubcategory->index();
+        $subcategories = $objSubcategory->getSubcategories();
         return view($this->path . 'add_product', [
             'subcategories' => $subcategories
         ]);
@@ -95,6 +95,7 @@ class ProductController extends Controller
         $objVersion->version_details = $dataString;
         $objVersion->store();
 
+        flash()->addSuccess('Thêm sản phẩm thành công!');
         return Redirect::route('product.laptop');
     }
 
@@ -115,7 +116,7 @@ class ProductController extends Controller
         $objVersion->version_id = $request->id;
         $versions = $objVersion->edit();
         $objSubcategory = new Subcategory();
-        $subcategories = $objSubcategory->index();
+        $subcategories = $objSubcategory->getSubcategories();
         return view($this->path . 'edit_product', [
             'subcategories' => $subcategories,
             'products' => $versions,
@@ -161,6 +162,8 @@ class ProductController extends Controller
             $objImage->img_id = $img_id;
             $objImage->updateImage();
         }
+
+        flash()->addSuccess('Cập nhật sản phẩm thành công!');
         return Redirect::route('product.laptop');
     }
 
@@ -178,6 +181,7 @@ class ProductController extends Controller
         $objImage = new Image();
         $objImage->img_id = $img_id;
         $objImage->delete();
+        flash()->addSuccess('Xóa sản phẩm thành công!');
         return Redirect::route('product.laptop');
     }
 }

@@ -36,13 +36,14 @@ class CustomerController extends Controller
      */
     public function store(StoreCustomerRequest $request)
     {
-        $obj = new Customer();
-        $obj->cus_name = $request->cus_name;
-        $obj->cus_email = $request->cus_email;
-        $obj->cus_phone = $request->cus_phone;
-        $obj->cus_address = $request->cus_address;
-        $obj->store();
-        return Redirect::route('customer.index');
+//        $obj = new Customer();
+//        $obj->cus_name = $request->cus_name;
+//        $obj->cus_email = $request->cus_email;
+//        $obj->cus_phone = $request->cus_phone;
+//        $obj->cus_address = $request->cus_address;
+//        $obj->store();
+//        flash()->addSuccess('Thêm mới thành công');
+//        return Redirect::route('customer.index');
     }
 
     /**
@@ -78,8 +79,8 @@ class CustomerController extends Controller
         $obj->cus_email = $request->cus_email;
         $obj->cus_phone = $request->cus_phone;
         $obj->cus_address = $request->cus_address;
-
         $obj->updateCustomer();
+        flash()->addSuccess('Cập nhật thành công');
         return Redirect::route('customer.index');
     }
 
@@ -88,9 +89,10 @@ class CustomerController extends Controller
      */
     public function destroy(Customer $customer, Request $request)
     {
-        $obj = new Customer();
-        $obj->cus_id = $request->id;
-        $obj->deleteCustomer();
-        return Redirect::route('customer.index');
+//        $obj = new Customer();
+//        $obj->cus_id = $request->id;
+//        $obj->deleteCustomer();
+//        flash()->addSuccess('Xóa thành công');
+//        return Redirect::route('customer.index');
     }
 }

@@ -30,7 +30,7 @@ class SubcategoryController extends Controller
     public function create()
     {
         $objCategory = new Category();
-        $categories = $objCategory->index();
+        $categories = $objCategory->getCategories();
         return view($this->path . 'add_subcategory', [
             'categories' => $categories
         ]);
@@ -45,6 +45,7 @@ class SubcategoryController extends Controller
         $obj->cat_id = $request->cat_id;
         $obj->sub_name = $request->sub_name;
         $obj->store();
+        flash()->addSuccess('Thêm mới thành công');
         return Redirect::route('subcategory.index');
     }
 
@@ -62,7 +63,7 @@ class SubcategoryController extends Controller
     public function edit(Subcategory $subcategory, Request $request)
     {
         $objCategory = new Category();
-        $categories = $objCategory->index();
+        $categories = $objCategory->getCategories();
 
         $objSubcategory = new Subcategory();
         $objSubcategory->sub_id = $request->id;
@@ -84,8 +85,8 @@ class SubcategoryController extends Controller
         $obj->sub_id = $request->id;
         $obj->cat_id = $request->cat_id;
         $obj->sub_name = $request->sub_name;
-
         $obj->updateSubcategory();
+        flash()->addSuccess('Cập nhật thành công');
         return Redirect::route('subcategory.index');
     }
 
@@ -97,6 +98,7 @@ class SubcategoryController extends Controller
         $obj = new Subcategory();
         $obj->sub_id = $request->id;
         $obj->deleteSubcategory();
+        flash()->addSuccess('Xóa thành công');
         return Redirect::route('subcategory.index');
     }
 }

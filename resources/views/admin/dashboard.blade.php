@@ -79,7 +79,7 @@
                 <span class="dashboard">Dashboard</span>
             </div>
             <div class="profile-details">
-                <img src="images/profile.jpg" alt="" />
+                <img src="" alt="" />
                 <span class="admin_name">Long Văn</span>
                 <i class="bx bx-chevron-down"></i>
             </div>
@@ -145,55 +145,22 @@
                     <div class="sales-details">
                         <ul class="details">
                             <li class="topic">Date</li>
-                            <li><a href="#">02 Tháng 1, 2021</a></li>
-                            <li><a href="#">02 Tháng 1, 2021</a></li>
-                            <li><a href="#">02 Tháng 1, 2021</a></li>
-                            <li><a href="#">02 Tháng 1, 2021</a></li>
-                            <li><a href="#">02 Tháng 1, 2021</a></li>
-                            <li><a href="#">02 Tháng 1, 2021</a></li>
-                            <li><a href="#">02 Tháng 1, 2021</a></li>
-                            <li><a href="#">02 Tháng 1, 2021</a></li>
-                            <li><a href="#">02 Tháng 1, 2021</a></li>
+                            @foreach($orders as $order)
+                            <li><a href="">{{ $order['order_date'] }}</a></li>
+                            @endforeach
                         </ul>
                         <ul class="details">
                             <li class="topic">New customers buy</li>
-                            <li><a href="#">Nguyễn Văn A</a></li>
-                            <li><a href="#">Nguyễn Văn B</a></li>
-                            <li><a href="#">Nguyễn Văn C</a></li>
-                            <li><a href="#">Nguyễn Văn D</a></li>
-                            <li><a href="#">Nguyễn Văn E</a></li>
-                            <li><a href="#">Nguyễn Văn F</a></li>
-                            <li><a href="#">Nguyễn Văn G</a></li>
-                            <li><a href="#">Nguyễn Văn H</a></li>
-                            <li><a href="#">Nguyễn Văn J</a></li>
+                            @foreach($orders as $order)
+                                <li><a href="">{{ $order['cus_name'] }}</a></li>
+                            @endforeach
                         </ul>
                         <ul class="details">
-                            <li class="topic">Hot selling category</li>
-                            <li><a href="#">ACER</a></li>
-                            <li><a href="#">MSI</a></li>
-                            <li><a href="#">LENOVO</a></li>
-                            <li><a href="#">ACER</a></li>
-                            <li><a href="#">MSI</a></li>
-                            <li><a href="#">LENOVO</a></li>
-                            <li><a href="#">ACER</a></li>
-                            <li><a href="#">MSI</a></li>
-                            <li><a href="#">ACER</a></li>
+                            <li class="topic">Total price</li>
+                            @foreach($orders as $order)
+                                <li><a href="">{{ number_format($order['total_price'], 0, ',', '.' ) }} VNĐ</a></li>
+                            @endforeach
                         </ul>
-                        <ul class="details">
-                            <li class="topic">High value orders</li>
-                            <li><a href="#">20.000.000 VNĐ</a></li>
-                            <li><a href="#">20.000.000 VNĐ</a></li>
-                            <li><a href="#">20.000.000 VNĐ</a></li>
-                            <li><a href="#">20.000.000 VNĐ</a></li>
-                            <li><a href="#">20.000.000 VNĐ</a></li>
-                            <li><a href="#">20.000.000 VNĐ</a></li>
-                            <li><a href="#">20.000.000 VNĐ</a></li>
-                            <li><a href="#">20.000.000 VNĐ</a></li>
-                            <li><a href="#">20.000.000 VNĐ</a></li>
-                        </ul>
-                    </div>
-                    <div class="button">
-                        <a href="#">See All</a>
                     </div>
                 </div>
             </div>

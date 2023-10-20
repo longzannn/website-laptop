@@ -26,7 +26,6 @@ class Order extends Model
             )
             ->orderBy('order.order_date', 'DESC')
             ->get();
-
     }
 
     public function getOrderById($order_id)
@@ -67,23 +66,6 @@ class Order extends Model
             ->update([
                 'staff_id' => $this->staff_id,
             ]);
-    }
-
-    public function deleteOrderDetail($order_id) {
-        return DB::table('order_detail')
-            ->where('order_id', '=', $order_id)
-            ->delete();
-    }
-
-    public function deleteOrder($order_id) {
-        $cus_id = DB::table('order')
-            ->where('order_id', '=', $order_id)
-            ->select('cus_id')
-            ->first();
-        DB::table('order')
-            ->where('order_id', '=', $order_id)
-            ->delete();
-        return $cus_id;
     }
 
     public function getProductByOrderId($version_id) {

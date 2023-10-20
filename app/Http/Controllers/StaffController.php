@@ -43,6 +43,7 @@ class StaffController extends Controller
         $obj->staff_address = $request->staff_address;
         $obj->password = $request->password;
         $obj->store();
+        flash()->addSuccess('Thêm nhân viên thành công');
         return Redirect::route('staff.index');
     }
 
@@ -80,8 +81,8 @@ class StaffController extends Controller
         $obj->staff_phone = $request->staff_phone;
         $obj->staff_address = $request->staff_address;
         $obj->password = $request->password;
-
         $obj->updateStaff();
+        flash()->addSuccess('Cập nhật nhân viên thành công');
         return Redirect::route('staff.index');
     }
 
@@ -93,6 +94,7 @@ class StaffController extends Controller
         $obj = new Staff();
         $obj->staff_id = $request->id;
         $obj->deleteStaff();
+        flash()->addSuccess('Xóa nhân viên thành công');
         return Redirect::route('staff.index');
     }
 }

@@ -12,7 +12,7 @@ class Product extends Model
 
     public function indexLaptop()
     {
-        $laptops = DB::table('product')
+        return DB::table('product')
             ->join('version', 'product.prd_id', '=', 'version.prd_id')
             ->join('subcategory', 'product.sub_id', '=', 'subcategory.sub_id')
             ->join('category', 'subcategory.cat_id', '=', 'category.cat_id')
@@ -27,14 +27,12 @@ class Product extends Model
                 'image.img_1 AS img_1'
             )
             ->where('category.cat_name', 'not like', '%Linh kiện máy tính%')
-            ->get();
-
-        return $laptops;
+            ->paginate(4);
     }
 
     public function indexComponent()
     {
-        $components = DB::table('product')
+        return DB::table('product')
             ->join('version', 'product.prd_id', '=', 'version.prd_id')
             ->join('subcategory', 'product.sub_id', '=', 'subcategory.sub_id')
             ->join('category', 'subcategory.cat_id', '=', 'category.cat_id')
@@ -48,9 +46,7 @@ class Product extends Model
                 'version.current_price AS current_price',
                 'image.img_1 AS img_1')
             ->where('category.cat_name', 'like', '%Linh kiện%')
-            ->get();
-
-        return $components;
+            ->paginate(2);
     }
 
     public function store()
@@ -60,13 +56,6 @@ class Product extends Model
             'sub_id' => $this->sub_id,
             'img_id' => $this->img_id,
         ]);
-    }
-
-    public function getIdImage() {
-        return DB::table('product')
-            ->where('prd_id', '=', $this->prd_id)
-            ->select('img_id')
-            ->first();
     }
 
     public function updateProduct() {

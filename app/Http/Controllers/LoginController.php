@@ -25,8 +25,10 @@ class LoginController extends Controller
             $staff = Auth::guard('staff')->user();
             Auth::guard('staff')->login($staff);
             session(['staff' => $staff]);
+            flash()->addSuccess('Đăng nhập thành công');
             return Redirect::route('dashboard');
         } else {
+            flash()->addError('Đăng nhập thất bại');
             return Redirect::back();
         }
     }
@@ -34,6 +36,7 @@ class LoginController extends Controller
     public function logout() {
         Auth::guard('staff')->logout();
         session()->forget('staff');
+        flash()->addSuccess('Đăng xuất thành công');
         return Redirect::route('login');
     }
 

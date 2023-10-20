@@ -120,13 +120,68 @@
                                 </tbody>
                             </table>
                         </div>
+                        <button type="button" class="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300  font-medium rounded-lg text-sm px-5 py-2.5 text-center mt-8 mb-2"><a href="{{ route('category.create') }}">Add a new category</a></button>
                     </div>
-                    <button type="button" class="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mt-8 mb-2"><a href="{{ route('category.create') }}">Add a new category</a></button>
+                    @if ($categories->lastPage() > 1)
+                        <div class="pagination">
+                            <nav aria-label="Page navigation example">
+                                <ul class="flex items-center -space-x-px h-8 text-sm">
+                                    {{-- Previous Page Link --}}
+                                    @if ($categories->onFirstPage())
+                                        <li class="cursor-not-allowed">
+                                        <span class="flex items-center justify-center px-3 h-8 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                                            <span class="sr-only">Previous</span>
+                                            <svg class="w-2.5 h-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4" />
+                                            </svg>
+                                        </span>
+                                        </li>
+                                    @else
+                                        <li>
+                                            <a href="{{ $categories->previousPageUrl() }}" rel="prev" class="flex items-center justify-center px-3 h-8 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100 hover:text-gray-700">
+                                                <span class="sr-only">Previous</span>
+                                                <svg class="w-2.5 h-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4" />
+                                                </svg>
+                                            </a>
+                                        </li>
+                                    @endif
+                                    {{-- Pagination Elements --}}
+                                    @foreach ($categories->getUrlRange(1, $categories->lastPage()) as $page => $url)
+                                        <li>
+                                            <a href="{{ $url }}" class="flex items-center justify-center px-3 h-8 leading-tight
+                                                    @if ($categories->currentPage() == $page) text-white bg-blue-500 @else text-gray-500 bg-white hover:bg-gray-100 hover:text-gray-700 @endif
+                                                    border border-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white">
+                                                {{ $page }}
+                                            </a>
+                                        </li>
+                                    @endforeach
+                                    {{-- Next Page Link --}}
+                                    @if ($categories->hasMorePages())
+                                        <li>
+                                            <a href="{{ $categories->nextPageUrl() }}" rel="next" class="flex items-center justify-center px-3 h-8 leading-tight rounded-r-lg text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                                                <span class="sr-only">Next</span>
+                                                <svg class="w-2.5 h-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4" />
+                                                </svg>
+                                            </a>
+                                        </li>
+                                    @else
+                                        <li class="cursor-not-allowed">
+                                        <span class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-r-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                                            <span class="sr-only">Next</span>
+                                            <svg class="w-2.5 h-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4" />
+                                            </svg>
+                                        </span>
+                                        </li>
+                                    @endif
+                                </ul>
+                            </nav>
+                        </div>
+                    @endif
                 </div>
             </div>
-
-
-
         </div>
     </section>
 

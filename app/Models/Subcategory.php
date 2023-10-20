@@ -12,14 +12,23 @@ class Subcategory extends Model
 
     public function index()
     {
-        $subcategories = DB::table('subcategory')
+        return DB::table('subcategory')
+            ->join('category', 'subcategory.cat_id', '=', 'category.cat_id')
+            ->select([
+                'subcategory.*',
+                'category.cat_name AS cat_name'
+            ])
+            ->paginate(5);
+    }
+
+    public function getSubcategories() {
+        return DB::table('subcategory')
             ->join('category', 'subcategory.cat_id', '=', 'category.cat_id')
             ->select([
                 'subcategory.*',
                 'category.cat_name AS cat_name'
             ])
             ->get();
-        return $subcategories;
     }
 
     public function store()

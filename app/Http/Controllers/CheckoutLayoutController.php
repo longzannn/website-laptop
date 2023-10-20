@@ -81,6 +81,7 @@ class CheckoutLayoutController extends Controller
         $objSubcategory = new CartLayout();
         $subcategories = $objSubcategory->getSubcategories();
 
+        flash()->addSuccess('Đặt hàng thành công! Chúng tôi sẽ liên hệ với bạn trong thời gian sớm nhất.');
         return view('client/cart', [
             'categories' => $categories,
             'subcategories' => $subcategories,
