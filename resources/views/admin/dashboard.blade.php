@@ -53,7 +53,7 @@
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="{{ route('chart.index') }}">
                     <i class="bx bx-line-chart"></i>
                     <span class="links_name">Analytics</span>
                 </a>

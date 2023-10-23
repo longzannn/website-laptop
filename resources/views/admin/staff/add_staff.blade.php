@@ -55,7 +55,7 @@
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="{{ route('chart.index') }}">
                     <i class="bx bx-line-chart"></i>
                     <span class="links_name">Analytics</span>
                 </a>
@@ -82,7 +82,7 @@
                 <span class="dashboard">User</span>
             </div>
             <div class="profile-details">
-                <img src="images/profile.jpg" alt="" />
+                <img src="" alt="" />
                 <span class="admin_name">Long Văn</span>
                 <i class="bx bx-chevron-down"></i>
             </div>

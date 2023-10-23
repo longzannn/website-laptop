@@ -71,6 +71,11 @@ Route::prefix('admin/')->group(function () {
         Route::post('login', [\App\Http\Controllers\LoginController::class, 'loginProcess'])->name('loginProcess');
         Route::get('logout', [\App\Http\Controllers\LoginController::class, 'logout'])->name('logout');
     });
+
+    // Route chart
+    Route::middleware('checkLoginStaff')->prefix('chart/')->group(function () {
+        Route::get('chart', [\App\Http\Controllers\ChartController::class, 'index'])->name('chart.index');
+    });
 });
 
 Route::prefix('client/')->group(function () {

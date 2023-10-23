@@ -106,7 +106,7 @@
                                             @foreach($products as $product)
                                                 <div class=" flex items-center">
                                                     <img class="w-16 h-16 mr-5 rounded-lg" src="{{ Storage::url('admin/') . $product['image'] }}" alt="">
-                                                    <span class="text-xs">{{ $product['prd_name'] }} ({{ $product['version_name'] }}</span>
+                                                    <span class="text-xs">{{ $product['prd_name'] }} ({{ $product['version_name'] }})</span>
                                                 </div>
                                             @endforeach
                                         </td>
