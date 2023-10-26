@@ -43,7 +43,7 @@ class OrderController extends Controller
             }
         }
 
-        $ordersAfterPaginate = $this->PaginateArray($arrOrders, 2);
+        $ordersAfterPaginate = $this->PaginateArray($arrOrders, 5);
 
         return view($this->path . 'order', [
             'orders' => $ordersAfterPaginate,

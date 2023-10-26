@@ -12,8 +12,7 @@ class Customer extends Model
 
     public function index()
     {
-        $customers = DB::table('customer')->get();
-        return $customers;
+        return DB::table('customer')->paginate(5);
     }
 
     public function store()
@@ -28,10 +27,9 @@ class Customer extends Model
 
     public function edit()
     {
-        $customers = DB::table('customer')
+        return DB::table('customer')
             ->where('cus_id','=', $this->cus_id)
             ->get();
-        return $customers;
     }
 
     public function updateCustomer()
@@ -46,18 +44,18 @@ class Customer extends Model
             ]);
     }
 
-    public function deleteCustomer()
-    {
-        DB::table('customer')
-            ->where('cus_id','=', $this->cus_id)
-            ->delete();
-    }
+//    public function deleteCustomer()
+//    {
+//        DB::table('customer')
+//            ->where('cus_id','=', $this->cus_id)
+//            ->delete();
+//    }
 
-    public function getCusIdByOrderId($order_id)
-    {
-        $order = DB::table('order')
-            ->where('order_id', '=', $order_id)
-            ->first();
-        return $order->cus_id;
-    }
+//    public function getCusIdByOrderId($order_id)
+//    {
+//        $order = DB::table('order')
+//            ->where('order_id', '=', $order_id)
+//            ->first();
+//        return $order->cus_id;
+//    }
 }

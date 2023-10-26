@@ -14,8 +14,7 @@ class Staff extends Model
 
     public function index()
     {
-        $staffs = DB::table('staff')->get();
-        return $staffs;
+        return DB::table('staff')->paginate(5);
     }
 
     public function store()
@@ -31,10 +30,9 @@ class Staff extends Model
 
     public function edit()
     {
-        $staffs = DB::table('staff')
+        return DB::table('staff')
             ->where('staff_id','=', $this->staff_id)
             ->get();
-        return $staffs;
     }
 
     public function updateStaff()

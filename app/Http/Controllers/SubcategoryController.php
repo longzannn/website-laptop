@@ -95,10 +95,14 @@ class SubcategoryController extends Controller
      */
     public function destroy(Subcategory $subcategory, Request $request)
     {
-        $obj = new Subcategory();
-        $obj->sub_id = $request->id;
-        $obj->deleteSubcategory();
-        flash()->addSuccess('Xóa thành công');
+        try {
+            $obj = new Subcategory();
+            $obj->sub_id = $request->id;
+            $obj->deleteSubcategory();
+            flash()->addSuccess('Xóa thành công');
+        } catch (\Exception $e) {
+            flash()->addWarning('Xóa thất bại, danh mục này đang có sản phẩm ở trong đơn hàng');
+        }
         return Redirect::route('subcategory.index');
     }
 }

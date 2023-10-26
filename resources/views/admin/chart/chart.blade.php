@@ -100,18 +100,29 @@
 </section>
 
 <script>
-    const ctx = document.getElementById('myChart').getContext('2d');
+    const ctx = document.getElementById('myChart');
 
     new Chart(ctx, {
         type: 'bar',
         data: {
             labels: {!! json_encode($labels) !!},
-            datasets: {!! json_encode($datasets) !!}
+            datasets: {!! json_encode($datasets) !!},
+            borderColor: [
+                'rgb(255, 99, 132)',
+                'rgb(255, 159, 64)',
+                'rgb(255, 205, 86)',
+                'rgb(75, 192, 192)',
+                'rgb(54, 162, 235)',
+                'rgb(153, 102, 255)',
+                'rgb(201, 203, 207)'
+            ],
+            borderWidth: 1
         },
         options: {
             scales: {
-                y: {
-                    beginAtZero: true
+                y: { // defining min and max so hiding the dataset does not change scale range
+                    min: 0,
+                    max: 5
                 }
             }
         }

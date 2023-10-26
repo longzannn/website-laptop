@@ -91,10 +91,14 @@ class StaffController extends Controller
      */
     public function destroy(Staff $staff, Request $request)
     {
-        $obj = new Staff();
-        $obj->staff_id = $request->id;
-        $obj->deleteStaff();
-        flash()->addSuccess('Xóa nhân viên thành công');
+        try {
+            $obj = new Staff();
+            $obj->staff_id = $request->id;
+            $obj->deleteStaff();
+            flash()->addSuccess('Xóa nhân viên thành công');
+        } catch (\Exception $e) {
+            flash()->addWarning('Xóa nhân viên thất bại, tài khoản này đang quản lí một đơn hàng');
+        }
         return Redirect::route('staff.index');
     }
 }

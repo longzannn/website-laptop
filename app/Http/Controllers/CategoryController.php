@@ -83,10 +83,14 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category, Request $request)
     {
-        $obj = new Category();
-        $obj->cat_id = $request->id;
-        $obj->deleteCategory();
-        flash()->addSuccess('Xóa thành công');
+        try {
+            $obj = new Category();
+            $obj->cat_id = $request->id;
+            $obj->deleteCategory();
+            flash()->addSuccess('Xóa thành công');
+        } catch (\Exception $e) {
+            flash()->addWarning('Xóa thất bại, danh mục này đang có sản phẩm ở trong đơn hàng');
+        }
         return Redirect::route('category.index');
     }
 }

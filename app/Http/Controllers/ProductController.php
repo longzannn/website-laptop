@@ -172,16 +172,20 @@ class ProductController extends Controller
      */
     public function destroy(Product $product, Request $request)
     {
-        $objVersion = new Version();
-        $objVersion->version_id = $request->id;
-        $prd_id = $objVersion->delete();
-        $objProduct = new Product();
-        $objProduct->prd_id = $prd_id;
-        $img_id = $objProduct->delete();
-        $objImage = new Image();
-        $objImage->img_id = $img_id;
-        $objImage->delete();
-        flash()->addSuccess('Xóa sản phẩm thành công!');
-        return Redirect::route('product.laptop');
+      try {
+          $objVersion = new Version();
+          $objVersion->version_id = $request->id;
+          $prd_id = $objVersion->delete();
+          $objProduct = new Product();
+          $objProduct->prd_id = $prd_id;
+          $img_id = $objProduct->delete();
+          $objImage = new Image();
+          $objImage->img_id = $img_id;
+          $objImage->delete();
+          flash()->addSuccess('Xóa sản phẩm thành công!');
+      } catch (\Exception $e) {
+          flash()->addWarning('Sản phẩm vẫn đang ở trong giỏ hàng của khách hàng, không thể xóa!');
+      }
+      return Redirect::route('product.laptop');
     }
 }
