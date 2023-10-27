@@ -120,7 +120,12 @@
                                         <th scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white">
                                             {{ $component -> prd_name }} ({{ $component -> version_name }})
                                         </th>
-                                        <td class="px-6 py-4"><img class="w-16 h-16 rounded-lg" src="{{ Storage::url('admin/') . $component -> img_1 }}" alt=""></td>
+                                        <td class="px-6 py-4">
+                                            @php
+                                                $arrImage = explode(',', $components -> prd_images);
+                                            @endphp
+                                            <img class="w-16 h-16 rounded-lg" src="{{ Storage::url('admin/') . $arrImage[0] }}" alt="">
+                                        </td>
                                         <td class="px-6 py-4">{{ $component -> sub_name }}</td>
                                         <td class="px-6 py-4">{{ number_format($component -> current_price, 0, ',', '.') }}</td>
                                         <td class="px-6 py-4">

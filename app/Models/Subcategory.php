@@ -71,12 +71,6 @@ class Subcategory extends Model
                 ->select('product.prd_id')
                 ->where('subcategory.sub_id','=', $this->sub_id)
                 ->get();
-            // Lấy ra  tất cả img_id của sản phẩm thuộc subcategory này
-            $img_ids = DB::table('product')
-                ->join('subcategory', 'product.sub_id', '=', 'subcategory.sub_id')
-                ->select('product.img_id')
-                ->where('subcategory.sub_id','=', $this->sub_id)
-                ->get();
             // Xóa hết version của sản phẩm thuộc subcategory này
             foreach ($prd_ids as $prd_id) {
                 DB::table('version')
@@ -87,12 +81,6 @@ class Subcategory extends Model
             DB::table('product')
                 ->where('sub_id','=', $this->sub_id)
                 ->delete();
-            // Xóa hết ảnh của sản phẩm thuộc subcategory này
-            foreach ($img_ids as $img_id) {
-                DB::table('image')
-                    ->where('img_id','=', $img_id->img_id)
-                    ->delete();
-            }
             // Xóa subcategory này
             DB::table('subcategory')
                 ->where('sub_id','=', $this->sub_id)

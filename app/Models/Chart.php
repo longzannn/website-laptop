@@ -17,4 +17,12 @@ class Chart extends Model
             ->orderBy('month')
             ->get();
     }
+
+    public function totalPriceChart() {
+        return DB::table('order')
+            ->select(DB::raw('MONTH(order_date) as month'), DB::raw('SUM(total_price) as total_price'))
+            ->groupBy(DB::raw('month'))
+            ->orderBy('month')
+            ->get();
+    }
 }

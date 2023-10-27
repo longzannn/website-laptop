@@ -30,7 +30,7 @@ class CheckoutLayout extends Model
         return DB::table('customer')->insertGetId([
             'cus_name' => $this->cus_name,
             'cus_phone' => $this->cus_phone,
-            'cus_email' => $this->cus_email,
+            'email' => $this->email,
             'cus_address' => $this->cus_address
         ]);
     }
@@ -38,10 +38,11 @@ class CheckoutLayout extends Model
     public function storeOrder() {
         return DB::table('order')->insertGetId([
             'cus_id' => $this->cus_id,
-            'staff_id' => $this->staff_id,
-            'quantity' => $this->quantity,
+            'order_date' => $this->order_date,
+            'payment' => $this->payment,
+            'status' => $this->status,
             'total_price' => $this->total_price,
-            'order_date' => $this->order_date
+            'code' => $this->code,
         ]);
     }
 
@@ -49,9 +50,8 @@ class CheckoutLayout extends Model
         return DB::table('order_detail')->insert([
             'order_id' => $this->order_id,
             'version_id' => $this->version_id,
-            'payment' => $this->payment,
-            'status' => $this->status,
-            'code' => $this->code,
+            'quantity' => $this->quantity,
+            'price' => $this->price,
         ]);
     }
 }

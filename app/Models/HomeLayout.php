@@ -34,7 +34,6 @@ class HomeLayout extends Model
             ->join('product', 'version.prd_id', '=', 'product.prd_id')
             ->join('subcategory', 'product.sub_id', '=', 'subcategory.sub_id')
             ->join('category', 'subcategory.cat_id', '=', 'category.cat_id')
-            ->join('image', 'product.img_id', '=', 'image.img_id')
             ->select(
                 'product.prd_id AS prd_id',
                 'version.version_id AS version_id',
@@ -43,7 +42,7 @@ class HomeLayout extends Model
                 'subcategory.sub_name AS sub_name',
                 'version.current_price AS current_price',
                 'version.old_price AS old_price',
-                'image.img_5 AS img_5',
+                'product.prd_images AS prd_images',
                 'version.version_details AS version_details'
             )
             ->where('category.cat_name', 'not like', '%Linh kiện máy tính%')

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <link rel="icon" href="https://xgear.net/wp-content/uploads/2023/07/cropped-icon-xgear-32x32.png" sizes="32x32" />
-    <title>Order Chart</title>
+    <title>Total Price Chart</title>
     <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.css" rel="stylesheet" />
@@ -90,17 +90,17 @@
     <div class="home-content">
         <div class="sales-boxes">
             <div class="recent-sales box">
-                <div style="margin-bottom: 20px;" class="text-sm font-medium text-center text-gray-500 border-b border-gray-200">
-                    <ul class="flex flex-wrap justify-center">
+                <div style="margin-bottom: 20px;" class="text-sm font-medium text-center text-gray-500 border-b border-gray-200 dark:text-gray-400 dark:border-gray-700">
+                    <ul class="flex flex-wrap justify-center -mb-px">
                         <li class="mr-2">
-                            <a href="{{ route('chart.index') }}" class="inline-block p-4 text-blue-600 border-b-2 border-blue-600 rounded-t-lg active dark:text-blue-500 dark:border-blue-500" aria-current="page">By Order</a>
+                            <a href="{{ route('chart.index') }}" class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300" aria-current="page">By Order</a>
                         </li>
                         <li class="mr-2">
-                            <a href="{{ route('chart.index2') }}" class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300">By TotalPrice</a>
+                            <a href="{{ route('chart.index2') }}" class="inline-block p-4 text-blue-600 border-b-2 border-blue-600 rounded-t-lg active dark:text-blue-500 dark:border-blue-500">By TotalPrice</a>
                         </li>
                     </ul>
                 </div>
-                <div class="title">The column chart shows the number of orders in each month</div>
+                <div class="title">The column chart shows the total price in each month</div>
                 <div>
                     <canvas id="myChart"></canvas>
                 </div>
@@ -132,7 +132,7 @@
             scales: {
                 y: { // defining min and max so hiding the dataset does not change scale range
                     min: 0,
-                    max: 20
+                    max: 1000000000
                 }
             }
         }

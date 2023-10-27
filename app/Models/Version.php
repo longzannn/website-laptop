@@ -18,6 +18,7 @@ class Version extends Model
             'version_details' => $this->version_details,
             'current_price' => $this->current_price,
             'old_price' => $this->old_price,
+            'quantity' => $this->quantity,
         ]);
     }
 
@@ -26,7 +27,6 @@ class Version extends Model
             ->join('product', 'version.prd_id', '=', 'product.prd_id')
             ->join('subcategory', 'product.sub_id', '=', 'subcategory.sub_id')
             ->join('category', 'subcategory.cat_id', '=', 'category.cat_id')
-            ->join('image', 'product.img_id', '=', 'image.img_id')
             ->select(
                 'product.prd_id AS prd_id',
                 'product.prd_name AS prd_name',
@@ -34,11 +34,8 @@ class Version extends Model
                 'subcategory.sub_name AS sub_name',
                 'version.current_price AS current_price',
                 'version.old_price AS old_price',
-                'image.img_1 AS img_1',
-                'image.img_2 AS img_2',
-                'image.img_3 AS img_3',
-                'image.img_4 AS img_4',
-                'image.img_5 AS img_5',
+                'version.quantity AS quantity',
+                'product.prd_images AS prd_images',
                 'version.version_name AS version_name',
                 'version.version_details AS version_details'
             )
@@ -55,6 +52,7 @@ class Version extends Model
                 'version_details' => $this->version_details,
                 'current_price' => $this->current_price,
                 'old_price' => $this->old_price,
+                'quantity' => $this->quantity,
             ]);
 
         // Truy vấn lại thông tin version sau khi cập nhật
@@ -63,9 +61,7 @@ class Version extends Model
             ->first();
 
         // Lấy giá trị prd_id từ bản ghi được cập nhật
-        $prd_id = $updatedVersion->prd_id;
-
-        return $prd_id;
+        return $updatedVersion->prd_id;
     }
 
     public function delete() {

@@ -32,7 +32,7 @@ Route::prefix('admin/')->group(function () {
     Route::middleware('checkLoginStaff')->prefix('customer/')->group(function () {
         Route::get('customer', [\App\Http\Controllers\CustomerController::class, 'index'])->name('customer.index');
 //        Route::get('add_customer', [\App\Http\Controllers\CustomerController::class, 'create'])->name('customer.create');
-        Route::post('add_customer', [\App\Http\Controllers\CustomerController::class, 'store'])->name('customer.store');
+//        Route::post('add_customer', [\App\Http\Controllers\CustomerController::class, 'store'])->name('customer.store');
         Route::get('edit_customer/{id}', [\App\Http\Controllers\CustomerController::class, 'edit'])->name('customer.edit');
         Route::put('edit_customer/{id}', [\App\Http\Controllers\CustomerController::class, 'update'])->name('customer.update');
 //        Route::delete('customer/{id}', [\App\Http\Controllers\CustomerController::class, 'destroy'])->name('customer.destroy');
@@ -75,6 +75,7 @@ Route::prefix('admin/')->group(function () {
     // Route chart
     Route::middleware('checkLoginStaff')->prefix('chart/')->group(function () {
         Route::get('chart', [\App\Http\Controllers\ChartController::class, 'index'])->name('chart.index');
+        Route::get('chartTotalPrice', [\App\Http\Controllers\ChartController::class, 'index2'])->name('chart.index2');
     });
 });
 
@@ -97,14 +98,22 @@ Route::prefix('client/')->group(function () {
     Route::put('search', [\App\Http\Controllers\SearchLayoutController::class, 'index'])->name('client.search');
     Route::put('filter-search/{keyword}', [\App\Http\Controllers\SearchLayoutController::class, 'filter'])->name('client.filterProductInSearch');
 
-    // Route cart
-    Route::get('cart', [\App\Http\Controllers\CartLayoutController::class, 'index'])->name('client.cart');
-    Route::put('add-to-cart/{id}', [\App\Http\Controllers\CartLayoutController::class, 'addToCart'])->name('client.addToCart');
-    Route::put('update-cart', [\App\Http\Controllers\CartLayoutController::class, 'updateCart'])->name('client.updateCart');
-    Route::get('delete-cart', [\App\Http\Controllers\CartLayoutController::class, 'deleteCart'])->name('client.deleteCart');
-    Route::get('delete-product-in-cart/{id}', [\App\Http\Controllers\CartLayoutController::class, 'deleteProductInCart'])->name('client.deleteProductInCart');
+    Route::middleware('checkLoginCustomer')->group(function () {
+        // Route cart
+        Route::get('cart', [\App\Http\Controllers\CartLayoutController::class, 'index'])->name('client.cart');
+        Route::put('add-to-cart/{id}', [\App\Http\Controllers\CartLayoutController::class, 'addToCart'])->name('client.addToCart');
+        Route::put('update-cart', [\App\Http\Controllers\CartLayoutController::class, 'updateCart'])->name('client.updateCart');
+        Route::get('delete-cart', [\App\Http\Controllers\CartLayoutController::class, 'deleteCart'])->name('client.deleteCart');
+        Route::get('delete-product-in-cart/{id}', [\App\Http\Controllers\CartLayoutController::class, 'deleteProductInCart'])->name('client.deleteProductInCart');
 
-    // Route checkout
-    Route::get('checkout', [\App\Http\Controllers\CheckoutLayoutController::class, 'index'])->name('client.checkout');
-    Route::post('checkout', [\App\Http\Controllers\CheckoutLayoutController::class, 'store'])->name('client.storeCheckout');
+        // Route checkout
+        Route::get('checkout', [\App\Http\Controllers\CheckoutLayoutController::class, 'index'])->name('client.checkout');
+        Route::post('checkout', [\App\Http\Controllers\CheckoutLayoutController::class, 'store'])->name('client.storeCheckout');
+    });
+
+    // Route login
+    Route::get('login', [\App\Http\Controllers\LoginController::class, 'login1'])->name('login1');
+    Route::post('login', [\App\Http\Controllers\LoginController::class, 'loginProcess1'])->name('loginProcess1');
+    Route::get('logout', [\App\Http\Controllers\LoginController::class, 'logout1'])->name('logout1');
+    Route::get('register', [\App\Http\Controllers\LoginController::class, 'register'])->name('register');
 });

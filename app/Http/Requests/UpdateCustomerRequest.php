@@ -25,7 +25,7 @@ class UpdateCustomerRequest extends FormRequest
         $customerId = $this->route('id');
         return [
             'cus_name' => 'required',
-            'cus_email' => 'required|email|unique:customer,cus_email,' . $customerId . ',cus_id',
+            'email' => 'required|email|unique:customer,email,' . $customerId . ',cus_id',
             'cus_phone' => 'required|numeric|min:10',
             'cus_address' => 'required',
         ];
@@ -35,9 +35,9 @@ class UpdateCustomerRequest extends FormRequest
     {
         return [
             'cus_name.required' => 'Vui lòng nhập tên.',
-            'cus_email.required' => 'Vui lòng nhập email.',
-            'cus_email.email' => 'Email không hợp lệ.',
-            'cus_email.unique' => 'Email đã tồn tại.',
+            'email.required' => 'Vui lòng nhập email.',
+            'email.email' => 'Email không hợp lệ.',
+            'email.unique' => 'Email đã tồn tại.',
             'cus_phone.required' => 'Vui lòng nhập số điện thoại.',
             'cus_phone.numeric' => 'Không phải định dạng số điện thoại',
             'cus_phone.min' => 'Số điện thoại phải từ 10 số trở lên',

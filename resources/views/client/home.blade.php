@@ -45,14 +45,20 @@
                         <a href="#" class="block opacity-60 hover:opacity-100 rounded bg-[#242525] text-white font-semibold md:p-0">Tin
                             tức</a>
                     </li>
+                    @if(!(session()->has('customer')))
+                        <li>
+                            <a href="{{ route('login1') }}" class="block opacity-60 hover:opacity-100 rounded bg-[#242525] text-white font-semibold md:p-0">
+                                Đăng nhập
+                            </a>
+                        </li>
+                    @endif
+                    @if(session()->has('customer'))
                     <li>
-                        <a href="#" class="block opacity-60 hover:opacity-100 rounded bg-[#242525] text-white font-semibold md:p-0">Giới
-                            thiệu</a>
+                        <a href="{{ route('logout1') }}" class="block opacity-60 hover:opacity-100 rounded bg-[#242525] text-white font-semibold md:p-0">
+                            Đăng xuất
+                        </a>
                     </li>
-                    <li>
-                        <a href="#" class="block opacity-60 hover:opacity-100 rounded bg-[#242525] text-white font-semibold md:p-0">Liên
-                            hệ</a>
-                    </li>
+                    @endif
                 </ul>
             </div>
             <div class="relative text-white ms-12">
@@ -307,8 +313,11 @@
             @foreach( $products as $product)
             <div class="bg-white rounded-lg p-4">
                 <a href={{ route('client.detail',$product -> version_id) }} class="">
+                    @php
+                        $arrImage = explode(',', $product->prd_images);
+                    @endphp
                     <img
-                        src={{ Storage::url('admin/') . $product -> img_5 }}
+                        src={{ Storage::url('admin/') . $arrImage[count($arrImage) - 1] }}
                         alt=""
                         class="rounded-lg"
                     />
@@ -376,8 +385,11 @@
                 class="bg-white rounded-lg p-4 hover:border hover:border-[#007745]"
             >
                 <a href={{ route('client.detail',$product -> version_id) }} class="">
+                    @php
+                        $arrImage = explode(',', $product->prd_images);
+                    @endphp
                     <img
-                        src={{ Storage::url('admin/') . $product -> img_5 }}
+                        src={{ Storage::url('admin/') . $arrImage[count($arrImage) - 1] }}
                         alt=""
                         class="rounded-lg"
                     />

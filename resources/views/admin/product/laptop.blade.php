@@ -121,7 +121,10 @@
                                             {{ $laptop -> prd_name }} ({{ $laptop -> version_name }})
                                         </td>
                                         <td class="px-6 py-4">
-                                            <img class="w-16 h-16 rounded-lg" src="{{ Storage::url('admin/') . $laptop -> img_1 }}" alt="">
+                                            @php
+                                                $arrImage = explode(',', $laptop -> prd_images);
+                                            @endphp
+                                            <img class="w-16 h-16 rounded-lg" src="{{ Storage::url('admin/') . $arrImage[count($arrImage) - 1] }}" alt="">
                                         </td>
                                         <td class="px-6 py-4">{{ $laptop -> sub_name }}</td>
                                         <td class="px-6 py-4">{{ number_format($laptop -> current_price, 0, ',', '.') }}</td>

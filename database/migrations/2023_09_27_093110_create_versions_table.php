@@ -13,11 +13,12 @@ return new class extends Migration
     {
         Schema::create('version', function (Blueprint $table) {
             $table->id();
-            $table->string('version_name');
-            $table->foreignId('product_id')->constrained('product');
-            $table->string('version_details');
+            $table->text('version_name');
+            $table->foreignId('prd_id')->constrained('product');
+            $table->text('version_details');
             $table->float('old_price');
             $table->float('current_price');
+            $table->float('quantity');
         });
     }
 

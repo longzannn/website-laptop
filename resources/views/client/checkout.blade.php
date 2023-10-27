@@ -104,7 +104,7 @@
                 </div>
                 <div class="my-3">
                     <div class="text-lg opacity-60 mb-2">Email</div>
-                    <input name="cus_email" type="text" class="w-full border border-gray-300 rounded-lg p-3" placeholder="Nhập email">
+                    <input name="email" type="text" class="w-full border border-gray-300 rounded-lg p-3" placeholder="Nhập email">
                 </div>
                 <div class="my-3">
                     <div class="text-lg opacity-60 mb-2">Địa chỉ</div>
@@ -125,11 +125,12 @@
                 <ul class="list-none">
                     @foreach($cart as $version_id => $product)
                     <li class="text-sm flex items-center justify-between my-3">
+                        <img class="w-16 h-16 mr-4" src="{{ Storage::url('admin/') . $product['image'] }}" alt="">
                         <div class="">
                             <p class="font-semibold">{{ $product['prd_name'] }} ({{ $product['version_name'] }})</p>
                             <p class="font-semibold opacity-60">{{ number_format($product['current_price'], 0, ',', '.') }} x {{ $product['quantity'] }}</p>
                         </div>
-                        <div class="font-semibold opacity-60">{{ number_format(($product['current_price'] * $product['quantity']), 0, ',', '.') }}</div>
+                        <div class="font-semibold opacity-60 ml-4">{{ number_format(($product['current_price'] * $product['quantity']), 0, ',', '.') }}</div>
                     </li>
                     @endforeach
                     <li class="text-sm flex items-center justify-between my-5 py-3 border-t-2 border-gray-200">

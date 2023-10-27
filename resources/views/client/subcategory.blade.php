@@ -396,8 +396,11 @@
                             class="bg-white rounded-lg p-4 hover:border hover:border-[#007745]"
                         >
                             <a href={{ route('client.detail',$product -> version_id) }} class="">
+                                @php
+                                    $arrImage = explode(',', $product->prd_images);
+                                @endphp
                                 <img
-                                    src={{ $product -> cat_name === 'Linh kiện máy tính' ? Storage::url('admin/') . $product -> img_1 : Storage::url('admin/') . $product -> img_5 }}
+                                    src={{ Storage::url('admin/') . $arrImage[count($arrImage) - 1] }}
                                     alt=""
                                     class="rounded-lg"
                                 />

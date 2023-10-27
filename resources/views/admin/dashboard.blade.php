@@ -146,19 +146,19 @@
                         <ul class="details">
                             <li class="topic">Date</li>
                             @foreach($orders as $order)
-                            <li><a href="">{{ $order['order_date'] }}</a></li>
+                            <li><a href="">{{ $order->order_date }}</a></li>
                             @endforeach
                         </ul>
                         <ul class="details">
                             <li class="topic">New customers buy</li>
                             @foreach($orders as $order)
-                                <li><a href="">{{ $order['cus_name'] }}</a></li>
+                                <li><a href="">{{ $order->cus_name }}</a></li>
                             @endforeach
                         </ul>
                         <ul class="details">
                             <li class="topic">Total price</li>
                             @foreach($orders as $order)
-                                <li><a href="">{{ number_format($order['total_price'], 0, ',', '.' ) }} VNĐ</a></li>
+                                <li><a href="">{{ number_format($order->total_price, 0, ',', '.' ) }} VNĐ</a></li>
                             @endforeach
                         </ul>
                     </div>

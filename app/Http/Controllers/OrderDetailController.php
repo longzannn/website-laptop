@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Image;
-use App\Http\Requests\StoreImageRequest;
-use App\Http\Requests\UpdateImageRequest;
+use App\Models\OrderDetail;
+use App\Http\Requests\StoreOrderDetailRequest;
+use App\Http\Requests\UpdateOrderDetailRequest;
 
-class ImageController extends Controller
+class OrderDetailController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -27,7 +27,7 @@ class ImageController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreImageRequest $request)
+    public function store(StoreOrderDetailRequest $request)
     {
         //
     }
@@ -35,7 +35,7 @@ class ImageController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Image $image)
+    public function show(OrderDetail $orderDetail)
     {
         //
     }
@@ -43,7 +43,7 @@ class ImageController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Image $image)
+    public function edit(OrderDetail $orderDetail)
     {
         //
     }
@@ -51,7 +51,7 @@ class ImageController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateImageRequest $request, Image $image)
+    public function update(UpdateOrderDetailRequest $request, OrderDetail $orderDetail)
     {
         //
     }
@@ -59,7 +59,7 @@ class ImageController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Image $image)
+    public function destroy(OrderDetail $orderDetail)
     {
         //
     }

@@ -40,23 +40,15 @@ class CartLayoutController extends Controller
         if(array_key_exists($product -> version_id, $cart)) {
             $cart[$product -> version_id]['quantity'] += intval($quantity);
         } else {
-            if($product -> cat_name == 'Linh kiện máy tính') {
-                $cart = Arr::add($cart, $product -> version_id, [
-                    'prd_name' => $product -> prd_name,
-                    'version_name' => $product -> version_name,
-                    'quantity' => intval($quantity),
-                    'current_price' => $product -> current_price,
-                    'image' => $product -> img_1,
-                ]);
-            } else {
-                $cart = Arr::add($cart, $product -> version_id, [
-                    'prd_name' => $product -> prd_name,
-                    'version_name' => $product -> version_name,
-                    'quantity' => intval($quantity),
-                    'current_price' => $product -> current_price,
-                    'image' => $product -> img_5,
-                ]);
-            }
+            $arrImage = explode(',', $product -> prd_images);
+            $image = $arrImage[count($arrImage) - 1];
+            $cart = Arr::add($cart, $product -> version_id, [
+                'prd_name' => $product -> prd_name,
+                'version_name' => $product -> version_name,
+                'quantity' => intval($quantity),
+                'current_price' => $product -> current_price,
+                'image' => $image,
+            ]);
         }
         Session::put('cart', $cart);
         flash()->addSuccess('Thêm sản phẩm vào giỏ hàng thành công!');

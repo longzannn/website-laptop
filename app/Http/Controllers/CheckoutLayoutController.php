@@ -43,34 +43,36 @@ class CheckoutLayoutController extends Controller
         $objCheckoutLayout = new CheckoutLayout();
         $objCheckoutLayout->cus_name = $request->cus_name;
         $objCheckoutLayout->cus_phone = $request->cus_phone;
-        $objCheckoutLayout->cus_email = $request->cus_email;
+        $objCheckoutLayout->email = $request->email;
         $objCheckoutLayout->cus_address = $request->cus_address;
         $cus_id = $objCheckoutLayout->storeCustomer();
 
         $cart = Session::get('cart');
         $total_price = 0;
-        $arr_version_id = array();
-        $quantity = 0;
         foreach ($cart as $version_id => $product) {
-            $quantity += $product['quantity'];
             $total_price += $product['current_price'] * $product['quantity'];
-            $arr_version_id[] = $version_id;
         }
+
         $objCheckoutLayout->cus_id = $cus_id;
-        $objCheckoutLayout->staff_id = null;    // Chưa có staff
-        $objCheckoutLayout->quantity = $quantity;
+        $objCheckoutLayout->payment = 'Chưa thanh toán';
+        $objCheckoutLayout->status = 'Đơn hàng mới';
         $objCheckoutLayout->total_price = $total_price;
         $date = date('Y-m-d H:i:s');
         $objCheckoutLayout->order_date = $date;
+        $dateString = strtotime($date);
+        $code = 'DH' . $dateString;
+        $objCheckoutLayout->code = $code;
         $order_id = $objCheckoutLayout->storeOrder();
 
-        for ($i = 0; $i < count($arr_version_id); $i++) {
+        foreach ($cart as $version_id => $product) {
+            $price = 0;
+            $price += $product['current_price'] * $product['quantity'];
+            $quantity = 0;
+            $quantity += $product['quantity'];
             $objCheckoutLayout->order_id = $order_id;
-            $objCheckoutLayout->version_id = $arr_version_id[$i];
-            $objCheckoutLayout->payment = 'Chưa thanh toán';
-            $objCheckoutLayout->status = 'Đơn hàng mới';
-            $code = 'DH00' . $order_id;
-            $objCheckoutLayout->code = $code;
+            $objCheckoutLayout->version_id = $version_id;
+            $objCheckoutLayout->quantity = $quantity;
+            $objCheckoutLayout->price = $price;
             $objCheckoutLayout->storeOrderDetail();
         }
 

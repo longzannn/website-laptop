@@ -11,9 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('charts', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+        Schema::create('order_detail', function (Blueprint $table) {
+            $table->text('quantity');
+            $table->float('price');
+            $table->foreignId('order_id')->constrained('order');
+            $table->foreignId('version_id')->constrained('version');
         });
     }
 
@@ -22,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('charts');
+        Schema::dropIfExists('order_detail');
     }
 };

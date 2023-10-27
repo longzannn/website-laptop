@@ -65,14 +65,11 @@ class ProductController extends Controller
             }
             $array[] = $image_name;
         }
-        $objImage = new Image();
-        for ($k = 0; $k < count($array); $k++) {
-            $objImage->{"img_" . ($k + 1)} = $array[$k];
-        }
-        $img_id = $objImage->store(); // Lưu và lấy ra img_id vừa được thêm vào
+
+        $prd_images = implode(',', $array); // Chuyển mảng thành chuỗi
 
         $obj = new Product();
-        $obj->img_id = $img_id;
+        $obj->prd_images = $prd_images;
         $obj->sub_id = $request->sub_id;
         $obj->prd_name = $request->prd_name;
         $prd_id = $obj -> store(); // Lưu và lấy ra prd_id vừa được thêm vào
@@ -83,6 +80,7 @@ class ProductController extends Controller
         $objVersion->version_name = $request->version_name;
         $objVersion->current_price = $request->current_price;
         $objVersion->old_price = $request->old_price;
+        $objVersion->quantity = $request->quantity;
         // Lưu thông tin chi tiết phiên bản vào bảng version
         $cluster_count = intval($request->cluster_count); // Số lượng cụm thông số
         $data = array();
@@ -135,13 +133,13 @@ class ProductController extends Controller
         $objVersion->current_price = $request->current_price;
         $objVersion->old_price = $request->old_price;
         $objVersion->version_details = $request->version_details;
+        $objVersion->quantity = $request->quantity;
         $prd_id = $objVersion->updateVersion(); // Lưu và lấy ra prd_id vừa được thêm vào
 
         $objProduct = new Product();
         $objProduct->prd_id = $prd_id;
         $objProduct->prd_name = $request->prd_name;
         $objProduct->sub_id = $request->sub_id;
-        $img_id = $objProduct->updateProduct(); // Lưu và lấy ra img_id vừa được thêm vào
 
         $images = $request->file('prd_images'); // Lấy ra mảng các file ảnh
         if($images != null) {
@@ -155,13 +153,11 @@ class ProductController extends Controller
                 }
                 $array[] = $image_name;
             }
-            $objImage = new Image();
-            for ($k = 0; $k < count($array); $k++) {
-                $objImage->{"img_" . ($k + 1)} = $array[$k];
-            }
-            $objImage->img_id = $img_id;
-            $objImage->updateImage();
+            $prd_images = implode(',', $array); // Chuyển mảng thành chuỗi
         }
+
+        $objProduct->prd_images = $prd_images;
+        $objProduct->updateProduct();
 
         flash()->addSuccess('Cập nhật sản phẩm thành công!');
         return Redirect::route('product.laptop');
@@ -178,10 +174,7 @@ class ProductController extends Controller
           $prd_id = $objVersion->delete();
           $objProduct = new Product();
           $objProduct->prd_id = $prd_id;
-          $img_id = $objProduct->delete();
-          $objImage = new Image();
-          $objImage->img_id = $img_id;
-          $objImage->delete();
+          $objProduct->delete();
           flash()->addSuccess('Xóa sản phẩm thành công!');
       } catch (\Exception $e) {
           flash()->addWarning('Sản phẩm vẫn đang ở trong giỏ hàng của khách hàng, không thể xóa!');

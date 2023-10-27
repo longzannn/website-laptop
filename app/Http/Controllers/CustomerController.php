@@ -76,7 +76,7 @@ class CustomerController extends Controller
         $obj = new Customer();
         $obj->cus_id = $request->id;
         $obj->cus_name = $request->cus_name;
-        $obj->cus_email = $request->cus_email;
+        $obj->email = $request->email;
         $obj->cus_phone = $request->cus_phone;
         $obj->cus_address = $request->cus_address;
         $obj->updateCustomer();

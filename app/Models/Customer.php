@@ -10,6 +10,10 @@ class Customer extends Model
 {
     use HasFactory;
 
+    protected $table = 'customer';
+    public $timestamps = false;
+    const UPDATED_AT = null;
+
     public function index()
     {
         return DB::table('customer')->paginate(5);
@@ -19,7 +23,7 @@ class Customer extends Model
     {
         DB::table('customer')->insert([
             'cus_name' => $this->cus_name,
-            'cus_email' => $this->cus_email,
+            'email' => $this->email,
             'cus_phone' => $this->cus_phone,
             'cus_address' => $this->cus_address,
         ]);
@@ -38,7 +42,7 @@ class Customer extends Model
             ->where('cus_id','=', $this->cus_id)
             ->update([
                 'cus_name' => $this->cus_name,
-                'cus_email' => $this->cus_email,
+                'email' => $this->email,
                 'cus_phone' => $this->cus_phone,
                 'cus_address' => $this->cus_address,
             ]);

@@ -40,6 +40,33 @@ class LoginController extends Controller
         return Redirect::route('login');
     }
 
+    public function login1()
+    {
+        return view('client/login');
+    }
+
+    public function loginProcess1(Request $request) {
+        $account = $request->only(['email', 'password']);
+        if(Auth::guard('customer')->attempt($account)) {
+            $customer = Auth::guard('customer')->user();
+            Auth::guard('customer')->login($customer);
+            session(['customer' => $customer]);
+            flash()->addSuccess('Đăng nhập thành công');
+            return redirect()->route('client.home');
+        } else {
+            flash()->addError('Đăng nhập thất bại');
+            return Redirect::back();
+        }
+    }
+
+    public function logout1() {
+        Auth::guard('customer')->logout();
+        session()->forget('cart');
+        session()->forget('customer');
+        flash()->addSuccess('Đăng xuất thành công');
+        return Redirect::route('login1');
+    }
+
     /**
      * Show the form for creating a new resource.
      */
