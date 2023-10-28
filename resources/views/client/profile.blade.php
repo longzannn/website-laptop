@@ -5,9 +5,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="Shortcut icon" href="https://laptopkhanhtran.vn/pic/system/logo-kt-01636837754534945606.png" type="image/x-icon">
-    <title>Thanh toán | Laptop Khánh Trần</title>
+    <title>Tài khoản của tôi</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 </head>
 
@@ -82,7 +83,7 @@
     <ul class="flex w-full items-center justify-between px-32">
         @foreach($categories as $category)
             <li class="relative flex items-center text-white opacity-60 hover:opacity-100 h-full">
-                <a class="text-xs uppercase font-semibold" href={{ route('client.category', $category -> cat_id) }}>{{ $category -> cat_name }}</a><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-3 h-3 ml-1">
+                <a class="text-xs font-semibold uppercase font-semibold" href={{ route('client.category', $category -> cat_id) }}>{{ $category -> cat_name }}</a><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-3 h-3 ml-1">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                 </svg>
                 <div class="hidden absolute top-[100%] left-0 drop-shadow-xl bg-white w-max rounded-lg">
@@ -90,7 +91,7 @@
                         @foreach($subcategories as $subcategory)
                             @if( $subcategory -> cat_id == $category -> cat_id)
                                 <li class="py-3 px-6 text-sm text-gray-900 hover:text-green-700">
-                                    <a href={{ route('client.subcategory', $subcategory -> sub_id) }}>{{ $subcategory -> sub_name }}</a>
+                                    <a class="font-semibold" href={{ route('client.subcategory', $subcategory -> sub_id) }}>{{ $subcategory -> sub_name }}</a>
                                 </li>
                             @endif
                         @endforeach
@@ -101,82 +102,62 @@
     </ul>
 </div>
 
-<div class="max-w-[1400px] mx-auto mt-5 mb-20 p-6">
-    <h2 class="font-bold text-3xl text-center">Thanh Toán</h2>
-    <p class="text-lg opacity-60 text-center">Vui lòng kiểm tra thông tin khách hàng, thông tin giỏ hành trước khi đặt hàng</p>
-    <div class="grid grid-cols-5 gap-8 mt-20">
-        <div class="col-span-3">
-            <h3 class="text-xl font-bold">Thông tin khách hàng</h3>
-            <form method="POST" action={{ route('client.storeCheckout') }}>
-                @csrf
-                <div class="my-3">
-                    <div class="text-lg opacity-60 mb-2">Họ tên</div>
-                    <input name="cus_name" type="text" class="w-full border border-gray-300 rounded-lg p-3"
-                    @if(session()->get('customer')->cus_name)
-                        value="{{ session()->get('customer')->cus_name }}"
-                    @else
-                        placeholder="Nhập họ tên"
-                    @endif>
-                </div>
-                <div class="my-3">
-                    <div class="text-lg opacity-60 mb-2">Email</div>
-                    <input name="email" disabled type="text" class="w-full border border-gray-300 rounded-lg p-3" value="{{ session()->get('customer')->email }}">
-                </div>
-                <div class="my-3">
-                    <div class="text-lg opacity-60 mb-2">Địa chỉ</div>
-                    <input name="cus_address" type="text" class="w-full border border-gray-300 rounded-lg p-3"
-                    @if(session()->get('customer')->cus_address)
-                        value="{{ session()->get('customer')->cus_address }}"
-                    @else
-                        placeholder="Nhập địa chỉ"
-                    @endif
-                    >
-                </div>
-                <div class="my-3">
-                    <div class="text-lg opacity-60 mb-2">Số điện thoại</div>
-                    <input name="cus_phone" type="text" class="w-full border border-gray-300 rounded-lg p-3"
-                    @if(session()->get('customer')->cus_phone)
-                        value="{{ session()->get('customer')->cus_phone }}"
-                    @else
-                        placeholder="Nhập số điện thoại"
-                    @endif
-                    >
-                </div>
-                <div class="my-3">
-                    <button type="submit" class="bg-blue-500 w-full rounded-lg text-white font-bold text-lg text-center py-3 px-2 mt-8">Đặt hàng</button>
-                </div>
-            </form>
-        </div>
-        <div class="col-span-2">
-            <h3 class="text-xl font-bold">Giỏ hàng</h3>
-            <div class="border-2 border-gray-200 rounded-lg p-4 mt-8">
-                <ul class="list-none">
-                    @foreach($cart as $version_id => $product)
-                    <li class="text-sm flex items-center justify-between my-3">
-                        <img class="w-16 h-16 mr-4" src="{{ Storage::url('admin/') . $product['image'] }}" alt="">
-                        <div class="">
-                            <p class="font-semibold">{{ $product['prd_name'] }} ({{ $product['version_name'] }})</p>
-                            <p class="font-semibold opacity-60">{{ number_format($product['current_price'], 0, ',', '.') }} x {{ $product['quantity'] }}</p>
-                        </div>
-                        <div class="font-semibold opacity-60 ml-4">{{ number_format(($product['current_price'] * $product['quantity']), 0, ',', '.') }}</div>
-                    </li>
-                    @endforeach
-                    <li class="text-sm flex items-center justify-between my-5 py-3 border-t-2 border-gray-200">
-                        <div class="">
-                            <p class="font-semibold underline text-lg">Tổng thành tiền</p>
-                        </div>
-                        @php
-                            $totalPrice = 0;
-                        @endphp
-                        @foreach($cart as $version_id => $product)
-                            @php
-                                $totalPrice += $product['current_price'] * $product['quantity'];
-                            @endphp
-                        @endforeach
-                        <div class="font-semibold text-lg text-red-700 opacity-60">{{ number_format($totalPrice, 0, ',', '.') }} VNĐ</div>
-                    </li>
-                </ul>
+<div class="max-w-[1400px] mx-auto mt-10 mb-20">
+    <div class="grid grid-cols-5 gap-8 px-6">
+        <div class="col-span-1">
+            <div class="flex items-center pb-6 border-b border-gray-200">
+                <img class="w-12 h-12 rounded-full" src="https://down-vn.img.susercontent.com/file/vn-11134004-7r98o-lmeli1me3kyna1_tn" alt="avatar">
+                <span class="text-sm font-semibold ml-5">{{ (session()->get('customer'))->cus_name }}</span>
             </div>
+            <ul class="list-none mt-5">
+                <li class="py-2">
+                    <i class="fa-solid fa-user w-6 h-6 text-center text-gray-600"></i>
+                    <a class="text-gray-500 hover:text-gray-900" href="{{ route('client.profile') }}">Tài khoản của tôi</a>
+                </li>
+                <li class="py-2">
+                    <i class="fa-solid fa-receipt w-6 h-6 text-center text-gray-600"></i>
+                    <a class="text-gray-500 hover:text-gray-900" href="{{ route('client.order') }}">Đơn mua</a>
+                </li>
+                <li class="py-2">
+                    <i class="fa-solid fa-key w-6 h-6 text-center text-gray-600"></i>
+                    <a class="text-gray-500 hover:text-gray-900" href="{{ route('client.changePassword') }}">Đổi mật khẩu</a>
+                </li>
+            </ul>
+        </div>
+        <div class="col-span-4">
+            <form class="p-4" method="POST" action="{{ route('client.updateProfile', (session()->get('customer')) -> cus_id) }}">
+                @csrf
+                @method('PUT')
+                <div class="mb-6">
+                    <label for="cus_name" class="block mb-2 text-sm font-medium text-gray-900">Tên khách hàng</label>
+                    <input name="cus_name" type="text" id="cus_name" value="{{ (session()->get('customer')) -> cus_name }}" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                    @if($errors->has('cus_name'))
+                        <span class="text-red-600 text-xs">{{ $errors->first('cus_name') }}</span>
+                    @endif
+                </div>
+                <div class="mb-6">
+                    <label for="email" class="block mb-2 text-sm font-medium text-gray-900">Địa chỉ email</label>
+                    <input name="email" type="email" id="email" value="{{ (session()->get('customer')) -> email }}" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                    @if($errors->has('email'))
+                        <span class="text-red-600 text-xs">{{ $errors->first('email') }}</span>
+                    @endif
+                </div>
+                <div class="mb-6">
+                    <label for="cus_phone" class="block mb-2 text-sm font-medium text-gray-900">Số điện thoại</label>
+                    <input name="cus_phone" type="text" id="cus_phone" value="{{ (session()->get('customer')) -> cus_phone }}" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                    @if($errors->has('cus_phone'))
+                        <span class="text-red-600 text-xs">{{ $errors->first('cus_phone') }}</span>
+                    @endif
+                </div>
+                <div class="mb-6">
+                    <label for="cus_address" class="block mb-2 text-sm font-medium text-gray-900">Địa chỉ nhận hàng</label>
+                    <input name="cus_address" type="text" id="cus_address" value="{{ (session()->get('customer')) -> cus_address }}" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                    @if($errors->has('cus_address'))
+                        <span class="text-red-600 text-xs">{{ $errors->first('cus_address') }}</span>
+                    @endif
+                </div>
+                <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Cập nhật lại thông tin</button>
+            </form>
         </div>
     </div>
 </div>
@@ -212,7 +193,6 @@
                     <span class="font-semibold text-gray-900 dark:text-white">Website:</span>
                     https://laptopkhanhtran.vn/
                 </li>
-
             </ol>
         </div>
         <div class="">

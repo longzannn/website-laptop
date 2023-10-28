@@ -49,7 +49,6 @@ class CheckoutLayout extends Model
         return DB::table('order')->insertGetId([
             'cus_id' => $this->cus_id,
             'order_date' => $this->order_date,
-            'payment' => $this->payment,
             'status' => $this->status,
             'total_price' => $this->total_price,
             'code' => $this->code,

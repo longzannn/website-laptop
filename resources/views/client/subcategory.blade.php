@@ -43,14 +43,25 @@
                     <a href="#" class="block opacity-60 hover:opacity-100 rounded bg-[#242525] text-white font-semibold md:p-0">Tin
                         tức</a>
                 </li>
-                <li>
-                    <a href="#" class="block opacity-60 hover:opacity-100 rounded bg-[#242525] text-white font-semibold md:p-0">Giới
-                        thiệu</a>
-                </li>
-                <li>
-                    <a href="#" class="block opacity-60 hover:opacity-100 rounded bg-[#242525] text-white font-semibold md:p-0">Liên
-                        hệ</a>
-                </li>
+                @if(!(session()->has('customer')))
+                    <li>
+                        <a href="{{ route('login1') }}" class="block opacity-60 hover:opacity-100 rounded bg-[#242525] text-white font-semibold md:p-0">
+                            Đăng nhập
+                        </a>
+                    </li>
+                @endif
+                @if(session()->has('customer'))
+                    <li>
+                        <a href="{{ route('client.profile') }}" class="block opacity-60 hover:opacity-100 rounded bg-[#242525] text-white font-semibold md:p-0">
+                            Tài khoản
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('logout1') }}" class="block opacity-60 hover:opacity-100 rounded bg-[#242525] text-white font-semibold md:p-0">
+                            Đăng xuất
+                        </a>
+                    </li>
+                @endif
             </ul>
         </div>
         <div class="relative text-white ms-12">

@@ -64,8 +64,7 @@ class CheckoutLayoutController extends Controller
         }
 
         $objCheckoutLayout->cus_id = $cus_id;
-        $objCheckoutLayout->payment = 'Chưa thanh toán';
-        $objCheckoutLayout->status = 'Đơn hàng mới';
+        $objCheckoutLayout->status = 'Chờ xác nhận';
         $objCheckoutLayout->total_price = $total_price;
         $date = date('Y-m-d H:i:s');
         $objCheckoutLayout->order_date = $date;

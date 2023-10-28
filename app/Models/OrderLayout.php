@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 
-class HomeLayout extends Model
+class OrderLayout extends Model
 {
     use HasFactory;
 
@@ -26,25 +26,28 @@ class HomeLayout extends Model
             ->get();
     }
 
-    public function getLaptopProducts()
+    public function getOrders()
     {
-        return DB::table('version')
+        return DB::table('order')
+            ->where('cus_id', '=', $this->cus_id)
+            ->get();
+    }
+
+    public function getOrderDetail()
+    {
+        return DB::table('order_detail')
+            ->join('version', 'order_detail.version_id', '=', 'version.version_id')
             ->join('product', 'version.prd_id', '=', 'product.prd_id')
-            ->join('subcategory', 'product.sub_id', '=', 'subcategory.sub_id')
-            ->join('category', 'subcategory.cat_id', '=', 'category.cat_id')
-            ->select(
-                'product.prd_id AS prd_id',
-                'version.version_id AS version_id',
-                'product.prd_name AS prd_name',
+            ->select([
+                'order_detail.order_id AS order_id',
+                'order_detail.quantity AS quantity',
                 'version.version_name AS version_name',
-                'subcategory.sub_name AS sub_name',
                 'version.current_price AS current_price',
                 'version.old_price AS old_price',
-                'product.prd_images AS prd_images',
-                'version.version_details AS version_details'
-            )
-            ->where('category.cat_name', 'not like', '%Linh kiện máy tính%')
-            ->limit(10)
+                'product.prd_name AS prd_name',
+                'product.prd_images AS prd_images'
+            ])
+            ->where('order_detail.order_id', '=', $this->order_id)
             ->get();
     }
 }

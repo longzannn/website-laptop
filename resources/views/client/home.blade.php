@@ -51,18 +51,18 @@
                                 Đăng nhập
                             </a>
                         </li>
-                        <li>
-                            <a href="{{ route('register') }}" class="block opacity-60 hover:opacity-100 rounded bg-[#242525] text-white font-semibold md:p-0">
-                                Đăng ký
-                            </a>
-                        </li>
                     @endif
                     @if(session()->has('customer'))
-                    <li>
-                        <a href="{{ route('logout1') }}" class="block opacity-60 hover:opacity-100 rounded bg-[#242525] text-white font-semibold md:p-0">
-                            Đăng xuất
-                        </a>
-                    </li>
+                        <li>
+                            <a href="{{ route('client.profile') }}" class="block opacity-60 hover:opacity-100 rounded bg-[#242525] text-white font-semibold md:p-0">
+                                Tài khoản
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('logout1') }}" class="block opacity-60 hover:opacity-100 rounded bg-[#242525] text-white font-semibold md:p-0">
+                                Đăng xuất
+                            </a>
+                        </li>
                     @endif
                 </ul>
             </div>

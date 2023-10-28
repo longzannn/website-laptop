@@ -109,6 +109,17 @@ Route::prefix('client/')->group(function () {
         // Route checkout
         Route::get('checkout', [\App\Http\Controllers\CheckoutLayoutController::class, 'index'])->name('client.checkout');
         Route::post('checkout', [\App\Http\Controllers\CheckoutLayoutController::class, 'store'])->name('client.storeCheckout');
+
+        // Route order
+        Route::get('order', [\App\Http\Controllers\OrderLayoutController::class, 'index'])->name('client.order');
+
+        // Route profile
+        Route::get('profile', [\App\Http\Controllers\ProfileLayoutController::class, 'index'])->name('client.profile');
+        Route::put('profile/{id}', [\App\Http\Controllers\ProfileLayoutController::class, 'update'])->name('client.updateProfile');
+
+        // Route change password
+        Route::get('changePassword', [\App\Http\Controllers\ChangePasswordLayoutController::class, 'index'])->name('client.changePassword');
+        Route::put('changePassword/{id}', [\App\Http\Controllers\ChangePasswordLayoutController::class, 'update'])->name('client.updatePassword');
     });
 
     // Route login
