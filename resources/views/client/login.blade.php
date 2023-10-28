@@ -31,21 +31,15 @@
     </div>
     <div class="toggle-container">
         <div class="toggle">
-            <div class="toggle-panel toggle-left">
-                <h1>Welcome Back!</h1>
-                <p>Enter your personal details to use all of site features</p>
-                <button class="hidden" id="login">Sign In</button>
-            </div>
             <div class="toggle-panel toggle-right">
                 <h1>Hello, Friend!</h1>
                 <p>Register with your personal details to use all of site features</p>
-                <button class="hidden" id="register">Sign Up</button>
+                <button class="hidden" id="register"><a href="{{ route('register') }}">Sign Up</a></button>
             </div>
         </div>
     </div>
 </div>
 
-<script src="{{ asset('js/admin/login.js') }}"></script>
 </body>
 
 </html>

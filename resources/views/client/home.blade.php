@@ -51,6 +51,11 @@
                                 Đăng nhập
                             </a>
                         </li>
+                        <li>
+                            <a href="{{ route('register') }}" class="block opacity-60 hover:opacity-100 rounded bg-[#242525] text-white font-semibold md:p-0">
+                                Đăng ký
+                            </a>
+                        </li>
                     @endif
                     @if(session()->has('customer'))
                     <li>

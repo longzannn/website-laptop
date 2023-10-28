@@ -11,7 +11,7 @@ class StoreLoginRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,20 @@ class StoreLoginRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'email' => 'required|email|unique:customer,email',
+            'password' => 'required|min:8|confirmed',
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'email.required' => 'Vui lòng nhập email.',
+            'email.email' => 'Email không hợp lệ.',
+            'email.unique' => 'Email đã tồn tại.',
+            'password.required' => 'Vui lòng nhập mật khẩu.',
+            'password.min' => 'Mật khẩu phải chứa ít nhất 8 ký tự.',
+            'password.confirmed' => 'Xác nhận mật khẩu không khớp với mật khẩu.',
         ];
     }
 }

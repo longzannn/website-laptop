@@ -116,4 +116,5 @@ Route::prefix('client/')->group(function () {
     Route::post('login', [\App\Http\Controllers\LoginController::class, 'loginProcess1'])->name('loginProcess1');
     Route::get('logout', [\App\Http\Controllers\LoginController::class, 'logout1'])->name('logout1');
     Route::get('register', [\App\Http\Controllers\LoginController::class, 'register'])->name('register');
+    Route::post('register', [\App\Http\Controllers\LoginController::class, 'store'])->name('registerProcess');
 });

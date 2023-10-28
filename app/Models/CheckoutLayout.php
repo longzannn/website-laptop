@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\DB;
 class CheckoutLayout extends Model
 {
     use HasFactory;
+    protected $table = 'customer';
 
     public function getCategories()
     {
@@ -28,6 +29,15 @@ class CheckoutLayout extends Model
 
     public function storeCustomer() {
         return DB::table('customer')->insertGetId([
+            'cus_name' => $this->cus_name,
+            'cus_phone' => $this->cus_phone,
+            'email' => $this->email,
+            'cus_address' => $this->cus_address
+        ]);
+    }
+
+    public function updateCustomer() {
+        DB::table('customer')->where('cus_id', $this->cus_id)->update([
             'cus_name' => $this->cus_name,
             'cus_phone' => $this->cus_phone,
             'email' => $this->email,

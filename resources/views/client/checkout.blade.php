@@ -100,19 +100,36 @@
                 @csrf
                 <div class="my-3">
                     <div class="text-lg opacity-60 mb-2">Họ tên</div>
-                    <input name="cus_name" type="text" class="w-full border border-gray-300 rounded-lg p-3" placeholder="Nhập họ tên">
+                    <input name="cus_name" type="text" class="w-full border border-gray-300 rounded-lg p-3"
+                    @if(session()->get('customer')->cus_name)
+                        value="{{ session()->get('customer')->cus_name }}"
+                    @else
+                        placeholder="Nhập họ tên"
+                    @endif>
                 </div>
                 <div class="my-3">
                     <div class="text-lg opacity-60 mb-2">Email</div>
-                    <input name="email" type="text" class="w-full border border-gray-300 rounded-lg p-3" placeholder="Nhập email">
+                    <input name="email" disabled type="text" class="w-full border border-gray-300 rounded-lg p-3" value="{{ session()->get('customer')->email }}">
                 </div>
                 <div class="my-3">
                     <div class="text-lg opacity-60 mb-2">Địa chỉ</div>
-                    <input name="cus_address" type="text" class="w-full border border-gray-300 rounded-lg p-3" placeholder="Nhập địa chỉ">
+                    <input name="cus_address" type="text" class="w-full border border-gray-300 rounded-lg p-3"
+                    @if(session()->get('customer')->cus_address)
+                        value="{{ session()->get('customer')->cus_address }}"
+                    @else
+                        placeholder="Nhập địa chỉ"
+                    @endif
+                    >
                 </div>
                 <div class="my-3">
                     <div class="text-lg opacity-60 mb-2">Số điện thoại</div>
-                    <input name="cus_phone" type="text" class="w-full border border-gray-300 rounded-lg p-3" placeholder="Nhập số điện thoại">
+                    <input name="cus_phone" type="text" class="w-full border border-gray-300 rounded-lg p-3"
+                    @if(session()->get('customer')->cus_phone)
+                        value="{{ session()->get('customer')->cus_phone }}"
+                    @else
+                        placeholder="Nhập số điện thoại"
+                    @endif
+                    >
                 </div>
                 <div class="my-3">
                     <button type="submit" class="bg-blue-500 w-full rounded-lg text-white font-bold text-lg text-center py-3 px-2 mt-8">Đặt hàng</button>

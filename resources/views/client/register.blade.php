@@ -11,9 +11,9 @@
 
 <body>
 
-<div class="container" id="container">
+<div class="container active" id="container">
     <div class="form-container sign-up">
-        <form method="POST" action={{ route('loginProcess1') }}>
+        <form method="POST" action={{ route('registerProcess') }}>
             @csrf
             <h1>Create Account</h1>
             <div class="social-icons">
@@ -23,9 +23,18 @@
                 <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
             </div>
             <span>or use your email for registeration</span>
-            <input type="text" placeholder="Name">
-            <input type="email" placeholder="Email">
-            <input type="password" placeholder="Password">
+            <input name="email" type="email" placeholder="Email">
+            @if($errors->has('email'))
+                <span class="">{{ $errors->first('email') }}</span>
+            @endif
+            <input name="password" type="password" placeholder="Password">
+            @if($errors->has('password'))
+                <span class="">{{ $errors->first('password') }}</span>
+            @endif
+            <input name="password_confirmation" type="password" placeholder="Confirm Password">
+            @if($errors->has('confirm_password'))
+                <span class="">{{ $errors->first('confirm_password') }}</span>
+            @endif
             <button type="submit">Sign Up</button>
         </form>
     </div>
@@ -34,18 +43,12 @@
             <div class="toggle-panel toggle-left">
                 <h1>Welcome Back!</h1>
                 <p>Enter your personal details to use all of site features</p>
-                <button class="hidden" id="login">Sign In</button>
-            </div>
-            <div class="toggle-panel toggle-right">
-                <h1>Hello, Friend!</h1>
-                <p>Register with your personal details to use all of site features</p>
-                <button class="hidden" id="register">Sign Up</button>
+                <button class="hidden" id="login"><a href="{{ route('login1') }}">Sign In</a></button>
             </div>
         </div>
     </div>
 </div>
 
-<script src="{{ asset('js/admin/login.js') }}"></script>
 </body>
 
 </html>

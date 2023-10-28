@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Login;
 use App\Http\Requests\StoreLoginRequest;
 use App\Http\Requests\UpdateLoginRequest;
+use App\Models\LoginCustomer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
@@ -67,6 +68,11 @@ class LoginController extends Controller
         return Redirect::route('login1');
     }
 
+    public function register()
+    {
+        return view('client/register');
+    }
+
     /**
      * Show the form for creating a new resource.
      */
@@ -80,7 +86,12 @@ class LoginController extends Controller
      */
     public function store(StoreLoginRequest $request)
     {
-        //
+        $customer = new LoginCustomer();
+        $customer->email = $request->email;
+        $customer->password = bcrypt($request->password);
+        $customer->createCustomer();
+        flash()->addSuccess('Đăng ký thành công');
+        return Redirect::route('login1');
     }
 
     /**

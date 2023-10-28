@@ -40,12 +40,22 @@ class CheckoutLayoutController extends Controller
      */
     public function store(StoreCheckoutLayoutRequest $request)
     {
+        $customerSS = session()->get('customer');
+        $cus_id = $customerSS->cus_id;
         $objCheckoutLayout = new CheckoutLayout();
-        $objCheckoutLayout->cus_name = $request->cus_name;
-        $objCheckoutLayout->cus_phone = $request->cus_phone;
-        $objCheckoutLayout->email = $request->email;
-        $objCheckoutLayout->cus_address = $request->cus_address;
-        $cus_id = $objCheckoutLayout->storeCustomer();
+        if($customerSS) {
+            $objCheckoutLayout->cus_id = $cus_id;
+            $objCheckoutLayout->cus_name = $request->cus_name;
+            $objCheckoutLayout->cus_phone = $request->cus_phone;
+            $objCheckoutLayout->email = $customerSS->email;
+            $objCheckoutLayout->cus_address = $request->cus_address;
+            $objCheckoutLayout->updateCustomer();
+
+            $customerSS->cus_name = $request->cus_name;
+            $customerSS->cus_phone = $request->cus_phone;
+            $customerSS->cus_address = $request->cus_address;
+            session()->put('customer', $customerSS);
+        }
 
         $cart = Session::get('cart');
         $total_price = 0;
