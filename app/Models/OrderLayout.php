@@ -50,4 +50,22 @@ class OrderLayout extends Model
             ->where('order_detail.order_id', '=', $this->order_id)
             ->get();
     }
+
+    public function updateOrder()
+    {
+        return DB::table('order')
+            ->where('order_id', '=', $this->order_id)
+            ->update([
+                'status' => $this->status
+            ]);
+    }
+
+    public function cancelOrder()
+    {
+        return DB::table('order')
+            ->where('order_id', '=', $this->order_id)
+            ->update([
+                'status' => $this->status
+            ]);
+    }
 }

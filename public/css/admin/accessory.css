@@ -25,6 +25,7 @@ body {
   height: 80px;
   display: flex;
   align-items: center;
+    justify-content: center;
 }
 .sidebar .logo-details i {
   font-size: 28px;
@@ -35,7 +36,7 @@ body {
 }
 
 .sidebar .logo-details img {
-  width: 150px;
+  width: 200px;
 }
 .sidebar .nav-links {
   margin-top: 10px;

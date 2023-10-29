@@ -17,20 +17,21 @@
   width: 60px;
 }
 .sidebar .logo-details {
-  height: 80px;
-  display: flex;
-  align-items: center;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .sidebar .logo-details i {
-  font-size: 28px;
-  font-weight: 500;
-  color: #fff;
-  min-width: 60px;
-  text-align: center;
+    font-size: 28px;
+    font-weight: 500;
+    color: #fff;
+    min-width: 60px;
+    text-align: center;
 }
 
 .sidebar .logo-details img {
-  width: 150px;
+    width: 200px;
 }
 .sidebar .nav-links {
   margin-top: 10px;

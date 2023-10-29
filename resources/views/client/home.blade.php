@@ -35,31 +35,31 @@
             <div class="justify-between hidden w-full md:flex md:w-auto" id="navbar-search">
                 <ul class="flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg md:flex-row md:space-x-6 md:mt-0 md:border-0 bg-[#242525]">
                     <li>
-                        <a href="#" class="block opacity-60 hover:opacity-100 rounded bg-[#242525] text-white font-semibold md:p-0" aria-current="page">Trang chủ</a>
+                        <a href="#" class="text-sm block opacity-60 hover:opacity-100 rounded bg-[#242525] text-white font-semibold md:p-0" aria-current="page">Trang chủ</a>
                     </li>
                     <li>
-                        <a href="#" class="block opacity-60 hover:opacity-100 rounded bg-[#242525] text-white font-semibold md:p-0">Sản
+                        <a href="#" class="text-sm block opacity-60 hover:opacity-100 rounded bg-[#242525] text-white font-semibold md:p-0">Sản
                             phẩm</a>
                     </li>
                     <li>
-                        <a href="#" class="block opacity-60 hover:opacity-100 rounded bg-[#242525] text-white font-semibold md:p-0">Tin
+                        <a href="#" class="text-sm block opacity-60 hover:opacity-100 rounded bg-[#242525] text-white font-semibold md:p-0">Tin
                             tức</a>
                     </li>
                     @if(!(session()->has('customer')))
                         <li>
-                            <a href="{{ route('login1') }}" class="block opacity-60 hover:opacity-100 rounded bg-[#242525] text-white font-semibold md:p-0">
+                            <a href="{{ route('login1') }}" class="text-sm block opacity-60 hover:opacity-100 rounded bg-[#242525] text-white font-semibold md:p-0">
                                 Đăng nhập
                             </a>
                         </li>
                     @endif
                     @if(session()->has('customer'))
                         <li>
-                            <a href="{{ route('client.profile') }}" class="block opacity-60 hover:opacity-100 rounded bg-[#242525] text-white font-semibold md:p-0">
+                            <a href="{{ route('client.profile') }}" class="text-sm block opacity-60 hover:opacity-100 rounded bg-[#242525] text-white font-semibold md:p-0">
                                 Tài khoản
                             </a>
                         </li>
                         <li>
-                            <a href="{{ route('logout1') }}" class="block opacity-60 hover:opacity-100 rounded bg-[#242525] text-white font-semibold md:p-0">
+                            <a href="{{ route('logout1') }}" class="text-sm block opacity-60 hover:opacity-100 rounded bg-[#242525] text-white font-semibold md:p-0">
                                 Đăng xuất
                             </a>
                         </li>

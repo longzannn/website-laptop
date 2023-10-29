@@ -14,7 +14,7 @@
 <body>
     <div class="sidebar">
         <div class="logo-details">
-            <img src="https://xgear.net/wp-content/uploads/2023/06/Logo-Xgear-300.png" alt="" />
+            <img src="https://laptopkhanhtran.vn/pic/banner/logo_6368_638173418442942155.png" alt="" />
         </div>
         <ul class="nav-links">
             <li>
@@ -81,8 +81,8 @@
                 <span class="dashboard">Order List</span>
             </div>
             <div class="profile-details">
-                <img src="" alt="" />
-                <span class="admin_name">Long Văn</span>
+                <img src="https://i.pinimg.com/736x/9a/63/e1/9a63e148aaff53532b045f6d1f09d762.jpg" alt="" />
+                <span class="admin_name">{{ session()->get('staff')->staff_name }}</span>
                 <i class="bx bx-chevron-down"></i>
             </div>
         </nav>
@@ -149,15 +149,11 @@
                         </div>
                         <div class="relative z-0 w-full mb-6 group">
                             <select name="status" id="underline_select" class="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
-                                <option value="Đơn hàng mới" @if($order->status == 'Đơn hàng mới') {{ 'selected' }} @endif>Đơn hàng mới</option>
-                                <option value="Hoàn thành" @if($order->status == 'Hoàn thành') {{ 'selected' }} @endif>Hoàn thành</option>
-                                <option value="Hủy đơn hàng" @if($order->status == 'Hủy đơn hàng') {{ 'selected' }} @endif>Hủy đơn hàng</option>
-                            </select>
-                        </div>
-                        <div class="relative z-0 w-full mb-6 group">
-                            <select name="payment" id="underline_select" class="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
-                                <option value="Chưa thanh toán" @if($order->payment == 'Chưa thanh toán') {{ 'selected' }} @endif>Chưa thanh toán</option>
-                                <option value="Đã thanh toán" @if($order->payment == 'Đã thanh toán') {{ 'selected' }} @endif>Đã thanh toán</option>
+                                <option value="Chờ xác nhận" @if($order->status == 'Chờ xác nhận') {{ 'selected' }} @endif>Chờ xác nhận</option>
+                                <option value="Chờ lấy hàng" @if($order->status == 'Chờ lấy hàng') {{ 'selected' }} @endif>Chờ lấy hàng</option>
+                                <option value="Đang giao" @if($order->status == 'Đang giao') {{ 'selected' }} @endif>Đang giao</option>
+                                <option value="Đã giao" @if($order->status == 'Đã giao') {{ 'selected' }} @endif>Đã giao</option>
+                                <option value="Đã hủy" @if($order->status == 'Đã hủy') {{ 'selected' }} @endif>Đã hủy</option>
                             </select>
                         </div>
                         <div class="relative z-0 w-full mb-6 group">

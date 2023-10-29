@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="Shortcut icon" href="https://laptopkhanhtran.vn/pic/system/logo-kt-01636837754534945606.png" type="image/x-icon">
-    <title>Laptop cũ Hà Nội giá rẻ | Địa chỉ mua bán laptop cũ uy tín tại Hà Nội và trên Toàn Quốc</title>
+    <title>Đơn mua | Laptop Khánh Trần</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
@@ -131,7 +131,7 @@
                     <div class=text-bold>Mã đơn hàng: <span class="font-extrabold">{{ $order -> code }}</span></div>
                     <h4 class="text-bold">
                         @if($order -> status == 'Chờ xác nhận')
-                            <i class="fa-solid fa-check"></i>
+                            <i class="fa-solid fa-spinner"></i>
                             {{ $order -> status }}
                         @elseif($order -> status == 'Chờ lấy hàng')
                             <i class="fa-solid fa-person"></i>
@@ -140,7 +140,7 @@
                             <i class="fa-solid fa-truck"></i>
                             {{ $order -> status }}
                         @elseif($order -> status == 'Đã giao')
-                            <i class="fa-solid fa-truck"></i>
+                            <i class="fa-solid fa-check"></i>
                             {{ $order -> status }}
                         @elseif($order -> status == 'Đã hủy')
                             <i class="fa-solid fa-circle-xmark"></i>
@@ -155,7 +155,7 @@
                        @php
                            $arrImage = explode(',', $orderDetail -> prd_images);
                        @endphp
-                       <img class="w-20 h-20" src="{{ Storage::url('admin/') . $arrImage[count($arrImage) - 1] }}" alt="">
+                       <img class="w-20 h-20 rounded-lg" src="{{ Storage::url('admin/') . $arrImage[count($arrImage) - 1] }}" alt="">
                        <div class="flex-1 ml-5">
                            <h4 class="text-bold max-w-[600px]">{{ $orderDetail -> prd_name }} ({{ $orderDetail -> version_name }})</h4>
                            <span class="text-gray-700">x {{ $orderDetail -> quantity }}</span>
@@ -170,13 +170,27 @@
                 </div>
                 <h4 class="text-right text-bold p-4">
                     <span class="text-lg mr-3">Thành tiền:</span>
-                    <span class="text-xl text-red-700">₫{{ number_format($order -> total_price, 0, ',', '.') }}</span>
+                    <span class="text-xl text-red-700 @if($order -> status == 'Đã hủy') line-through @endif">₫{{ number_format($order -> total_price, 0, ',', '.') }}</span>
                 </h4>
-               <div class="text-right">
-                   <button type="button" class="text-white rounded-lg bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium text-sm px-5 py-2.5 text-center mr-2 mb-2">
-                       <a href="">Đã nhận hàng</a>
-                   </button>
-               </div>
+                @if($order -> status == 'Đang giao')
+                   <form class="text-right" method="POST" action="{{ route('client.updateOrder', $order -> order_id) }}">
+                       @csrf
+                       @method('PUT')
+                       <button type="submit" class="text-white rounded-lg bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium text-sm px-5 py-2.5 text-center mr-2 mb-2">
+                           Đã nhận hàng
+                       </button>
+                       <div class="text-xs text-red-500">Chỉ bấm khi đơn hàng đã được giao thành công đến bạn!</div>
+                   </form>
+                @elseif($order -> status == 'Chờ xác nhận' || $order -> status == 'Chờ lấy hàng')
+                    <form class="text-right" method="POST" action="{{ route('client.cancelOrder', $order -> order_id) }}">
+                        @csrf
+                        @method('PUT')
+                        <button type="submit" class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2">
+                            Hủy đơn hàng
+                        </button>
+                        <div class="text-xs text-red-500">Đơn hàng đang giao sẽ không thể hủy!</div>
+                    </form>
+                @endif
             </div>
             @endforeach
         </div>

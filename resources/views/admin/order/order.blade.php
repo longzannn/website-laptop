@@ -14,7 +14,7 @@
 <body>
     <div class="sidebar">
         <div class="logo-details">
-            <img src="https://xgear.net/wp-content/uploads/2023/06/Logo-Xgear-300.png" alt="" />
+            <img src="https://laptopkhanhtran.vn/pic/banner/logo_6368_638173418442942155.png" alt="" />
         </div>
         <ul class="nav-links">
             <li>
@@ -81,8 +81,8 @@
                 <span class="dashboard">Order List</span>
             </div>
             <div class="profile-details">
-                <img src="" alt="" />
-                <span class="admin_name">Long Văn</span>
+                <img src="https://i.pinimg.com/736x/9a/63/e1/9a63e148aaff53532b045f6d1f09d762.jpg" alt="" />
+                <span class="admin_name">{{ session()->get('staff')->staff_name }}</span>
                 <i class="bx bx-chevron-down"></i>
             </div>
         </nav>
@@ -98,7 +98,6 @@
                                         <th scope="col" class="px-6 py-3">Mã Đơn Hàng</th>
                                         <th scope="col" class="px-6 py-3">Khách Hàng</th>
                                         <th scope="col" class="px-6 py-3">Trạng Thái</th>
-                                        <th scope="col" class="px-6 py-3">Thanh Toán</th>
                                         <th scope="col" class="px-6 py-3">Ngày Tạo</th>
                                         <th scope="col" class="px-6 py-3">Tổng Tiền</th>
                                         <th scope="col" class="px-6 py-3">Action</th>
@@ -107,7 +106,7 @@
                                 <tbody>
                                 @foreach($orders as $order)
                                     <tr class="border-b dark:bg-gray-900 dark:border-gray-700
-                                    @if($order->status == 'Hủy đơn hàng')
+                                    @if($order->status == 'Đã hủy')
                                         {{ 'bg-red-200' }}
                                     @else
                                         {{ 'bg-white' }}
@@ -117,20 +116,14 @@
                                         </th>
                                         <td class="px-6 py-4">{{ $order->cus_name }}</td>
                                         <td class="px-6 py-4 font-semibold
-                                        @if($order->status == 'Hoàn thành')
+                                        @if($order->status == 'Đã giao' || $order->status == 'Đang giao')
                                             {{ 'text-green-500' }}
-                                        @elseif($order->status == 'Hủy đơn hàng')
+                                        @elseif($order->status == 'Đã hủy')
                                             {{ 'text-red-600' }}
+                                        @else
+                                            {{ 'text-yellow-500' }}
                                         @endif">
                                             {{ $order->status }}
-                                        </td>
-                                        <td class="px-6 py-4 font-semibold
-                                        @if($order->payment == 'Chưa thanh toán')
-                                            {{ 'text-blue-500' }}
-                                        @elseif($order->payment == 'Đã thanh toán')
-                                            {{ 'text-green-600' }}
-                                        @endif">
-                                            {{ $order->payment }}
                                         </td>
                                         <td class="px-6 py-4">
                                             {{ $order->order_date }}

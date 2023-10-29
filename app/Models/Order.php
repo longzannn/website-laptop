@@ -19,7 +19,6 @@ class Order extends Model
                 'order.code',
                 'customer.cus_name',
                 'order.status',
-                'order.payment',
                 'order.order_date',
                 'order.total_price',
             )
@@ -39,7 +38,6 @@ class Order extends Model
                 'customer.cus_address',
                 'customer.email',
                 'order.status',
-                'order.payment',
                 'order.order_date',
                 'order.total_price',
             )
@@ -68,7 +66,6 @@ class Order extends Model
             ->update([
                 'staff_id' => $this->staff_id,
                 'status' => $this->status,
-                'payment' => $this->payment,
             ]);
     }
 }

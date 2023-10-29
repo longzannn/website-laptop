@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\OrderLayout;
 use App\Http\Requests\StoreOrderLayoutRequest;
 use App\Http\Requests\UpdateOrderLayoutRequest;
+use Illuminate\Support\Facades\Redirect;
 
 class OrderLayoutController extends Controller
 {
@@ -78,7 +79,24 @@ class OrderLayoutController extends Controller
      */
     public function update(UpdateOrderLayoutRequest $request, OrderLayout $orderLayout)
     {
-        //
+        $order_id = $request->id;
+        $objOrder = new OrderLayout();
+        $objOrder->order_id = $order_id;
+        $objOrder->status = 'Đã giao';
+        $objOrder->updateOrder();
+        flash()->addSuccess('Đơn hàng đã được giao thành công');
+        return Redirect::route('client.order');
+    }
+
+    public function cancel(UpdateOrderLayoutRequest $request, OrderLayout $orderLayout)
+    {
+        $order_id = $request->id;
+        $objOrder = new OrderLayout();
+        $objOrder->order_id = $order_id;
+        $objOrder->status = 'Đã hủy';
+        $objOrder->cancelOrder();
+        flash()->addSuccess('Hủy đơn hàng thành công!');
+        return Redirect::route('client.order');
     }
 
     /**

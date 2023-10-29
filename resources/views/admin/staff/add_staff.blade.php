@@ -5,7 +5,6 @@
     <meta charset="UTF-8" />
     <link rel="icon" href="https://xgear.net/wp-content/uploads/2023/07/cropped-icon-xgear-32x32.png" sizes="32x32" />
     <title>Add Staff Page</title>
-
     <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.css" rel="stylesheet" />
@@ -15,7 +14,7 @@
 <body>
     <div class="sidebar">
         <div class="logo-details">
-            <img src="https://xgear.net/wp-content/uploads/2023/06/Logo-Xgear-300.png" alt="" />
+            <img src="https://laptopkhanhtran.vn/pic/banner/logo_6368_638173418442942155.png" alt="" />
         </div>
         <ul class="nav-links">
             <li>
@@ -82,8 +81,8 @@
                 <span class="dashboard">User</span>
             </div>
             <div class="profile-details">
-                <img src="" alt="" />
-                <span class="admin_name">Long Văn</span>
+                <img src="https://i.pinimg.com/736x/9a/63/e1/9a63e148aaff53532b045f6d1f09d762.jpg" alt="" />
+                <span class="admin_name">{{ session()->get('staff')->staff_name }}</span>
                 <i class="bx bx-chevron-down"></i>
             </div>
         </nav>

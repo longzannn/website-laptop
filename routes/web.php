@@ -112,6 +112,8 @@ Route::prefix('client/')->group(function () {
 
         // Route order
         Route::get('order', [\App\Http\Controllers\OrderLayoutController::class, 'index'])->name('client.order');
+        Route::put('update-order/{id}', [\App\Http\Controllers\OrderLayoutController::class, 'update'])->name('client.updateOrder');
+        Route::put('cancel-order/{id}', [\App\Http\Controllers\OrderLayoutController::class, 'cancel'])->name('client.cancelOrder');
 
         // Route profile
         Route::get('profile', [\App\Http\Controllers\ProfileLayoutController::class, 'index'])->name('client.profile');

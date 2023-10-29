@@ -78,12 +78,10 @@ class OrderController extends Controller
         }
         $order_id = $request->id;
         $status = $request->status;
-        $payment = $request->payment;
         $order = new Order();
         $order->order_id = $order_id;
         $order->staff_id = $staff_id;
         $order->status = $status;
-        $order->payment = $payment;
         $order->updateOrder();
 
         flash()->addSuccess('Cập nhật đơn hàng thành công');
