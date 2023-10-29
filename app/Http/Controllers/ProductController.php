@@ -80,7 +80,7 @@ class ProductController extends Controller
         $objVersion->version_name = $request->version_name;
         $objVersion->current_price = $request->current_price;
         $objVersion->old_price = $request->old_price;
-        $objVersion->quantity = $request->quantity;
+        $objVersion->version_status = $request->version_status;
         // Lưu thông tin chi tiết phiên bản vào bảng version
         $cluster_count = intval($request->cluster_count); // Số lượng cụm thông số
         $data = array();
@@ -133,7 +133,7 @@ class ProductController extends Controller
         $objVersion->current_price = $request->current_price;
         $objVersion->old_price = $request->old_price;
         $objVersion->version_details = $request->version_details;
-        $objVersion->quantity = $request->quantity;
+        $objVersion->version_status = $request->version_status;
         $prd_id = $objVersion->updateVersion(); // Lưu và lấy ra prd_id vừa được thêm vào
 
         $objProduct = new Product();
@@ -154,10 +154,11 @@ class ProductController extends Controller
                 $array[] = $image_name;
             }
             $prd_images = implode(',', $array); // Chuyển mảng thành chuỗi
+            $objProduct->prd_images = $prd_images;
+            $objProduct->updateProduct();
+        } else {
+            $objProduct->updateProductWithoutImage();
         }
-
-        $objProduct->prd_images = $prd_images;
-        $objProduct->updateProduct();
 
         flash()->addSuccess('Cập nhật sản phẩm thành công!');
         return Redirect::route('product.laptop');

@@ -24,7 +24,6 @@ class Product extends Model
                 'subcategory.sub_name AS sub_name',
                 'version.current_price AS current_price',
                 'product.prd_images AS prd_images',
-                'version.quantity AS quantity'
             )
             ->where('category.cat_name', 'not like', '%Linh kiện máy tính%')
             ->paginate(4);
@@ -44,7 +43,6 @@ class Product extends Model
                 'subcategory.sub_name AS sub_name',
                 'version.current_price AS current_price',
                 'product.prd_images AS prd_images',
-                'version.quantity AS quantity'
             )
             ->where('category.cat_name', 'like', '%Linh kiện%')
             ->paginate(2);
@@ -67,6 +65,16 @@ class Product extends Model
                 'prd_name' => $this->prd_name,
                 'sub_id' => $this->sub_id,
                 'prd_images' => $this->prd_images,
+            ]);
+    }
+
+    public function updateProductWithoutImage() {
+        // Cập nhật thông tin product
+        return DB::table('product')
+            ->where('prd_id','=', $this->prd_id)
+            ->update([
+                'prd_name' => $this->prd_name,
+                'sub_id' => $this->sub_id,
             ]);
     }
 

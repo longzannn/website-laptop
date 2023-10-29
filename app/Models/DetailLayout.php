@@ -40,7 +40,7 @@ class DetailLayout extends Model
                 'version.current_price AS current_price',
                 'version.old_price AS old_price',
                 'product.prd_images AS prd_images',
-                'version.quantity AS quantity',
+                'version.version_status AS version_status',
                 'category.cat_name AS cat_name',
                 'version.version_details AS version_details'
             )
@@ -62,7 +62,7 @@ class DetailLayout extends Model
                 'version.current_price AS current_price',
                 'version.old_price AS old_price',
                 'product.prd_images AS prd_images',
-                'version.quantity AS quantity',
+                'version.version_status AS version_status',
                 'category.cat_name AS cat_name',
                 'version.version_details AS version_details'
             )

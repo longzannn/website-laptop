@@ -116,15 +116,22 @@
                                 </thead>
                                 <tbody>
                                     @foreach($laptops as $laptop)
+                                        @php
+                                            $hasComma = strpos($laptop->prd_images, ',') !== false;
+                                        @endphp
                                     <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
                                         <td class="px-6 py-4 font-medium text-gray-900 dark:text-white">
                                             {{ $laptop -> prd_name }} ({{ $laptop -> version_name }})
                                         </td>
                                         <td class="px-6 py-4">
-                                            @php
-                                                $arrImage = explode(',', $laptop -> prd_images);
-                                            @endphp
-                                            <img class="w-16 h-16 rounded-lg" src="{{ Storage::url('admin/') . $arrImage[count($arrImage) - 1] }}" alt="">
+                                            @if($hasComma)
+                                                @php
+                                                    $arrImage = explode(',', $laptop->prd_images);
+                                                @endphp
+                                                <img class="w-16 h-16 rounded-lg" src="{{ Storage::url('admin/') . $arrImage[0] }}" alt="">
+                                            @else
+                                                <img class="w-16 h-16 rounded-lg" src="{{ Storage::url('admin/') . $laptop -> prd_images }}" alt="">
+                                            @endif
                                         </td>
                                         <td class="px-6 py-4">{{ $laptop -> sub_name }}</td>
                                         <td class="px-6 py-4">{{ number_format($laptop -> current_price, 0, ',', '.') }}</td>

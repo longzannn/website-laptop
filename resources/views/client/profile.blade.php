@@ -106,7 +106,7 @@
     <div class="grid grid-cols-5 gap-8 px-6">
         <div class="col-span-1">
             <div class="flex items-center pb-6 border-b border-gray-200">
-                <img class="w-12 h-12 rounded-full" src="https://down-vn.img.susercontent.com/file/vn-11134004-7r98o-lmeli1me3kyna1_tn" alt="avatar">
+                <img class="w-12 h-12 rounded-full" src="https://i.pinimg.com/736x/9a/63/e1/9a63e148aaff53532b045f6d1f09d762.jpg" alt="avatar">
                 <span class="text-sm font-semibold ml-5">{{ (session()->get('customer'))->cus_name }}</span>
             </div>
             <ul class="list-none mt-5">

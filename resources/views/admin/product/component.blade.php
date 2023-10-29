@@ -116,15 +116,22 @@
                                 </thead>
                                 <tbody>
                                     @foreach($components as $component)
+                                        @php
+                                            $hasComma = strpos($component->prd_images, ',') !== false;
+                                        @endphp
                                     <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
                                         <th scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white">
                                             {{ $component -> prd_name }} ({{ $component -> version_name }})
                                         </th>
                                         <td class="px-6 py-4">
-                                            @php
-                                                $arrImage = explode(',', $components -> prd_images);
-                                            @endphp
-                                            <img class="w-16 h-16 rounded-lg" src="{{ Storage::url('admin/') . $arrImage[0] }}" alt="">
+                                            @if($hasComma)
+                                                @php
+                                                    $arrImage = explode(',', $component->prd_images);
+                                                @endphp
+                                                <img class="w-16 h-16 rounded-lg" src="{{ Storage::url('admin/') . $arrImage[0] }}" alt="">
+                                            @else
+                                                <img class="w-16 h-16 rounded-lg" src="{{ Storage::url('admin/') . $component -> prd_images }}" alt="">
+                                            @endif
                                         </td>
                                         <td class="px-6 py-4">{{ $component -> sub_name }}</td>
                                         <td class="px-6 py-4">{{ number_format($component -> current_price, 0, ',', '.') }}</td>

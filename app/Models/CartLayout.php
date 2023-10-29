@@ -39,6 +39,7 @@ class CartLayout extends Model
                 'subcategory.sub_name AS sub_name',
                 'version.current_price AS current_price',
                 'version.old_price AS old_price',
+                'version.version_status AS version_status',
                 'product.prd_images AS prd_images',
                 'category.cat_name AS cat_name',
                 'version.version_details AS version_details'

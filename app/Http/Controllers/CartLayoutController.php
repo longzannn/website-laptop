@@ -32,6 +32,10 @@ class CartLayoutController extends Controller
         $quantity = $request->quantity;
         $objCart = new CartLayout();
         $product = $objCart->getProductByVersionId($version_id);
+        if($product -> version_status == 'Hết hàng') {
+            flash()->addWarning('Sản phẩm đã hết hàng, vui lòng chọn sản phẩm khác!');
+            return redirect() -> route('client.cart');
+        }
         if(Session::has('cart')) {
             $cart = Session::get('cart');
         } else {

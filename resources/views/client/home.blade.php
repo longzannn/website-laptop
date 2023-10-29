@@ -316,65 +316,65 @@
         </div>
         <div class="relative grid grid-cols-5 gap-3 p-6 owl-carousel">
             @foreach( $products as $product)
-            <div class="bg-white rounded-lg p-4">
-                <a href={{ route('client.detail',$product -> version_id) }} class="">
-                    @php
-                        $arrImage = explode(',', $product->prd_images);
-                    @endphp
-                    <img
-                        src={{ Storage::url('admin/') . $arrImage[count($arrImage) - 1] }}
-                        alt=""
-                        class="rounded-lg"
-                    />
-                    <div class="font-bold text-sm line-clamp-2 my-2">
-                        [Mới 100%] {{ $product -> prd_name }} ({{ $product -> version_name }})
-                    </div>
-                    <div class="flex my-2">
-                        <div
-                            class="text-center text-xs py-1 bg-[#f4f4f4] rounded-lg w-20 border--[#dcdcdc] border mr-3"
-                        >
-                            16GB
-                        </div>
-                        <div
-                            class="text-center text-xs py-1 bg-[#f4f4f4] rounded-lg w-20 border--[#dcdcdc] border"
-                        >
-                            1TB SSD
-                        </div>
-                    </div>
-                    @php
-                        $arr = explode(';', $product->version_details);
-                    @endphp
-                    <ol
-                        class="my-2 list-none max-w-md space-y-1 text-gray-500 list-decimal list-inside dark:text-gray-400"
-                    >
-                        @foreach($arr as $item)
-                            @php
-                                $item = explode(':', $item);
-                                $value = isset($item[1]) ? $item[1] : null;
-                            @endphp
-                            <li class="text-xs truncate">
-                                <span class="font-semibold text-gray-900 dark:text-white">{{ $item[0] }} </span>
-                                {{ $value }}
-                            </li>
-                        @endforeach
-                    </ol>
-                    <div class="flex justify-between my-2 text-sm text-sm">
-                        <div class="text-red-700 font-bold">{{ number_format($product -> current_price, 0, ',', '.') }} đ</div>
-                        <div class="font-bold text-gray-500 line-through">
-                            {{ number_format($product -> old_price, 0, ',', '.') }} đ
-                        </div>
-                        <div class="text-red-700 font-bold">-{{ floor((($product -> old_price - $product -> current_price) / ($product -> old_price)) * 100) }}%</div>
-                    </div>
-                    <div class="flex">
+                <div class="bg-white rounded-lg p-4">
+                    <a href={{ route('client.detail',$product -> version_id) }} class="">
+                        @php
+                            $arrImage = explode(',', $product->prd_images);
+                        @endphp
                         <img
-                            src="https://laptopkhanhtran.vn/css/icon/arrange-square.svg"
-                            alt=""
-                            class="mr-2"
+                            src={{ Storage::url('admin/') . $arrImage[count($arrImage) - 1] }}
+                        alt=""
+                            class="rounded-lg"
                         />
-                        <span class="text-sm">So sánh</span>
-                    </div>
-                </a>
-            </div>
+                        <div class="font-bold text-sm line-clamp-2 my-2">
+                            [Mới 100%] {{ $product -> prd_name }} ({{ $product -> version_name }})
+                        </div>
+                        <div class="flex my-2">
+                            <div
+                                class="text-center text-xs py-1 bg-[#f4f4f4] rounded-lg w-20 border--[#dcdcdc] border mr-3"
+                            >
+                                16GB
+                            </div>
+                            <div
+                                class="text-center text-xs py-1 bg-[#f4f4f4] rounded-lg w-20 border--[#dcdcdc] border"
+                            >
+                                1TB SSD
+                            </div>
+                        </div>
+                        @php
+                            $arr = explode(';', $product->version_details);
+                        @endphp
+                        <ol
+                            class="my-2 list-none max-w-md space-y-1 text-gray-500 list-decimal list-inside dark:text-gray-400"
+                        >
+                            @foreach($arr as $item)
+                                @php
+                                    $item = explode(':', $item);
+                                    $value = isset($item[1]) ? $item[1] : null;
+                                @endphp
+                                <li class="text-xs truncate">
+                                    <span class="font-semibold text-gray-900 dark:text-white">{{ $item[0] }} </span>
+                                    {{ $value }}
+                                </li>
+                            @endforeach
+                        </ol>
+                        <div class="flex justify-between my-2 text-sm text-sm">
+                            <div class="text-red-700 font-bold">{{ number_format($product -> current_price, 0, ',', '.') }} đ</div>
+                            <div class="font-bold text-gray-500 line-through">
+                                {{ number_format($product -> old_price, 0, ',', '.') }} đ
+                            </div>
+                            <div class="text-red-700 font-bold">-{{ floor((($product -> old_price - $product -> current_price) / ($product -> old_price)) * 100) }}%</div>
+                        </div>
+                        <div class="flex">
+                            <img
+                                src="https://laptopkhanhtran.vn/css/icon/arrange-square.svg"
+                                alt=""
+                                class="mr-2"
+                            />
+                            <span class="text-sm">So sánh</span>
+                        </div>
+                    </a>
+                </div>
             @endforeach
         </div>
     </div>

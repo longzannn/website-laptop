@@ -27,6 +27,7 @@ class StoreProductRequest extends FormRequest
             'current_price' => 'required',
             'prd_images' => 'required',
             'version_name' => 'required',
+            'version_status' => 'required',
         ];
     }
 
@@ -38,6 +39,7 @@ class StoreProductRequest extends FormRequest
             'current_price.required' => 'Giá hiện tại không được để trống',
             'prd_images.required' => 'Ảnh sản phẩm không được để trống',
             'version_name.required' => 'Tên phiên bản không được để trống',
+            'version_status.required' => 'Trạng thái không được để trống',
         ];
     }
 }
