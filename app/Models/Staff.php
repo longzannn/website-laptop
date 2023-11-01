@@ -24,7 +24,7 @@ class Staff extends Model
             'email' => $this->email,
             'staff_phone' => $this->staff_phone,
             'staff_address' => $this->staff_address,
-            'password' => $this->password,
+            'password' => bcrypt($this->password),
         ]);
     }
 
@@ -44,7 +44,7 @@ class Staff extends Model
                 'email' => $this->email,
                 'staff_phone' => $this->staff_phone,
                 'staff_address' => $this->staff_address,
-                'password' => $this->password,
+                'password' => bcrypt($this->password),
             ]);
     }
 
