@@ -30,6 +30,7 @@ class OrderLayout extends Model
     {
         return DB::table('order')
             ->where('cus_id', '=', $this->cus_id)
+            ->orderBy('order_id', 'desc')
             ->get();
     }
 

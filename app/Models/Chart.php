@@ -13,6 +13,7 @@ class Chart extends Model
     public function orderChart() {
         return DB::table('order')
             ->select(DB::raw('MONTH(order_date) as month'), DB::raw('COUNT(*) as count'))
+            ->where('status', '=', 'Đã giao')
             ->groupBy(DB::raw('month'))
             ->orderBy('month')
             ->get();
@@ -21,6 +22,7 @@ class Chart extends Model
     public function totalPriceChart() {
         return DB::table('order')
             ->select(DB::raw('MONTH(order_date) as month'), DB::raw('SUM(total_price) as total_price'))
+            ->where('status', '=', 'Đã giao')
             ->groupBy(DB::raw('month'))
             ->orderBy('month')
             ->get();

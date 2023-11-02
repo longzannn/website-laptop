@@ -45,6 +45,7 @@ class Dashboard extends Model
                 'order.total_price'
             )
             ->orderBy('order.order_date', 'DESC')
+            ->limit(15)
             ->get();
     }
 

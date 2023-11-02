@@ -142,6 +142,12 @@
                     @endif
                     >
                 </div>
+                <div class="my-3 text-sm">
+                    Vui lòng khai đầy đủ thông tin trước khi đặt hàng!
+                </div>
+                <div class="my-3 text-sm">
+                    Thay đổi thông tin: <strong>Tài khoản</strong> -> <strong>Tài khoản của tôi</strong>
+                </div>
                 <div class="my-3">
                     <button type="submit" class="bg-blue-500 w-full rounded-lg text-white font-bold text-lg text-center py-3 px-2 mt-8">Đặt hàng</button>
                 </div>
