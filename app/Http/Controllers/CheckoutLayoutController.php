@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\Testing;
 use App\Models\CartLayout;
 use App\Models\CheckoutLayout;
 use App\Http\Requests\StoreCheckoutLayoutRequest;
 use App\Http\Requests\UpdateCheckoutLayoutRequest;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
 
 class CheckoutLayoutController extends Controller
@@ -33,6 +35,14 @@ class CheckoutLayoutController extends Controller
     public function create()
     {
         //
+    }
+
+    public function testMail($code) {
+        $details = [
+            'title' => 'Laptop Khánh Trần (Đơn hàng: ' . $code . ')',
+            'message' => 'Đơn hàng: ' . $code . ' đã được đặt thành công. Vui lòng kiểm tra và duyệt đơn hàng.'
+        ];
+        Mail::to('accfaceitcsgo117@gmail.com')->send(new Testing($details));
     }
 
     /**
@@ -84,6 +94,8 @@ class CheckoutLayoutController extends Controller
             $objCheckoutLayout->price = $price;
             $objCheckoutLayout->storeOrderDetail();
         }
+
+        $this->testMail($code);
 
         Session::forget('cart');
 
