@@ -23,7 +23,7 @@ git clone https://github.com/longzannn/website-laptop.git
 ```
 
 Use MySQL PHPMyAdmin to import database:
-[Dowload Database](public/assets/sql/project2.sql)
+<a href="public/assets/sql/project2.sql" download>Download database</a>
 
 Run the development server:
 
